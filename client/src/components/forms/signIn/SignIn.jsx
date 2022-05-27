@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { signIn } from '../../../redux/actions/userAction';
 
 function SignIn() {
@@ -8,13 +8,15 @@ function SignIn() {
     email: '',
     password: '',
   });
-
   const navigate = useNavigate();
-  const from = { pathname: '/' };
+   const user = useSelector(satate => satate.user);
 
   const changeHandler = (e) => {
     setUserSignIn((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
+  useEffect(()=>{
+    if(user && window.location.href == 'http://localhost:3000/user/signin') navigate('/')
+  },[user])
 
   const dispatch = useDispatch();
 
@@ -23,7 +25,7 @@ function SignIn() {
     let payload = Object.entries(userSignIn).filter((el) => (el[1] ? el[1].trim() : el[1]));
     if (payload.length) {
       payload = Object.fromEntries(payload);
-      dispatch(signIn(payload, navigate, from));
+      dispatch(signIn(payload));
     }
   };
 

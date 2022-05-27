@@ -14,26 +14,6 @@ import { checkAuth } from './redux/actions/userAction';
 
 function App() {
 
-  const dispatch = useDispatch();
-
-  const user = useSelector(state => state.user)
-
-  const [isLoading,setIsLoading] = useState(true)
-
-  useEffect(() => {
-    if (!user) {
-    dispatch(checkAuth());
-    } else {
-      console.log(">>>",user)
-      // setAuth(!!user)
-      setIsLoading(false)
-    }
-
-  }, [user]);
-
-
-if (isLoading) return <div>is loading</div>
-
   return (
     <div className="App">
       <Navbar />
@@ -41,8 +21,8 @@ if (isLoading) return <div>is loading</div>
       <Route path="/" element={<Main />} />
       <Route path="/user/signup" element={<SignUp />} />
       <Route path="/user/signin" element={<SignIn />} />
-      <Route path="/user/signout" element={<PrivateRoute><SignOut /></PrivateRoute>} />
-      <Route path="/meetings" element={<PrivateRoute ><Meetings /></PrivateRoute>} />
+      <Route path="/user/signout" element={<PrivateRoute el={<SignOut />} />} />
+      <Route path="/meetings" element={<PrivateRoute el={<Meetings />} />} />
       {/* <Route path="/addmeeting" element={<PrivateRoute ><AddMeeting /></PrivateRoute>} /> */}
       </Routes>
     </div>
