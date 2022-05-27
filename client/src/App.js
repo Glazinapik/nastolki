@@ -23,6 +23,7 @@ function App() {
   useEffect(() => {
     if (!user) {
     dispatch(checkAuth());
+    // setIsLoading(false)
     } else {
       console.log(">>>",user)
       // setAuth(!!user)
@@ -43,7 +44,7 @@ if (isLoading) return <div>is loading</div>
       <Route path="/user/signin" element={<SignIn />} />
       <Route path="/user/signout" element={<PrivateRoute><SignOut /></PrivateRoute>} />
       <Route path="/meetings" element={<PrivateRoute ><Meetings /></PrivateRoute>} />
-      {/* <Route path="/addmeeting" element={<PrivateRoute ><AddMeeting /></PrivateRoute>} /> */}
+      <Route path="/addmeeting" element={<PrivateRoute ><AddMeeting /></PrivateRoute>} />
       </Routes>
     </div>
   );
