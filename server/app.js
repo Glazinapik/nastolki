@@ -38,7 +38,7 @@ app.use(
 );
 
 // APP'S ROUTES
-app.use('/auth', authRouter);
+app.use('/user', authRouter);
 app.use('/users', usersRouter);
 
 app.listen(PORT, () => {
