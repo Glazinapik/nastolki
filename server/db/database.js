@@ -6,10 +6,10 @@ const {
 
 module.exports = {
   development: {
-    username: DB_USERNAME,
-    password: DB_USER_PASSWORD,
-    database: DB_NAME,
+    username: 'vova',
+    password: '123',
+    database: 'nastolki',
     host: DB_HOST,
-    dialect: DB_DIALECT,
+    dialect: 'postgres',
   },
 };
