@@ -79,6 +79,7 @@ export const setUser = (user) => ({
     });
     if (response.status === 200) {
       const user = await response.json();
+      console.log(user)
       dispatch(setUser(user));
     }
   };

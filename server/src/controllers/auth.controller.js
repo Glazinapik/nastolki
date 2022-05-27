@@ -65,7 +65,9 @@ const signOut = async (req, res) => {
 
 const checkAuth = async (req, res) => {
   try {
+    console.log(req.session)
     const user = await User.findByPk(req.session.user.id);
+    console.log(user)
     return res.json({ id: user.id, userName: user.userName });
   } catch (error) {
     console.error(error);
