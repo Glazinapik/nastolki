@@ -4,12 +4,11 @@ const session = require('express-session');
 const cors = require('cors');
 const FileStore = require('session-file-store')(session);
 
+const { PORT, COOKIE_SECRET, COOKIE_NAME } = process.env;
 const authRouter = require('./src/routes/auth.router');
 const usersRouter = require('./src/routes/users.router');
 
 const app = express();
-
-const { PORT, COOKIE_SECRET, COOKIE_NAME } = process.env;
 
 // SERVER'S SETTINGS
 app.set('cookieName', COOKIE_NAME);
@@ -38,9 +37,9 @@ app.use(
 );
 
 // APP'S ROUTES
-app.use('/auth', authRouter);
+app.use('/user', authRouter);
 app.use('/users', usersRouter);
 
-app.listen(PORT, () => {
+app.listen(3001, () => {
   console.log('Сервер запущен на порте', PORT);
 });

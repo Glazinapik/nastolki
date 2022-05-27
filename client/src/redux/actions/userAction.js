@@ -43,7 +43,7 @@ export const setUser = (user) => ({
   };
 
   //вход
-  export const signIn = (payload, navigate, from) => async (dispatch) => {
+  export const signIn = (payload) => async (dispatch) => {
     const response = await fetch(endPoints.signIn(), {
       method: 'POST',
       headers: {
@@ -55,9 +55,6 @@ export const setUser = (user) => ({
     if (response.status === 200) {
       const user = await response.json();
       dispatch(setUser(user));
-      navigate(from);
-    } else {
-      navigate('/user/signin');
     }
   };
 
@@ -74,13 +71,18 @@ export const setUser = (user) => ({
 
   //чекаем
   export const checkAuth = () => async (dispatch) => {
-    const response = await fetch(endPoints.checkAuth(), {
-      credentials: 'include',
-    });
-    if (response.status === 200) {
-      const user = await response.json();
-      dispatch(setUser(user));
+    try {
+      const response = await fetch(endPoints.checkAuth(), {
+        credentials: 'include',
+      });
+        const user = await response.json();
+        console.log(user)
+        dispatch(setUser(user));  
+    } catch (error) {
+      console.log('noUser');
+      dispatch(setUser('noUser')); 
     }
+    
   };
   
 
