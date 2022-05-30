@@ -10,7 +10,6 @@ const usersRouter = require('./src/routes/users.router');
 const meetingRouter = require('./src/routes/meeting.router');
 const playersRouter = require('./src/routes/players.router');
 
-
 const app = express();
 
 // SERVER'S SETTINGS
@@ -43,11 +42,7 @@ app.use(
 app.use('/user', authRouter);
 app.use('/users', usersRouter);
 app.use('/meeting', meetingRouter);
-<<<<<<< HEAD
 app.use('/players', playersRouter);
-=======
-
->>>>>>> origin/dev
 
 app.listen(3001, () => {
   console.log('Сервер запущен на порте', PORT);
