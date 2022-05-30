@@ -10,6 +10,7 @@ const signUp = async (req, res) => {
         userName,
         password: sha256(password),
         email,
+        photo: 'https://avatars.mds.yandex.net/get-pdb/1996600/d1725ec1-41d3-4b2c-ab24-91ec603557bf/s375',
       });
       req.session.user = {
         id: newUser.id,
@@ -65,9 +66,9 @@ const signOut = async (req, res) => {
 
 const checkAuth = async (req, res) => {
   try {
-    console.log(req.session)
+    console.log(req.session);
     const user = await User.findByPk(req.session.user.id);
-    console.log(user)
+    console.log(user);
     return res.json({ id: user.id, userName: user.userName });
   } catch (error) {
     console.error(error);
