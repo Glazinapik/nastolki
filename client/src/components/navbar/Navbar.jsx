@@ -5,15 +5,14 @@ function Navbar() {
     const user = useSelector((state) => state.user);
 
     return (
-        <nav className="navbar navbar-expand-sm navbar-light bg-light">
-            <div className="container">
-                <div className="container-fluid d-flex">
-                    <Link className="navbar-brand" to="/">
-                        N a s t o l k i . r u
-                    </Link>
-                    <div className="collapse navbar-collapse" id="navbarNav">
-                        <ul className="navbar-nav">
-                            {user ? (
+      <>
+      <header className="header">
+   <div className="container">
+     <div className="nav">
+      <img className="logo" src="/img/cub.png" alt=""/>
+      <Link className="navbar-brand" to="/"><span className="title">NASTOLKI</span></Link>
+      <ul className="menu">
+      {user && user !== 'noUser' ? (
                                 <>
                                     <li className="nav-item">
                                         <NavLink
@@ -60,11 +59,11 @@ function Navbar() {
                                     </li>
                                 </>
                             )}
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </nav>
+      </ul>
+     </div>
+   </div>
+</header>
+      </>
     );
 }
 
