@@ -34,6 +34,14 @@ function Navbar() {
                                     </li>
                                     <li className="nav-item">
                                         <NavLink
+                                            to="/mymeetings"
+                                            className="nav-link"
+                                        >
+                                            Мои встречи
+                                        </NavLink>
+                                    </li>
+                                    <li className="nav-item">
+                                        <NavLink
                                             to="/user/signout"
                                             className="nav-link"
                                         >

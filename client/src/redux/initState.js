@@ -1,7 +1,8 @@
 const initState = () => ({
   user: null,
-  meeting: [],
-  player: []
+  meetings: [],
+  meeting: {},
+  players: [],
 });
 
 
