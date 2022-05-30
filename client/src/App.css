@@ -1,38 +1,240 @@
-.App {
-  text-align: center;
+body{
+  padding: 0;
+  margin: 0;
+  font-family: 'Amatic SC', cursive;
+  color: rgb(255, 255, 255);
+  font-size: 30px;
+  background-color: 	rgb(67,137,168);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+ul, li {
+  display: block;
+  padding: 0;
+  margin: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container{
+  width: 90vw;
+  margin: 0 auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.header{
+  background-color: rgb(42, 81, 112);
 }
-
-.App-link {
-  color: #61dafb;
+.logo{
+  height: 50px;
+  width: 50px;
 }
-
-@keyframes App-logo-spin {
-  from {
+img.logo {
+  animation: 3s linear 0s normal none infinite running logo;
+  -webkit-animation: 3s linear 0s normal none infinite running logo;
+}
+@keyframes logo {
+  0% {
     transform: rotate(0deg);
   }
-  to {
+  100% {
     transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes logo {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.menu{
+  display: flex;
+  margin-left: auto;
+}
+.menu li {
+  text-transform: uppercase;
+  margin-right: 30px;
+}
+.nav-link {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #ffffff;
+  text-decoration: none;
+}
+.nav-link:visited{
+  color: #ffffff;
+}
+
+.nav-link:hover {
+  color: #ffc850;
+  transition: .5s;
+}
+
+.title{
+  margin-left: 10px;
+  font-size: 60px;
+  font-family: 'Permanent Marker', cursive;
+  color: transparent;    
+	-webkit-background-clip: text;
+	background-clip: text;
+	background-image: linear-gradient(to bottom, rgb(251,233,121), rgb(204,147,75));
+  transition: .5s;
+}
+.title:hover{
+	color: #ff5050;
+  transition: 1s;
+}
+.nav{
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+.main{
+ display: flex;
+ justify-content: space-between;
+}
+.photo{
+  height: 85vh;
+  width: 85vh;
+  margin-right: auto;
+}
+.photo2{
+  height: 74vh;
+  width: 83vh;
+}
+.text{
+ padding-top: 12vh;
+ width: 30vw;
+ margin-left: 7vw;
+}
+span{
+line-height: 1.3em;
+text-indent: 30px;
+letter-spacing: 0.5px;
+padding-right: 10px;
+}
+#mymap{
+  width: 50vw;
+  height: 75vh;
+  margin: 25px;
+  display: flex;
+  border: 5px solid rgb(42, 81, 112);
+  border-radius: 3px;
+  box-shadow: 10px 5px 5px rgb(46,97,118)
+}
+
+.meetings{
+  display: flex;
+  width: 90vw;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+.meet{
+  width: 40vw;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  margin-top: 5vh;
+}
+
+.carda{
+  display: flex;
+  background-color: rgb(251,233,121);
+  font-size: 20px;
+  justify-content: space-between;
+  margin: 10px;
+  padding-left: 15px;
+  padding-right: 30px;
+  text-align: center;
+  border-top-right-radius: 20px;
+  box-shadow: 10px 5px 5px rgb(46,97,118)
+}
+
+.img{
+  width: 100px;
+  height: 100px;
+  margin-top: 10px;
+}
+p{
+  margin: 0;
+}
+.span{
+  font-size: 15px;
+}
+.txt{
+  text-align: start;
+}
+h1{
+  color: transparent;    
+	-webkit-background-clip: text;
+	background-clip: text;
+	background-image: linear-gradient(to bottom, rgb(251,233,121), rgb(204,147,75));
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+.form{
+  text-align: center;
+  margin-top: 20vh;
+  margin-left: 20px;
+}
+.justify-content-center {
+  width: 90vw;
+  justify-content: space-around!important;
+  margin: 6vh auto;
+}
+.form-control{
+  width: 20vw;
+  text-align: center;
+  background-color: #ffffffbe;
+}
+.button{
+  background-color: rgb(251,233,121);
+  width: 10vw;
+  color: black;
+}
+.button:hover{
+  background-color: rgb(251,94,83);
+  width: 10vw;
+  color: black;
+}
+
+
+.container {
+  position: relative;
+}
+
+.page {
+  position: absolute;
+}
+
+
+.page-enter-active {
+  animation: page-in 1s forwards
+}
+
+
+
+.page-exit-active {
+  animation: page-out 1s forwards
+}
+.animation{
+  animation-name: pages;
+  animation-duration: 1s;
+}
+@keyframes page-in{
+  0%{
+   opacity: 0;
+   transform: translateX(-400px);
+  }
+  100%{
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes page-out{
+  0%{
+   opacity: 1;
+   transform: translateX(0);
+  }
+  100%{
+    transform: translateX(100%);
+    opacity: 0;
   }
 }

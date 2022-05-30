@@ -1,5 +1,8 @@
 const initState = () => ({
-    user: null,
-  });
-  
+  user: null,
+  meeting: [],
+  player: []
+});
+
+
 export default initState;

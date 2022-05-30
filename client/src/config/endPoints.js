@@ -5,6 +5,10 @@ export const signIn = () => `${host}/user/signin`;
 export const signOut = () => `${host}/user/signout`;
 export const checkAuth = () => `${host}/user/check`;
 
-export const editUser = (id) => `${host}/user/${id}`;
-export const deleteUser = (id) => `${host}/user/${id}`;
-export const getUser = (id) => `${host}/user/${id}`;
+export const editUser = (id) => `${host}/users/${id}`;
+export const deleteUser = (id) => `${host}/users/${id}`;
+export const getUser = (id) => `${host}/users/${id}`;
+
+export const getMeetings = () => `${host}/meeting/all`;
+export const addMeeting = () => `${host}/meeting/`;
+export const getMeeting = (id) => `${host}/meeting/${id}`;

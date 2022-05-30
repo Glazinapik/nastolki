@@ -4,7 +4,7 @@ const addPlayers = async (req, res) => {
   const { id } = req.params;
   if (req.session.user.id && id) {
     try {
-      const newPlayer = await Player.create({
+      await Player.create({
         meeting_id: id,
         user_id: req.session.user.id,
         flag: false,
