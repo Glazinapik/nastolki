@@ -18,7 +18,6 @@ function AddMeeting() {
 
 
 
-
     const changeHandler = (e) => {
         setForm(prev=> ({...prev, [`${e.target.name}`]: e.target.value}));
     }
@@ -47,7 +46,8 @@ function AddMeeting() {
               name="title"
               placeholder="Название игры"
             />
-           </div>
+            </div>
+
 
           <div className="mb-3">
             <input

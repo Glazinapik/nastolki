@@ -34,6 +34,14 @@ function Navbar() {
                                     </li>
                                     <li className="nav-item">
                                         <NavLink
+                                            to={`user/${user.id}`}
+                                            className="nav-link"
+                                        >
+                                            Мой профиль
+                                        </NavLink>
+                                    </li>
+                                    <li className="nav-item">
+                                        <NavLink
                                             to="/user/signout"
                                             className="nav-link"
                                         >
