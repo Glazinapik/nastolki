@@ -1,7 +1,7 @@
-'use strict';
 const {
-  Model
+  Model,
 } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class Player extends Model {
     /**
@@ -15,7 +15,8 @@ module.exports = (sequelize, DataTypes) => {
   }
   Player.init({
     meeting_id: DataTypes.INTEGER,
-    user_id: DataTypes.INTEGER
+    user_id: DataTypes.INTEGER,
+    flag: DataTypes.BOOLEAN,
   }, {
     sequelize,
     modelName: 'Player',

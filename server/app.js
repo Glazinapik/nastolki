@@ -8,6 +8,7 @@ const { PORT, COOKIE_SECRET, COOKIE_NAME } = process.env;
 const authRouter = require('./src/routes/auth.router');
 const usersRouter = require('./src/routes/users.router');
 const meetingRouter = require('./src/routes/meeting.router');
+const playersRouter = require('./src/routes/players.router');
 
 
 const app = express();
@@ -42,7 +43,11 @@ app.use(
 app.use('/user', authRouter);
 app.use('/users', usersRouter);
 app.use('/meeting', meetingRouter);
+<<<<<<< HEAD
+app.use('/players', playersRouter);
+=======
 
+>>>>>>> origin/dev
 
 app.listen(3001, () => {
   console.log('Сервер запущен на порте', PORT);
