@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { getMeetingsFromServer } from "../../redux/actions/meetingAction";
 import { Card } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
+import { addMeeting } from "../../redux/actions/meetingAction";
+import Cardy from "../Cardy/Cardy";
 
 function Meetings() { 
-
-    
     
     const dispatch = useDispatch();
 
@@ -56,6 +56,7 @@ function Meetings() {
               const firstGeoObject = res.geoObjects.get(0),
               coords = firstGeoObject.geometry.getCoordinates();
 
+
               const myPlacemark = new ymaps.Placemark(coords, {
                 hintContent: meeting.title,
                 }, 
@@ -65,12 +66,12 @@ function Meetings() {
                 myPlacemark.events.add('click', function (e) {
                   window.location = e.get('target').options.get(linkHandler(`/meeting/${meeting.id}`));
                 });
-
                 myMap.geoObjects.add(myPlacemark);
    
       }));
     }
 
+k
     console.log(meetings)
 
     return (
@@ -87,10 +88,22 @@ function Meetings() {
                     <Card.Text>{meeting.amount}</Card.Text>
                   </Card.Body>
                 </Card>)
+
+//     return (
+//         <>
+//         <div className="meetings">
+//         <div id="mymap"></div>
+//       <div className="meet"><h1>ближайшие события</h1>
+
+//       {meetings ?
+//       meetings.map(meeting => <Cardy key={meeting.date} ></Cardy>) 
+    
+
                 :
                 <div className="textnull">В ближайшее время нет новых встреч 😟</div>
       }
       </div>
+        </div>
       </>
     );
     }

@@ -5,6 +5,7 @@ import { createNewMeeting } from "../../../redux/actions/meetingAction";
 
 function AddMeeting() {
 
+
     const [isLoading, setIsLoading] = useState(true)
 
     const dispatch = useDispatch();
@@ -15,9 +16,16 @@ function AddMeeting() {
 
     const navigate = useNavigate();
 
+
+    const [form, setForm] = useState({});
+    const dispatch = useDispatch()
+
+
+
     const changeHandler = (e) => {
         setForm(prev=> ({...prev, [`${e.target.name}`]: e.target.value}));
     }
+
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -30,11 +38,10 @@ function AddMeeting() {
       <div className="d-flex justify-content-center">
         <form
           onSubmit={submitHandler}
-          className="d-flex flex-column align-items-center bg-light text-dark p-3 border rounded-3"
+          className="form"
         >
-          <legend className="text-center mb-4">Создание новой встречи</legend>
+          <legend className="text-center mb-4"><h1>Создание новой встречи</h1></legend>
           <div className="mb-3">
-            <div>Введите название игры:</div>
             <input
               onChange={changeHandler}
               value={form.title}
@@ -43,10 +50,9 @@ function AddMeeting() {
               name="title"
               placeholder="Название игры"
             />
-          </div>
+
 
           <div className="mb-3">
-            <div>Введите адрес, по которому вы планируете провести Вашу встречу :</div>
             <input
               onChange={changeHandler}
               value={form.place}
@@ -58,7 +64,6 @@ function AddMeeting() {
           </div>
 
           <div className="mb-3">
-            <div>Введите дату и время Вашей встречи :</div>
             <input
               onChange={changeHandler}
               value={form.date}
@@ -70,7 +75,6 @@ function AddMeeting() {
           </div>
 
           <div className="mb-3">
-            <div>Введите количество игроков :</div>
             <input
               onChange={changeHandler}
               value={form.amount}
@@ -81,10 +85,11 @@ function AddMeeting() {
             />
           </div>
   
-          <button className="btn btn-primary">
+          <button type="submit" className="btn btn-primary button">
             Создать встречу !
           </button>
         </form>
+        <img className='photo2' src="/img/fon13.jpg" alt="" />
       </div>
     );
   }
