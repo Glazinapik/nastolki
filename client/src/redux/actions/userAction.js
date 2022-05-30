@@ -76,10 +76,8 @@ export const setUser = (user) => ({
         credentials: 'include',
       });
         const user = await response.json();
-        console.log(user)
         dispatch(setUser(user));  
     } catch (error) {
-      console.log('noUser');
       dispatch(setUser('noUser')); 
     }
     

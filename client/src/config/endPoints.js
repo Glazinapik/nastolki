@@ -9,5 +9,6 @@ export const editUser = (id) => `${host}/users/${id}`;
 export const deleteUser = (id) => `${host}/users/${id}`;
 export const getUser = (id) => `${host}/users/${id}`;
 
-export const getMeetings = () => `${host}/meetings`;
-export const addMeeting = () => `${host}/meeting`;
+export const getMeetings = () => `${host}/meeting/all`;
+export const addMeeting = () => `${host}/meeting/`;
+export const getMeeting = (id) => `${host}/meeting/${id}`;

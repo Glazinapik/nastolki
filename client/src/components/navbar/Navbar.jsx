@@ -5,6 +5,7 @@ function Navbar() {
     const user = useSelector((state) => state.user);
 
     return (
+
       <>
       <header className="header">
    <div className="container">
@@ -13,6 +14,7 @@ function Navbar() {
       <Link className="navbar-brand" to="/"><span className="title">NASTOLKI</span></Link>
       <ul className="menu">
       {user && user !== 'noUser' ? (
+
                                 <>
                                     <li className="nav-item">
                                         <NavLink

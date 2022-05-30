@@ -1,20 +1,35 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { createNewMeeting } from "../../../redux/actions/meetingAction";
 
 function AddMeeting() {
 
+
+    const [isLoading, setIsLoading] = useState(true)
+
+    const dispatch = useDispatch();
+
+    const [form, setForm] = useState({});
+
+    console.log(form)
+
+    const navigate = useNavigate();
+
+
     const [form, setForm] = useState({});
     const dispatch = useDispatch()
+
 
 
     const changeHandler = (e) => {
         setForm(prev=> ({...prev, [`${e.target.name}`]: e.target.value}));
     }
 
-    const submitHandler = () => {
-        dispatch(createNewMeeting(form))
-        console.log(form, '<----------------')
+
+    const submitHandler = (e) => {
+        e.preventDefault();
+        dispatch(createNewMeeting(form,navigate));
         setForm({});
     }
 
@@ -35,7 +50,7 @@ function AddMeeting() {
               name="title"
               placeholder="Название игры"
             />
-          </div>
+
 
           <div className="mb-3">
             <input
