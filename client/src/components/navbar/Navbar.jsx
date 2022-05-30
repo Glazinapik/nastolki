@@ -34,10 +34,17 @@ function Navbar() {
                                     </li>
                                     <li className="nav-item">
                                         <NavLink
+
                                             to={`user/${user.id}`}
                                             className="nav-link"
                                         >
                                             Мой профиль
+
+                                            to="/mymeetings"
+                                            className="nav-link"
+                                        >
+                                            Мои встречи
+
                                         </NavLink>
                                     </li>
                                     <li className="nav-item">

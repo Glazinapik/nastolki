@@ -48,7 +48,6 @@ const editMeeting = async (req, res) => {
 
 const getMeeting = async (req, res) => {
   const { id } = req.params;
-  console.log(id)
   try {
     const currentMeeting = await Meeting.findByPk(id);
     res.json(currentMeeting); // возвращает 1 meeting
