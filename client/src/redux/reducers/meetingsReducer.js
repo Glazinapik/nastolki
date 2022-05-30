@@ -1,7 +1,7 @@
 import initState from "../initState";
 import { ADD_MEETING, SET_MEETINGS } from "../types";
 
-const meetingReducer = (state = initState().meeting, action) => {
+const meetingsReducer = (state = initState().meetings, action) => {
     switch (action.type) {
       case SET_MEETINGS:
         return action.payload;
@@ -14,4 +14,4 @@ const meetingReducer = (state = initState().meeting, action) => {
     }
   };
   
-  export default meetingReducer;
+  export default meetingsReducer;

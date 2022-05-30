@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getMeetingsFromServer } from "../../redux/actions/meetingAction";
+import { getMeetingsFromServer } from "../../redux/actions/meetingsAction";
 import { Card } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
-import { addMeeting } from "../../redux/actions/meetingAction";
+import { addMeeting } from "../../redux/actions/meetingsAction";
 import Cardy from "../Cardy/Cardy";
 import { DELETE_ALL_MEETING } from "../../redux/types";
 const ymaps = window.ymaps
@@ -42,8 +42,7 @@ function Meetings() {
 
   const dispatch = useDispatch();
 
-  const meetings = useSelector(state => state.meeting);
-  const user = useSelector(state => state.user);
+  const meetings = useSelector(state => state.meetings);
 
   const navigate = useNavigate();
 
@@ -55,41 +54,11 @@ function Meetings() {
     if (meetings.length){ 
       ymaps.ready(() => init(meetings, linkHandler))
     }
-
-    // return () => {
-    //   dispatch({ type: DELETE_ALL_MEETING })
-    // }
   }, [])
 
-
-  // const meetings =[
-  //   {id: 1,
-  //    title: 'Мафия',
-  //    place: 'улица Кубанская, дом 23',
-  //    date: '27/05/2022',
-  //    amount: 10
-  //   },
-  //   {id: 2,
-  //     title: 'UNO',
-  //     place: 'улица красного маяка, дом 13, корпус 5',
-  //     date: '27/05/2022',
-  //     amount: 6
-  //    },
-  //    {id: 3,
-  //     title: 'MONOPOLIA',
-  //     place: 'улица Часовая, дом 8',
-  //     date: '27/05/2022',
-  //     amount: 5
-  //    },
-  //   ]
-
-
-
-
-
+  
   return (
     <>
-
       <div className="meetings">
         {meetings.length ? <div id="mymap"></div> : <div>LOADING</div>}
         <div className="meet"><h1>ближайшие события</h1>
