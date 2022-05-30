@@ -36,14 +36,14 @@ export const setUser = (user) => ({
     if (response.status === 200) {
       const user = await response.json();
       dispatch(setUser(user));
-      navigate('/');
+      navigate('/meetings');
     } else {
       navigate('/user/signup');
     }
   };
 
   //вход
-  export const signIn = (payload) => async (dispatch) => {
+  export const signIn = (payload,navigate) => async (dispatch) => {
     const response = await fetch(endPoints.signIn(), {
       method: 'POST',
       headers: {
@@ -55,6 +55,7 @@ export const setUser = (user) => ({
     if (response.status === 200) {
       const user = await response.json();
       dispatch(setUser(user));
+      navigate('/meetings')
     }
   };
 

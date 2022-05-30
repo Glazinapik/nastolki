@@ -17,10 +17,6 @@ function AddMeeting() {
     const navigate = useNavigate();
 
 
-    const [form, setForm] = useState({});
-    const dispatch = useDispatch()
-
-
 
     const changeHandler = (e) => {
         setForm(prev=> ({...prev, [`${e.target.name}`]: e.target.value}));
@@ -50,6 +46,7 @@ function AddMeeting() {
               name="title"
               placeholder="Название игры"
             />
+            </div>
 
 
           <div className="mb-3">
