@@ -51,6 +51,7 @@ export const setMeetings = (meetings) => ({
             const meeting = await response.json();
             console.log(meeting)
             dispatch(addMeeting(meeting));
+            navigate('/meetings');
 
       } catch (error) {
       navigate('/addmeeting');
