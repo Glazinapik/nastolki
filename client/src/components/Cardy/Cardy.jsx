@@ -15,6 +15,9 @@ function Cardy ({title, place, date, amount, id}) {
       <img className="img" src="https://avatars.mds.yandex.net/get-pdb/1996600/d1725ec1-41d3-4b2c-ab24-91ec603557bf/s375" alt="" />
       <div className="txt">
           <p>
+           <span className="span">Создатель:</span>  Имя из пропсов
+          </p>
+          <p>
            <span className="span">Название игры:</span>  {title}
           </p>
           <p>

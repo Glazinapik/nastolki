@@ -102,8 +102,9 @@ img.logo {
 }
 .text{
  padding-top: 12vh;
- width: 30vw;
- margin-left: 7vw;
+ min-width: 20vw;
+ max-width: 30vw;
+ margin-left: 3vw;
 }
 span{
 line-height: 1.3em;
@@ -131,32 +132,42 @@ padding-right: 10px;
   width: 40vw;
   color: rgb(0, 0, 0);
   text-align: center;
-  margin-top: 5vh;
+  margin-top: 1vh;
+  overflow-y: scroll;
+  max-height: 70vh;
+  min-height: 400px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 
 .carda{
   display: flex;
-  background-color: rgb(251,233,121);
-  font-size: 20px;
-  justify-content: space-between;
-  margin: 10px;
-  padding-left: 15px;
+  background-image: linear-gradient(to bottom, rgb(251,233,121), rgb(204,147,75));
+  font-size: 30px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  padding-left: 10px;
   padding-right: 30px;
   text-align: center;
   border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
   box-shadow: 10px 5px 5px rgb(46,97,118)
 }
 
 .img{
-  width: 100px;
-  height: 100px;
-  margin-top: 10px;
+  width: 160px;
+  height: 160px;
+  margin: 15px;
+  border-radius: 10px;
 }
 p{
   margin: 0;
+  font-size: 1em;
+  line-height: 1.2em;
 }
 .span{
-  font-size: 15px;
+  font-size: 0.7em;
+  letter-spacing: -1px;
 }
 .txt{
   text-align: start;
@@ -183,11 +194,13 @@ h1{
   width: 20vw;
   text-align: center;
   background-color: #ffffffbe;
+  font-size: 25px;
 }
 .button{
   background-color: rgb(251,233,121);
   width: 10vw;
   color: black;
+  border: 0;
 }
 .button:hover{
   background-color: rgb(251,94,83);
@@ -242,3 +255,62 @@ h1{
 .favoriteCard{
   background-color: rgb(67,137,168);
 }
+.meet::-webkit-scrollbar {
+  width: 10px;
+}
+.meet::-webkit-scrollbar-track {
+  background-color:rgba(16, 96, 102, 0.658);;
+  border-radius: 10px;
+}
+.meet::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgb(206, 121, 23), rgb(210,147,74));
+}
+.title2{
+ text-align: center;
+}
+.flexy{
+  display: flex;
+  width: 50%;
+  margin: 10vh auto;
+ text-align: center;
+ background-image: linear-gradient(to bottom, rgb(251,233,121), rgb(204,147,75));
+ border-radius: 20px;
+ box-shadow: 10px 10px 5px rgb(46,97,118)
+}
+.info{
+  text-align: center;
+}
+.upload{
+  margin: 50px;
+  margin-top: 0;
+  width: 25vh;
+  font-size: 20px;
+}
+.img2{
+  margin: 15px;
+  border-radius: 10px;
+  width: 25vh;
+  height: 25vh;
+  margin-top: 30px
+}
+.info{
+  margin: auto;
+}
+.input{
+  margin: 10px;
+  width: 25vw;
+  height: 50px;
+  font-size: 30px;
+}
+.area{
+  height: 200px;
+}
+.button{
+  font-size: 25px;
+}
+
+/* .h1{
+
+  font-weight:900;
+} */

@@ -61,12 +61,13 @@ function Meetings() {
     <>
       <div className="meetings">
         {meetings.length ? <div id="mymap"></div> : <div>LOADING</div>}
-        <div className="meet"><h1>ближайшие события</h1>
-          {meetings.length ?
+        <div className="title2" ><h1 >ближайшие события</h1><div className="meet">
+        {meetings.length ?
             meetings.map(meeting => <Cardy key={meeting.id} {...meeting}></Cardy>)
             :
             <div className="textnull">В ближайшее время нет новых встреч 😟</div>
           }
+          </div>
         </div>
       </div>
 
