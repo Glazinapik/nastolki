@@ -71,7 +71,7 @@ function Meetings() {
       }));
     }
 
-k
+
     console.log(meetings)
 
     return (
@@ -103,7 +103,6 @@ k
                 <div className="textnull">В ближайшее время нет новых встреч 😟</div>
       }
       </div>
-        </div>
       </>
     );
     }
