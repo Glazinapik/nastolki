@@ -7,8 +7,8 @@ const meetingReducer = (state = initState().meeting, action) => {
         return action.payload;
   
       case ADD_MEETING:
-        return [...state, action.payload]
-  
+        return [action.payload, ...state]
+
       default:
         return state;
     }

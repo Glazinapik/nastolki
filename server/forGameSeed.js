@@ -1,4 +1,4 @@
-const arr = [
+const games = [
   {
     title: 'Манчкин: Гравити Фолз',
     img: 'https://hobbygames.cdnvideo.ru/image/cache/hobbygames_beta/data/HobbyWorld/Munchkin/Gravity_Falls/munchkin_gravity_falls_00-1024x1024-wm.jpg',
@@ -849,4 +849,4 @@ const arr = [
   },
 ];
 
-module.exports = arr;
+module.exports = games;

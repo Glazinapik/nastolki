@@ -1,28 +1,30 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Players', {
+    await queryInterface.createTable('Games', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      meeting_id: {
+      title: {
+        type: Sequelize.STRING,
+      },
+      img: {
+        type: Sequelize.TEXT,
+      },
+      text: {
+        type: Sequelize.TEXT,
+      },
+      theme_id: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         references: {
-          model: 'Meetings', // tableName
+          model: {
+            tableName: 'Themes',
+          },
           key: 'id',
         },
-      },
-      user_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Users', // tableName
-          key: 'id',
-        },
-      },
-      flag: {
-        type: Sequelize.BOOLEAN,
       },
       createdAt: {
         allowNull: false,
@@ -35,6 +37,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Players');
+    await queryInterface.dropTable('Games');
   },
 };

@@ -238,3 +238,7 @@ h1{
     opacity: 0;
   }
 }
+
+.favoriteCard{
+  background-color: rgb(67,137,168);
+}
