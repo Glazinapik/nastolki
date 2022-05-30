@@ -22,21 +22,37 @@ export const setMeetings = (meetings) => ({
     }
   };
 
+  //конкретная встреча по id
+  export const getOneMeeting = (id) => async (dispatch) => {
+    console.log(id, '<-----------')
+    try {
+      const response = await fetch(endPoints.getMeeting(id), {
+        credentials: 'include',
+      });
+      const meeting = await response.json();
+      dispatch(setMeetings(meeting));
+    } catch (error) {
+      console.log('ooops')
+    }
+  };
+
   //добавление новой встречи
   export const createNewMeeting = (payload, navigate) => async (dispatch) => {
-    const response = await fetch(endPoints.addMeeting(), {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      credentials: 'include',
-      body: JSON.stringify(payload),
-    });
-    if (response.status === 200) {
-      const meeting = await response.json();
-      dispatch(addMeeting(meeting));
-      navigate('/meetings');
-    } else {
+      console.log(payload)
+      try {
+        const response = await fetch(endPoints.addMeeting(), {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            credentials: 'include',
+            body: JSON.stringify(payload),
+          });
+            const meeting = await response.json();
+            console.log(meeting)
+            dispatch(addMeeting(meeting));
+
+      } catch (error) {
       navigate('/addmeeting');
     }
   };

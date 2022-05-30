@@ -14,7 +14,6 @@ function PrivateRoute({  el }) {
     dispatch(checkAuth());
     } 
     if(user === 'noUser') {
-      console.log(">>>",user)
       setIsLoading(false)
     }
 

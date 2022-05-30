@@ -9,7 +9,7 @@ function SignIn() {
     password: '',
   });
   const navigate = useNavigate();
-   const user = useSelector(satate => satate.user);
+   const user = useSelector(state => state.user);
 
   const changeHandler = (e) => {
     setUserSignIn((prev) => ({ ...prev, [e.target.name]: e.target.value }));
