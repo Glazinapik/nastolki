@@ -29,9 +29,17 @@ function Navbar() {
                                             to="/addmeeting"
                                             className="nav-link"
                                         >
-                                            Добавить встречу
+                                            Игры
                                         </NavLink>
                                     </li>
+                                    <li className="nav-item">
+                                        <NavLink
+                                            to="/addmeeting"
+                                            className="nav-link"
+                                        >
+                                            Добавить встречу
+                                        </NavLink>
+                                    </li>   
                                     <li className="nav-item">
                                         <NavLink
 
@@ -39,7 +47,10 @@ function Navbar() {
                                             className="nav-link"
                                         >
                                             Мой профиль
-
+                                            </NavLink>
+                                    </li>
+                                    <li className="nav-item">
+                                        <NavLink
                                             to="/mymeetings"
                                             className="nav-link"
                                         >

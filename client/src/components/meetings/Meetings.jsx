@@ -49,26 +49,36 @@ function Meetings() {
   const linkHandler = (link) => {
     navigate(link)
   }
+ const sortedMeetengs = meetings.sort((a, b) => new Date(a.date)-new Date(b.date))
+ console.log(sortedMeetengs, '==========');
+
+  const [searchInput, setSearchInput] = useState('')
+
   useEffect(() => {
     dispatch(getMeetingsFromServer())
     if (meetings.length){ 
       ymaps.ready(() => init(meetings, linkHandler))
     }
   }, [])
-
+  
   
   return (
     <>
       <div className="meetings">
-        {meetings.length ? <div id="mymap"></div> : <div>LOADING</div>}
+        {sortedMeetengs.length ? <div id="mymap"></div> : <div>LOADING</div>}
         <div className="title2" ><h1 >ближайшие события</h1><div className="meet">
-        {meetings.length ?
-            meetings.map(meeting => <Cardy key={meeting.id} {...meeting}></Cardy>)
+        {sortedMeetengs.length ?
+            sortedMeetengs.map(meeting => <Cardy key={meeting.id} {...meeting}></Cardy>)
             :
-            <div className="textnull">В ближайшее время нет новых встреч 😟</div>
+            <div className="textnull">В ближайшее время нет новых встреч 😟</div>   
           }
           </div>
+          <div className="sss">
+          <input value={searchInput} onChange={e => setSearchInput(e.target.value)} className="form-control line2" type="text" placeholder="Поиск по городу" />
+          <input value={searchInput} className="form-control line2" type="text" placeholder="Поиск по игре"/>
+          </div>
         </div>
+       
       </div>
 
     </>

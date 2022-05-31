@@ -90,23 +90,22 @@ export const setUser = (user) => ({
 
 
   //??? редактирование аккаунта - пока не поняла
-//   export const editUser = (user, navigate) => async (dispatch, getState) => {
-//     const {
-//       user: { id: userId },
-//     } = getState();
-//     const response = await fetch(endPoints.editUser(userId), {
-//       method: 'PATCH',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       credentials: 'include',
-//       body: JSON.stringify(user),
-//     });
-//     if (response.status === 200) {
-//       const userData = await response.json();
-//       dispatch(setUser(userData));
-//       navigate(`/users/${userData.id}`);
-//     } else {
-//       navigate.replace('/');
-//     }
-//   };
+  export const editUser = (user, navigate) => async (dispatch) => {
+    const file = new FormData();
+    for(let key in user) fd.append(key, user[key]);
+    const response = await fetch(endPoints.editUser(user.userId), {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+      credentials: 'include',
+      body: file,
+    });
+    if (response.status === 200) {
+      const userData = await response.json();
+      dispatch(setUser(userData));
+      navigate(`/users/${userData.id}`);
+    } else {
+      navigate.replace('/');
+    }
+  };
