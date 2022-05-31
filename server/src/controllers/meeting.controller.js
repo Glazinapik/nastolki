@@ -1,4 +1,4 @@
-const { Meeting } = require('../../db/models');
+const { Meeting, User } = require('../../db/models');
 
 const createMeeting = async (req, res) => {
   const {
@@ -49,7 +49,10 @@ const editMeeting = async (req, res) => {
 const getMeeting = async (req, res) => {
   const { id } = req.params;
   try {
-    const currentMeeting = await Meeting.findByPk(id);
+    const currentMeeting = await Meeting.findByPk({
+      where: { id },
+      include: User,
+    });
     res.json(currentMeeting); // возвращает 1 meeting
   } catch (error) {
     res.sendStatus(500);
@@ -58,7 +61,7 @@ const getMeeting = async (req, res) => {
 
 const getAllMeetings = async (req, res) => {
   try {
-    const allMeetings = await Meeting.findAll();
+    const allMeetings = await Meeting.findAll({ include: User });
     return res.json(allMeetings); // возвращает все meeting
   } catch (error) {
     return res.sendStatus(500);

@@ -17,9 +17,6 @@ function AddMeeting() {
     const navigate = useNavigate();
 
 
-    const [form, setForm] = useState({});
-    const dispatch = useDispatch()
-
 
 
     const changeHandler = (e) => {
@@ -88,9 +85,12 @@ function AddMeeting() {
           <button type="submit" className="btn btn-primary button">
             Создать встречу !
           </button>
+          </div>
         </form>
+        
         <img className='photo2' src="/img/fon13.jpg" alt="" />
       </div>
+
     );
   }
   
