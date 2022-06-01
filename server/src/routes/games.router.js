@@ -4,8 +4,8 @@ const gamesController = require('../controllers/games.controller');
 
 const gamesRouter = Router();
 
-gamesRouter.get('/all', checkAuth, gamesController.getAllGames);
+gamesRouter.get('/all', gamesController.getAllGames);
 gamesRouter.route('/:id')
-  .get( gamesController.getRelatedGames);
+  .get(checkAuth, gamesController.getRelatedGames);
 
 module.exports = gamesRouter;

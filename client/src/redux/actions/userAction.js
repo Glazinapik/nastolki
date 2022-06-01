@@ -2,7 +2,7 @@ import * as endPoints from '../../config/endPoints';
 import { SET_USER, SIGNOUT_USER } from '../types';
 import axios from 'axios';
 import { showError } from './errorsAction';
-
+axios.defaults.withCredentials=true
 export const setUser = (user) => ({
     type: SET_USER,
     payload: user,

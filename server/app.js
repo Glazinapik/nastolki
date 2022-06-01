@@ -40,7 +40,7 @@ app.use(
     },
   }),
 );
-
+// app.use((req,res,next)=>{console.log('------>',req.session);next()})
 // APP'S ROUTES
 app.use('/auth', authRouter);
 app.use('/users', usersRouter);

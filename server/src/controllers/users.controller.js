@@ -1,10 +1,8 @@
 const { User } = require('../../db/models');
 
 const editUser = async (req, res) => {
-
-  console.log(111111111111111111);
   let updatedFields = Object.entries(req.body).filter((el) => el[1]);
-  console.log(updatedFields, '<<<<<<<<<<<<<');
+  console.log(req.session, '<<<<<<<<<<<<<');
 
   if (updatedFields.length) {
     updatedFields = Object.fromEntries(updatedFields); // {key:value}
@@ -19,6 +17,7 @@ const editUser = async (req, res) => {
       });
       return res.json(updatedUser);
     } catch (error) {
+      // console.log(error);
       return res.sendStatus(500);
     }
   }

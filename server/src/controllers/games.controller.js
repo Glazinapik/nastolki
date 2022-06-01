@@ -13,9 +13,19 @@ const getRelatedGames = async (req, res) => {
   }
 };
 
+// const getAllGames = async (req, res) => {
+//   try {
+//     const allGames = await Game.findAll({ include: { model: Theme } });
+
+//     return res.json(allGames); // возвращает все games
+//   } catch (error) {
+//     return res.sendStatus(500);
+//   }
+// };
+
 const getAllGames = async (req, res) => {
   try {
-    const allGames = await Game.findAll();
+    const allGames = await Theme.findAll({ include: { model: Game } });
 
     return res.json(allGames); // возвращает все games
   } catch (error) {

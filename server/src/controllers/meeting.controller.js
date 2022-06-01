@@ -49,12 +49,11 @@ const editMeeting = async (req, res) => {
 const getMeeting = async (req, res) => {
   const { id } = req.params;
   try {
-
     const currentMeeting = await Meeting.findOne({
       where: { id },
-      include: {model:User, as:'owner'}
+      include: { model: User, as: 'owner' },
     });
-      console.log(currentMeeting)
+      // console.log(currentMeeting)
 
     res.json(currentMeeting); // возвращает 1 meeting
   } catch (error) {
@@ -64,8 +63,7 @@ const getMeeting = async (req, res) => {
 
 const getAllMeetings = async (req, res) => {
   try {
-
-    const allMeetings = await Meeting.findAll({ include: {model:User, as:'owner'}});
+    const allMeetings = await Meeting.findAll({ include: { model: User, as: 'owner' } });
 
     return res.json(allMeetings); // возвращает все meeting
   } catch (error) {
@@ -85,22 +83,23 @@ const deleteMeeting = async (req, res) => {
 
 const getMeetingsOfUser = async (req, res) => {
   const { id } = req.params;
-  console.log(id)
+  // console.log(id)
   try {
     const allMeetings = await User.findOne({
-      where: { id ,
-        //'$Users->Players.flag$': true
+      where: {
+        id,
+        // '$Users->Players.flag$': true
       },
       include: {
         model: Meeting,
-        through: {attributes:['flag']},
+        through: { attributes: ['flag'] },
       },
     });
-    
+
     // console.dir(JSON.parse(JSON.stringify(allPlayers)), {depth: null})
-    return res.json(allMeetings.Meetings); 
+    return res.json(allMeetings.Meetings);
   } catch (error) {
-    console.log(error)
+    // console.log(error)
     return res.sendStatus(500);
   }
 };
