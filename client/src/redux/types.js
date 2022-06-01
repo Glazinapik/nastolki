@@ -23,6 +23,10 @@ export const CONFIRM_PLAYER = 'CONFIRM_PLAYER';
 export const DELETE_PLAYER = 'DELETE_PLAYER';
 
 
+export const SET_USER_MEETINGS = 'SET_USER_MEETINGS';
+
+
 
 export const SIGN_IN_ERROR = 'SIGN_IN_ERROR';
+
 

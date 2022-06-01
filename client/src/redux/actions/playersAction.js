@@ -23,17 +23,21 @@ export const deletePlayer = (player) => ({
 
 //получаем всех игроков данной встречи
 export const getPlayersFromServer = (id) => async (dispatch) => {
-  const response = await fetch(endPoints.players(id), {
+  try {
+    const response = await fetch(endPoints.players(id), {
     credentials: 'include',
   });
-  if (response.status === 200) {
     const players = await response.json();
     dispatch(setPlayer(players));
+  } catch (error) {
+    console.log('oooops')
   }
-};
+}
+
 
 //создаем нового игрока(происходит при нажатии на кнопку ХОЧУ УЧАВСТВОВАТЬ)
 export const createNewPlayer = (id) => async (dispatch) => {
+  console.log('aaaaaaaa')
   try {
     const response = await fetch(endPoints.players(id), {
         method: 'POST',
@@ -41,9 +45,10 @@ export const createNewPlayer = (id) => async (dispatch) => {
           'Content-Type': 'application/json',
         },
         credentials: 'include',
-        body: JSON.stringify(id),
+        body: JSON.stringify({id}),
       });
         const player = await response.json();
+        console.log(player,'player')
         dispatch(addPlayer(player));
   } catch (error) {
   console.log('oooops')
@@ -51,31 +56,35 @@ export const createNewPlayer = (id) => async (dispatch) => {
 };
 
 //меняем флаг игрока с фолс на тру(когда создатель нажимает на кнопку ПРИНЯТЬ)
-export const confirmPlayerFlag = (user_id, meeting_id) => async (dispatch) => {
+export const confirmPlayerFlag = (playersId, meetingId) => async (dispatch) => {
   try {
-    const response = await fetch(endPoints.players(meeting_id), {
+    await fetch(endPoints.players(meetingId), {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
         },
         credentials: 'include',
-        body: JSON.stringify({user_id, meeting_id}),
+        body: JSON.stringify({playersId, meetingId}),
       });
-        const confirmedPlayer = await response.json();
-        dispatch(confirmPlayer(confirmedPlayer));
+       dispatch(confirmPlayer(playersId));
   } catch (error) {
   console.log('oooops')
 }
 };
 
 //удаляем
-export const deleteOnePlayer = (user_id, meeting_id) => async (dispatch) => {
+export const deleteOnePlayer = (playersId, meetingId) => async (dispatch) => {
   try {
-    const response = await fetch(endPoints.players(meeting_id), {
+        await fetch(endPoints.players(meetingId), {
         method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
         credentials: 'include',
+        body: JSON.stringify({playersId, meetingId}),
       });
-        dispatch(deletePlayer(user_id));
+        const player = {playersId, meetingId}
+        dispatch(deletePlayer(player));
   } catch (error) {
   console.log('oooops')
 }
