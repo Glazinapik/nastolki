@@ -49,11 +49,13 @@ const editMeeting = async (req, res) => {
 const getMeeting = async (req, res) => {
   const { id } = req.params;
   try {
+
     const currentMeeting = await Meeting.findOne({
       where: { id },
       include: {model:User, as:'owner'}
     });
       console.log(currentMeeting)
+
     res.json(currentMeeting); // возвращает 1 meeting
   } catch (error) {
     res.sendStatus(500);
@@ -62,7 +64,9 @@ const getMeeting = async (req, res) => {
 
 const getAllMeetings = async (req, res) => {
   try {
+
     const allMeetings = await Meeting.findAll({ include: {model:User, as:'owner'}});
+
     return res.json(allMeetings); // возвращает все meeting
   } catch (error) {
     return res.sendStatus(500);

@@ -10,6 +10,7 @@ function SignIn() {
   });
   const navigate = useNavigate();
    const user = useSelector(state => state.user);
+   const error = useSelector(state => state.error);
 
   const changeHandler = (e) => {
     setUserSignIn((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -38,6 +39,7 @@ function SignIn() {
      >
        <legend className="text-center mb-4"><h1>Вход</h1></legend>
        <div className="mb-3">
+       {error === 'ошибка'? <label className='error'>Неправильный логин или пароль</label>: null}
          <input
            onChange={changeHandler}
            value={userSignIn.email}
@@ -47,7 +49,6 @@ function SignIn() {
            placeholder="Email"
          />
        </div>
-
        <div className="mb-3">
          <input
            onChange={changeHandler}
@@ -58,11 +59,11 @@ function SignIn() {
            placeholder="Pass"
          />
        </div>
-
        <button type="submit" className="btn btn-primary button">
          Войти
        </button>
      </form>
+    
      <img src="/img/fon2.jpg" alt="" />
    </div>
    

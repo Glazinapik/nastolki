@@ -20,19 +20,6 @@ const addPlayers = async (req, res) => {
   return res.sendStatus(400);
 };
 
-// const getPlayers = async (req, res) => {
-//   const { id } = req.params;
-//   try {
-//     const allPlayers = await Player.findAll({
-//       where: {meeting_id : id},
-//       raw: true})
-//     const usersId = allPlayers.map(e => e.user_id)
-//     const temp = await User.findAll({where:{id: usersId}, raw: true})
-//     return res.json(temp); 
-//   } catch (error) {
-//     return res.sendStatus(500);
-//   }
-// };
 
 const getPlayers = async (req, res) => {
   const { id } = req.params;

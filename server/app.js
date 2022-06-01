@@ -9,6 +9,7 @@ const authRouter = require('./src/routes/auth.router');
 const usersRouter = require('./src/routes/users.router');
 const meetingRouter = require('./src/routes/meeting.router');
 const playersRouter = require('./src/routes/players.router');
+const gamesRouter = require('./src/routes/games.router');
 
 const app = express();
 
@@ -43,6 +44,7 @@ app.use('/auth', authRouter);
 app.use('/users', usersRouter);
 app.use('/meeting', meetingRouter);
 app.use('/players', playersRouter);
+app.use('/games', gamesRouter);
 
 app.listen(3001, () => {
   console.log('Сервер запущен на порте', PORT);
