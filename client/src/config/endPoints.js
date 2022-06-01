@@ -14,3 +14,5 @@ export const addMeeting = () => `${host}/meeting/`;
 export const getMeeting = (id) => `${host}/meeting/${id}`;
 
 export const players = (id) => `${host}/players/${id}`; //передаю айди встречи
+
+export const getUserMeetings = (id) => `${host}/meeting/user/${id}`;

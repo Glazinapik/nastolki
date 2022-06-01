@@ -1,92 +1,110 @@
 import { useEffect, useMemo, useState } from "react";
-import { Button, Card } from "react-bootstrap";
+import { Button, Card, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getOneMeeting } from "../../redux/actions/oneMeetingAction";
-import { createNewPlayer } from "../../redux/actions/playersAction";
+import { confirmPlayerFlag, createNewPlayer, deleteOnePlayer, getPlayersFromServer } from "../../redux/actions/playersAction";
 
 
 function Meeting() { 
     const {id} = useParams();
-    console.log(id, '<-----------')
+    console.log(id)
+    const [showModal, setShowModal] = useState(false);
+    // const [showButton, setShowButton] = useState(true);
     
     const dispatch = useDispatch();
-
     const meeting = useSelector(state => state.meeting);
-    const user = useSelector(state => state.user);
-    const players = useSelector(state => state.players);
-    const truePlayers = players.filter(player => player.flag === true);
-    
 
     useEffect(() => {
       dispatch(getOneMeeting(id))
-    },[])
+      dispatch(getPlayersFromServer(id))
+    }, [])
+
+   
+    const user = useSelector(state => state.user);
+    const players = useSelector(state => state.players);
+    console.log(meeting)
+    console.log(players, 11111)
+
+    const truePlayers = players?.filter(player => player.Players && player.Players.flag == true)
+
+    const falsePlayers = players?.filter(player => player.Players && player.Players.flag == false)
+
+    console.log(players,'players!!!!!!!!!!!')
+
+    const isPlayer = players?.filter(player => player.Players && player.id == user.id)
+    console.log(isPlayer,'isplayers')
+    
   
-
-    const addPlayer = () => {
-
+    const addPlayer = (playerId) => {
+      dispatch(confirmPlayerFlag(playerId, id))
     }
 
     const takePartHandler = () => {
-      dispatch(createNewPlayer(meeting.id))
+      setShowModal(true);
+      dispatch(createNewPlayer(id));
+      
     }
 
+    const deletePlayerHandler = (playerId) => {
+      dispatch(deleteOnePlayer(playerId, id))
+    }
+    if(!meeting){
+      return <div>LOADING</div>
+    } else {
   
     return (
         <>
 
-         {/* <div className="carda">
-      <img className="img" src="https://avatars.mds.yandex.net/get-pdb/1996600/d1725ec1-41d3-4b2c-ab24-91ec603557bf/s375" alt="" />
-      <div className="txt">
-          <p>
-           <span className="span">Название игры:</span>  {oneMeeting.title}
-          </p>
-          <p>
-          <span className="span">Место проведения:</span> {oneMeeting.place}
-          </p>
-          <p>
-          <span className="span">Дата:</span> {oneMeeting.date}
-          </p>
-          <p>
-          <span className="span">Количество участников:</span>{oneMeeting.amount}
-          </p>
-          <p>
-          <span className="span">Хотят участвовать:</span>{players ? players.map(player => <div><p>{player.userName}</p><Button onClick={addPlayer} >Подтвердить участие</Button></div>) : <div>Никто пока не хочет учавствоать 😟</div>}
-          </p>
-          <p>
-          <span className="span">Участники:</span>{players ? players.map(player => <div><p>{player.userName}</p></div>) : <div>Никто пока не хочет учавствоать 😟</div>}
-          </p>
-      </div>
-    </div> */}
-
-        {user.id == meeting.owner_id ?
+        {user.id === meeting.owner_id ?
         (meeting ?
 
          <Card className="favoriteCard">
                   <Card.Body>
-                    <Card.Title>{meeting.title}</Card.Title>
-                    <Card.Text>{meeting.place}</Card.Text>
-                    <Card.Text>{meeting.date}</Card.Text>
-                    <Card.Text>{meeting.amount}</Card.Text>
-                    <Card.Text>Хотят участвовать : {players ? players.map(player => <div><p>{player.userName}</p><Button onClick={addPlayer} >Подтвердить участие</Button></div>) : <div>Никто пока не хочет учавствоать 😟</div>}</Card.Text>
-                    <Card.Text>Участники : {truePlayers.length ? truePlayers.map(truePlayer => <div><p>{truePlayer.userName}</p></div>) : <div>Никто пока не хочет учавствоать 😟</div>}</Card.Text>
+                    <Card.Title>Название игры: {meeting.title}</Card.Title>
+                    <Card.Text>Адрес :{meeting.place}</Card.Text>
+                    <Card.Text>Дата проведения :{meeting.date}</Card.Text>
+                    <Card.Text>Количество участников :{meeting.amount}</Card.Text>
+                    <Card.Text>Хотят участвовать : {falsePlayers.length ? falsePlayers.map(player => <div><p>{player.userName}</p><Button onClick={() => addPlayer(player.id)} >Подтвердить участие</Button><Button onClick={() => deletePlayerHandler(player.id)}>Отклонить</Button></div>) : <div>Нет заявок на участие</div>}</Card.Text>
+                    <Card.Text>Участники : {truePlayers.length ? truePlayers.map(player => <div><p>{player.userName}</p></div>) : <div>Нет участников</div>}</Card.Text>
                   </Card.Body>
                 </Card>
                 : <div>LOADING...</div>) :
                 (meeting ?
                     <Card className="favoriteCard">
                              <Card.Body>
-                               <Card.Title>{meeting.title}</Card.Title>
-                               <Card.Text>{meeting.place}</Card.Text>
-                               <Card.Text>{meeting.date}</Card.Text>
-                               <Card.Text>{meeting.amount}</Card.Text>
-                               <Button onClick={takePartHandler}>Хочу учавствовать !</Button>
+                               <Card.Title>Название игры : {meeting.title}</Card.Title>
+                               <Card.Text>Адрес : {meeting.place}</Card.Text>
+                               <Card.Text>Дата проведения : {meeting.date}</Card.Text>
+                               <Card.Text>Количество участников : {meeting.amount}</Card.Text>
+                               <Card.Text>Участники : {truePlayers.length ? truePlayers.map(player => <div><p>{player.userName}</p></div>) : <div>Нет участников</div>}</Card.Text>
+                               {!isPlayer.length && <Button onClick={takePartHandler}>Хочу учавствовать !</Button>}
                              </Card.Body>
                            </Card>
                            : <div>LOADING...</div>)}
-      </>
+
+<Modal
+        show={showModal}
+        onHide={() => setShowModal(false)}
+        dialogClassName="modal-90w"
+        aria-labelledby="example-custom-modal-styling-title"
+      >
+        <Modal.Header closeButton>
+        </Modal.Header>
+        <Modal.Body>
+          <p style={{color: "black"}}>
+            Вы отправили заявку на участие в данной встрече!
+            Статус заявки можно отслеживать во вкладке "Мои встречи" !
+          </p>
+        </Modal.Body>
+      </Modal>
+    </>
+    
     );
     }
+  }
   
   
   export default Meeting;
+
+             

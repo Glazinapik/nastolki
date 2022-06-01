@@ -11,5 +11,7 @@ meetingRouter.route('/:id')
   .put(checkAuth, checkAuthor, meetingController.editMeeting)
   .get(checkAuth, meetingController.getMeeting)
   .delete(checkAuth, checkAuthor, meetingController.deleteMeeting);
+meetingRouter.get('/user/:id', checkAuth, meetingController.getMeetingsOfUser);
 
 module.exports = meetingRouter;
+

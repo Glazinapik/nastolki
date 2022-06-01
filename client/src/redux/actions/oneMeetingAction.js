@@ -9,6 +9,7 @@ export const setOneMeeting = (meeting) => ({
 
    //конкретная встреча по id
    export const getOneMeeting = (id) => async (dispatch) => {
+     console.log('yes')
     try {
       const response = await fetch(endPoints.getMeeting(id), {
         credentials: 'include',

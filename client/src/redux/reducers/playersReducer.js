@@ -9,9 +9,9 @@ const playersReducer = (state = initState().players, action) => {
       case ADD_PLAYER:
         return [...state, action.payload];
         case CONFIRM_PLAYER:
-          return [...state.map((player) => player.user_id === Number(action.payload.user_id) && player.meeting_id === Number(action.payload.meeting_id) ? {...player, flag: !player.flag} : {...player})];
+          return [...state.map((player) => player.id === Number(action.payload)? {...player, flag: !player.flag} : {...player})];
         case DELETE_PLAYER:
-          return [...state.filter((player) => player.user_id !== Number(action.payload.user_id) && player.meeting_id !== Number(action.payload.meeting_id))];
+          return [...state.map((player) => player.id === Number(action.payload)? {...player, flag: null} : {...player})];
         default:
           return state;
     }

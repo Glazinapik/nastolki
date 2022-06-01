@@ -4,13 +4,13 @@ const addPlayers = async (req, res) => {
   const { id } = req.params;
   if (req.session.user.id && id) {
     try {
-      await Player.create({
+      const newPlayer = await Player.create({
         meeting_id: id,
         user_id: req.session.user.id,
         flag: false,
       });
 
-      return res.sendStatus(200); // что нужно вернуть после создания ?
+      return res.json(newPlayer); // что нужно вернуть после создания ?
     } catch (error) {
       console.error(error);
       return res.sendStatus(500);
@@ -20,45 +20,62 @@ const addPlayers = async (req, res) => {
   return res.sendStatus(400);
 };
 
+// const getPlayers = async (req, res) => {
+//   const { id } = req.params;
+//   try {
+//     const allPlayers = await Player.findAll({
+//       where: {meeting_id : id},
+//       raw: true})
+//     const usersId = allPlayers.map(e => e.user_id)
+//     const temp = await User.findAll({where:{id: usersId}, raw: true})
+//     return res.json(temp); 
+//   } catch (error) {
+//     return res.sendStatus(500);
+//   }
+// };
+
 const getPlayers = async (req, res) => {
   const { id } = req.params;
+  console.log(id)
   try {
     const allPlayers = await Meeting.findOne({
-      where: { id },
-      include: User,
+      where: { id ,
+        //'$Users->Players.flag$': true
+      },
+      include: {
+        model: User,
+        through: {attributes:['flag', 'meeting_id']},
+      },
     });
-    return res.json(allPlayers.users); // возвращает всех добавившихся пользоватей
+    
+    // console.dir(JSON.parse(JSON.stringify(allPlayers)), {depth: null})
+    return res.json(allPlayers.Users); // возвращает всех добавившихся пользоватей
   } catch (error) {
+    console.log(error)
     return res.sendStatus(500);
   }
 };
 
 const confirmedPlayer = async (req, res) => {
   const { playersId, meetingId } = req.body;
-  let updatedFields = Object.entries(req.body).filter((el) => el[1]);
-  if (updatedFields.length) {
-    updatedFields = Object.fromEntries(updatedFields);
     try {
       // eslint-disable-next-line max-len
-      const [, updatedPlaer] = await Player.update(updatedFields, {
-        where: { user_id: playersId, meeting_id: meetingId },
-        flag: true,
-        returning: true,
-        plain: true,
-        raw: true,
-      });
-      return res.json(updatedPlaer);// что нужно вернуть после редактирования
+      await Player.update(
+        {flag:true},
+        {where: { user_id: playersId, meeting_id: meetingId }});
+        res.sendStatus(200);
     } catch (error) {
       return res.sendStatus(500);
     }
-  }
-  return res.sendStatus(418);
-};
+  };
+  
 
 const deletePlayer = async (req, res) => {
   const { playersId, meetingId } = req.body;
   try {
-    await Player.destroy({ where: { user_id: playersId, meeting_id: meetingId } });
+    await Player.update(
+      {flag:null},
+      {where: { user_id: playersId, meeting_id: meetingId }});
     res.sendStatus(200);
   } catch (error) {
     res.sendStatus(500);

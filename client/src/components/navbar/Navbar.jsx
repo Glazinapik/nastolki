@@ -39,8 +39,12 @@ function Navbar() {
                                             className="nav-link"
                                         >
                                             Мой профиль
+                                            </NavLink>
+                                    </li>
+                                    <li className="nav-item">
+                                        <NavLink
 
-                                            to="/mymeetings"
+                                            to={`/mymeetings/${user.id}`}
                                             className="nav-link"
                                         >
                                             Мои встречи

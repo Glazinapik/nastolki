@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-function Cardy ({title, place, date, amount, id}) {
+function Cardy ({title, place, date, amount, id, owner}) {
 
   const navigate = useNavigate();
 
@@ -11,11 +11,12 @@ function Cardy ({title, place, date, amount, id}) {
 
   return(
     <>
+    {owner ?
     <div className="carda" onClick={()=>linkHandler(`/meeting/${id}`)}>
-      <img className="img" src="https://avatars.mds.yandex.net/get-pdb/1996600/d1725ec1-41d3-4b2c-ab24-91ec603557bf/s375" alt="" />
+      <img className="img" src={owner.photo} alt="" />
       <div className="txt">
           <p>
-           <span className="span">Создатель:</span>  Имя из пропсов
+           <span className="span">Создатель:</span>  {owner.userName}
           </p>
           <p>
            <span className="span">Название игры:</span>  {title}
@@ -31,6 +32,7 @@ function Cardy ({title, place, date, amount, id}) {
           </p>
       </div>
     </div>
+    : <div>LOADING</div>}
     </>
   )
 }

@@ -54,7 +54,7 @@ function App() {
           <Route path="/addmeeting" element={<PrivateRoute el={<AddMeeting />} />} />
           <Route path="meeting/:id" element={<PrivateRoute el={<Meeting />} />}/>
           <Route path="user/:id" element={<PrivateRoute el={<EditProfile />} />}/>
-          <Route path="/mymeetings" element={<PrivateRoute el={<MyMeetings />} />}/>
+          <Route path="/mymeetings/:id" element={<PrivateRoute el={<MyMeetings />} />}/>
           <Route path="/meeting/:id" element={<PrivateRoute el={<Meeting />} />}/>
         
       </Routes>
