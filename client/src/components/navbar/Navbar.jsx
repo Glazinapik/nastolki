@@ -16,6 +16,14 @@ function Navbar() {
       {user && user !== 'noUser' ? (
 
                                 <>
+                                 <li className="nav-item">
+                                        <NavLink
+                                            to="/games"
+                                            className="nav-link"
+                                        >
+                                            Игры
+                                        </NavLink>
+                                    </li>
                                     <li className="nav-item">
                                         <NavLink
                                             to="/meetings"

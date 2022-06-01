@@ -12,7 +12,7 @@ function AddMeeting() {
 
     const [form, setForm] = useState({});
 
-    console.log(form)
+
 
     const navigate = useNavigate();
 
@@ -86,8 +86,10 @@ function AddMeeting() {
             Создать встречу !
           </button>
         </form>
+        
         <img className='photo2' src="/img/fon13.jpg" alt="" />
       </div>
+
     );
   }
   
