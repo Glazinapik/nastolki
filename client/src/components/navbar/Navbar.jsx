@@ -16,6 +16,14 @@ function Navbar() {
       {user && user !== 'noUser' ? (
 
                                 <>
+                                 <li className="nav-item">
+                                        <NavLink
+                                            to="/games"
+                                            className="nav-link"
+                                        >
+                                            Игры
+                                        </NavLink>
+                                    </li>
                                     <li className="nav-item">
                                         <NavLink
                                             to="/meetings"
@@ -29,7 +37,37 @@ function Navbar() {
                                             to="/addmeeting"
                                             className="nav-link"
                                         >
+                                            Игры
+                                        </NavLink>
+                                    </li>
+                                    <li className="nav-item">
+                                        <NavLink
+                                            to="/addmeeting"
+                                            className="nav-link"
+                                        >
                                             Добавить встречу
+                                        </NavLink>
+                                    </li>   
+                                    <li className="nav-item">
+                                        <NavLink
+
+                                            to={`user/${user.id}`}
+                                            className="nav-link"
+                                        >
+                                            Мой профиль
+                                            </NavLink>
+                                    </li>
+                                    <li className="nav-item">
+                                        <NavLink
+
+
+                                            to={`/mymeetings/${user.id}`}
+
+
+                                            className="nav-link"
+                                        >
+                                            Мои встречи
+
                                         </NavLink>
                                     </li>
                                     <li className="nav-item">

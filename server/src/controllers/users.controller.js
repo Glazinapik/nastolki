@@ -1,10 +1,11 @@
 const { User } = require('../../db/models');
 
 const editUser = async (req, res) => {
-  console.log(req.file.path);
-  console.log(req.body);
+
+  console.log(111111111111111111);
   let updatedFields = Object.entries(req.body).filter((el) => el[1]);
-  console.log(updatedFields);
+  console.log(updatedFields, '<<<<<<<<<<<<<');
+
   if (updatedFields.length) {
     updatedFields = Object.fromEntries(updatedFields); // {key:value}
     try {

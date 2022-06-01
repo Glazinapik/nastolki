@@ -1,5 +1,5 @@
 const games = require('../../forGameSeed');
-console.log(games);
+
 module.exports = {
   async up(queryInterface, Sequelize) {
     /**

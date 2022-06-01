@@ -12,6 +12,10 @@ import Meetings from './components/meetings/Meetings';
 import Navbar from './components/navbar/Navbar';
 import PrivateRoute from './components/privateRouter/PrivateRouter';
 import {TransitionGroup, CSSTransition} from 'react-transition-group'
+import Games from './components/Games/Games';
+import EditProfile from './components/EditProfile/EditProfile';
+import MyMeetings from './components/mymeetings/MyMeetings';
+
 
 
 function App() {
@@ -50,6 +54,12 @@ function App() {
           <Route path="/meetings" element={<PrivateRoute el={<Meetings />} />} />
           <Route path="/addmeeting" element={<PrivateRoute el={<AddMeeting />} />} />
           <Route path="meeting/:id" element={<PrivateRoute el={<Meeting />} />}/>
+          <Route path="/games" element={<PrivateRoute el={<Games />} />}/>
+          <Route path="user/:id" element={<PrivateRoute el={<EditProfile />} />}/>
+          <Route path="/mymeetings/:id" element={<PrivateRoute el={<MyMeetings />} />}/>
+          <Route path="/meeting/:id" element={<PrivateRoute el={<Meeting />} />}/>
+
+        
       </Routes>
     </div>
   );

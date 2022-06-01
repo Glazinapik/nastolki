@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { createNewMeeting } from "../../../redux/actions/meetingAction";
+import { createNewMeeting } from "../../../redux/actions/meetingsAction";
 
 function AddMeeting() {
 
@@ -12,10 +12,9 @@ function AddMeeting() {
 
     const [form, setForm] = useState({});
 
-    console.log(form)
+
 
     const navigate = useNavigate();
-
 
 
 
@@ -47,6 +46,7 @@ function AddMeeting() {
               name="title"
               placeholder="Название игры"
             />
+          </div>
 
 
           <div className="mb-3">
@@ -56,7 +56,7 @@ function AddMeeting() {
               className="form-control"
               type="text"
               name="place"
-              placeholder="Адрес"
+              placeholder="Адрес (город, улица, дом)"
             />
           </div>
 
@@ -85,7 +85,6 @@ function AddMeeting() {
           <button type="submit" className="btn btn-primary button">
             Создать встречу !
           </button>
-          </div>
         </form>
         
         <img className='photo2' src="/img/fon13.jpg" alt="" />

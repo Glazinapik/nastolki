@@ -1,5 +1,7 @@
 import * as endPoints from '../../config/endPoints';
 import { SET_USER, SIGNOUT_USER } from '../types';
+import axios from 'axios';
+import { showError } from './errorsAction';
 
 export const setUser = (user) => ({
     type: SET_USER,
@@ -36,14 +38,14 @@ export const setUser = (user) => ({
     if (response.status === 200) {
       const user = await response.json();
       dispatch(setUser(user));
-      navigate('/');
+      navigate('/meetings');
     } else {
       navigate('/user/signup');
     }
   };
 
   //вход
-  export const signIn = (payload) => async (dispatch) => {
+  export const signIn = (payload,navigate) => async (dispatch) => {
     const response = await fetch(endPoints.signIn(), {
       method: 'POST',
       headers: {
@@ -55,6 +57,10 @@ export const setUser = (user) => ({
     if (response.status === 200) {
       const user = await response.json();
       dispatch(setUser(user));
+      dispatch(showError(null));
+      navigate('/meetings')
+    }else{
+      dispatch(showError("ошибка"));
     }
   };
 
@@ -89,23 +95,21 @@ export const setUser = (user) => ({
 
 
   //??? редактирование аккаунта - пока не поняла
-//   export const editUser = (user, navigate) => async (dispatch, getState) => {
-//     const {
-//       user: { id: userId },
-//     } = getState();
-//     const response = await fetch(endPoints.editUser(userId), {
-//       method: 'PATCH',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       credentials: 'include',
-//       body: JSON.stringify(user),
-//     });
-//     if (response.status === 200) {
-//       const userData = await response.json();
-//       dispatch(setUser(userData));
-//       navigate(`/users/${userData.id}`);
-//     } else {
-//       navigate.replace('/');
-//     }
-//   };
+  export const editUser = (user, navigate) => async (dispatch) => {
+    const file = new FormData();
+    for(let key in user) file.append(key, user[key]);
+    console.log(file.get('file'), '<1111111111111111');
+
+    const response = await axios.patch(endPoints.editUser(user.id),file,{
+      headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+    })
+    if(response.statusText == 'OK'){
+      const userData = response.data;
+      dispatch(setUser(userData));
+      //navigate(`/users/${userData.id}`);
+    } else {
+      //navigate('/');
+    }
+  };
