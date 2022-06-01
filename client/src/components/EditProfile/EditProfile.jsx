@@ -29,7 +29,7 @@ function EditProfile () {
 
   const submitHandler = (e) => {
     e.preventDefault();
-      dispatch(editUser({...userEdit, file}, navigate));
+    if(file) dispatch(editUser({...userEdit, file}, navigate)); // FIX: change with non file
   };
   // const handleInputs = useCallback((e) => {
   //   if (e.target.type === 'file') {
@@ -53,7 +53,7 @@ function EditProfile () {
     <div className="box">
       <img className="img2" src={user.file?user.file:"https://avatars.mds.yandex.net/get-pdb/1996600/d1725ec1-41d3-4b2c-ab24-91ec603557bf/s375"} alt=""/>
     </div>
-  <input onChange={changeHandler}  type="file" className="form-control upload" name="file"/>
+  <input onChange={avatarHandler}  type="file" className="form-control upload" name="file"/>
   </div>
   <div className="info">
     <div>

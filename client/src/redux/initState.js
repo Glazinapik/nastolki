@@ -3,6 +3,7 @@ const initState = () => ({
   meetings: [],
   meeting: {},
   players: [],
+  error: null,
 });
 
 

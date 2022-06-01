@@ -18,3 +18,7 @@ export const SET_PLAYERS = 'SET_PLAYERS'; //все игроки
 export const ADD_PLAYER = 'ADD_PLAYER';
 export const CONFIRM_PLAYER = 'CONFIRM_PLAYER';
 export const DELETE_PLAYER = 'DELETE_PLAYER';
+
+
+
+export const SIGN_IN_ERROR = 'SIGN_IN_ERROR';

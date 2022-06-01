@@ -4,13 +4,13 @@ const addPlayers = async (req, res) => {
   const { id } = req.params;
   if (req.session.user.id && id) {
     try {
-      await Player.create({
+      const newPlayer = await Player.create({
         meeting_id: id,
         user_id: req.session.user.id,
         flag: false,
       });
 
-      return res.sendStatus(200); // что нужно вернуть после создания ?
+      return res.json(newPlayer); // что нужно вернуть после создания ?
     } catch (error) {
       console.error(error);
       return res.sendStatus(500);
@@ -20,6 +20,20 @@ const addPlayers = async (req, res) => {
   return res.sendStatus(400);
 };
 
+// const getPlayers = async (req, res) => {
+//   const { id } = req.params;
+//   try {
+//     const allPlayers = await Player.findAll({
+//       where: { meeting_id: id },
+//       raw: true,
+//     });
+//     const usersId = allPlayers.map((e) => e.user_id);
+//     const temp = await User.findAll({ where: { id: usersId }, raw: true });
+//     return res.json(temp);
+//   } catch (error) {
+//     return res.sendStatus(500);
+//   }
+// };
 const getPlayers = async (req, res) => {
   const { id } = req.params;
   try {

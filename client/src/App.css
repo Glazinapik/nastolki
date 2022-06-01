@@ -134,8 +134,7 @@ padding-right: 10px;
   text-align: center;
   margin-top: 1vh;
   overflow-y: scroll;
-  max-height: 62vh;
-  min-height: 400px;
+  height: 62vh;
   background-color: rgb(42, 81, 112);
   padding: 10px;
   border-top-left-radius: 10px;
@@ -305,4 +304,9 @@ label{
   background-color: rgb(42, 81, 112);
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+}
+.error{
+  color: #ff5050;
+  font-size: 20px;
+  font-weight: 900;
 }
