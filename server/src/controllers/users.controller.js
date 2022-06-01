@@ -1,9 +1,12 @@
 const { User } = require('../../db/models');
 
 const editUser = async (req, res) => {
+  console.log(req.file.path);
+  console.log(req.body);
   let updatedFields = Object.entries(req.body).filter((el) => el[1]);
+  console.log(updatedFields);
   if (updatedFields.length) {
-    updatedFields = Object.fromEntries(updatedFields);
+    updatedFields = Object.fromEntries(updatedFields); // {key:value}
     try {
       // eslint-disable-next-line max-len
       const [, updatedUser] = await User.update(updatedFields, {
