@@ -56,7 +56,7 @@ function AddMeeting() {
               className="form-control"
               type="text"
               name="place"
-              placeholder="Адрес"
+              placeholder="Адрес (город, улица, дом)"
             />
           </div>
 
@@ -86,8 +86,10 @@ function AddMeeting() {
             Создать встречу !
           </button>
         </form>
+        
         <img className='photo2' src="/img/fon13.jpg" alt="" />
       </div>
+
     );
   }
   
