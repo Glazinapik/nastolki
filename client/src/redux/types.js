@@ -4,6 +4,9 @@ export const SIGNOUT_USER = 'SIGNOUT_USER';
 export const SET_MEETINGS = 'SET_MEETINGS'; //все встречи
 export const ADD_MEETING = 'ADD_MEETING'; // добавление новой встречи
 
+export const DELETE_ALL_MEETING = 'DELETE_ALL_MEETING';
+
+export const GET_GAMES = 'GET_GAMES';
 export const SET_ONE_MEETING = 'SET_ONE_MEETING'//одна конкретная встреча
 
 
@@ -22,3 +25,4 @@ export const DELETE_PLAYER = 'DELETE_PLAYER';
 
 
 export const SIGN_IN_ERROR = 'SIGN_IN_ERROR';
+

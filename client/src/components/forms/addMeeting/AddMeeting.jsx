@@ -12,7 +12,7 @@ function AddMeeting() {
 
     const [form, setForm] = useState({});
 
-    console.log(form)
+
 
     const navigate = useNavigate();
 
@@ -46,7 +46,7 @@ function AddMeeting() {
               name="title"
               placeholder="Название игры"
             />
-            </div>
+          </div>
 
 
           <div className="mb-3">
