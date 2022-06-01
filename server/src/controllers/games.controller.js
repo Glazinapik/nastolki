@@ -16,7 +16,7 @@ const getRelatedGames = async (req, res) => {
 const getAllGames = async (req, res) => {
   try {
     const allGames = await Game.findAll();
-    // console.log(allGames);
+
     return res.json(allGames); // возвращает все games
   } catch (error) {
     return res.sendStatus(500);

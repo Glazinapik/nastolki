@@ -51,7 +51,7 @@ img.logo {
 }
 .menu li {
   text-transform: uppercase;
-  margin-right: 30px;
+  margin-right: 5px;
 }
 .nav-link {
   display: block;
@@ -102,8 +102,9 @@ img.logo {
 }
 .text{
  padding-top: 12vh;
- width: 30vw;
- margin-left: 7vw;
+ min-width: 20vw;
+ max-width: 30vw;
+ margin-left: 3vw;
 }
 span{
 line-height: 1.3em;
@@ -131,32 +132,42 @@ padding-right: 10px;
   width: 40vw;
   color: rgb(0, 0, 0);
   text-align: center;
-  margin-top: 5vh;
+  margin-top: 1vh;
+  overflow-y: scroll;
+  height: 62vh;
+  background-color: rgb(42, 81, 112);
+  padding: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+
 }
 
 .carda{
   display: flex;
-  background-color: rgb(251,233,121);
-  font-size: 20px;
-  justify-content: space-between;
-  margin: 10px;
-  padding-left: 15px;
-  padding-right: 30px;
+  background-image: linear-gradient(to bottom, rgb(251,233,121), rgb(204,147,75));
+  font-size: 30px;
+  margin-bottom: 10px;
+  padding: 10px;
   text-align: center;
-  border-top-right-radius: 20px;
-  box-shadow: 10px 5px 5px rgb(46,97,118)
+  border-radius: 20px;
+  cursor: pointer;
+  
 }
 
 .img{
-  width: 100px;
-  height: 100px;
-  margin-top: 10px;
+  width: 160px;
+  height: 160px;
+  margin: 15px;
+  border-radius: 10px;
 }
 p{
   margin: 0;
+  font-size: 1em;
+  line-height: 1.2em;
 }
 .span{
-  font-size: 15px;
+  font-size: 0.7em;
+  letter-spacing: -1px;
 }
 .txt{
   text-align: start;
@@ -183,62 +194,119 @@ h1{
   width: 20vw;
   text-align: center;
   background-color: #ffffffbe;
+  font-size: 25px;
 }
 .button{
   background-color: rgb(251,233,121);
   width: 10vw;
   color: black;
+  border: 0;
 }
 .button:hover{
   background-color: rgb(251,94,83);
   width: 10vw;
   color: black;
 }
-
-
-.container {
-  position: relative;
-}
-
-.page {
-  position: absolute;
-}
-
-
-.page-enter-active {
-  animation: page-in 1s forwards
-}
-
-
-
-.page-exit-active {
-  animation: page-out 1s forwards
-}
-.animation{
-  animation-name: pages;
-  animation-duration: 1s;
-}
-@keyframes page-in{
-  0%{
-   opacity: 0;
-   transform: translateX(-400px);
-  }
-  100%{
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-@keyframes page-out{
-  0%{
-   opacity: 1;
-   transform: translateX(0);
-  }
-  100%{
-    transform: translateX(100%);
-    opacity: 0;
-  }
-}
-
 .favoriteCard{
   background-color: rgb(67,137,168);
+}
+.meet::-webkit-scrollbar {
+  width: 10px;
+}
+.meet::-webkit-scrollbar-track {
+  background-color:rgba(16, 96, 102, 0.658);;
+  border-radius: 10px;
+}
+.meet::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgb(206, 121, 23), rgb(210,147,74));
+}
+.title2{
+ text-align: center;
+}
+.flexy{
+  display: flex;
+  width: 50vw;
+  min-width: 550px;
+  margin-left: 1vw;
+ text-align: center;
+ background-image: linear-gradient(to bottom, rgb(251,233,121), rgb(204,147,75));
+ border-radius: 20px;
+ padding: 10px;
+ box-shadow: 10px 10px 5px rgb(46,97,118)
+
+ 
+}
+.info{
+  text-align: center;
+}
+.upload{
+  margin: 50px;
+  margin-top: 0;
+  width: 25vh;
+  font-size: 20px;
+}
+.img2{
+  margin: 15px;
+  border-radius: 10px;
+  width: 15vw;
+  height: 15vw;
+  margin-top: 30px
+}
+.info{
+  margin: auto;
+}
+.input{
+  margin: 10px;
+  width: 20vw;
+  height: 50px;
+  font-size: 30px;
+  margin: 10px auto;
+}
+.area{
+  height: 100px;
+  width: 20vw;
+  margin: 10px auto;
+}
+.button{
+  font-size: 25px;
+}
+
+.aaa{
+  background-image: url("https://static.wixstatic.com/media/1b461b_db9a9513312e47f787670521e9df7326~mv2.gif");
+  height: 80vh;
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 45%;
+  margin: 20px;
+  padding-top: 5vh;
+  width: 95vw;
+}
+.line{
+  width: 10vw;
+  display: inline;
+}
+label{
+  margin-left: 5px;
+  margin-right: 10px;
+  color: rgba(0, 0, 0, 0.658);
+  font-size: 25px;
+}
+.bbb{
+  background-image: url('https://i.pinimg.com/originals/cb/41/7d/cb417d86a87f4c5147f7e38f7a9f21b6.gif');
+}
+.line2{
+  margin: 10px;
+  width: 46%;
+  display: inline;
+}
+.sss{
+  background-color: rgb(42, 81, 112);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.error{
+  color: #ff5050;
+  font-size: 20px;
+  font-weight: 900;
 }

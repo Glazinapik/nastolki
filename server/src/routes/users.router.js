@@ -7,6 +7,7 @@ const upload = require('../middlewares/multer.middleware');
 const usersRouter = Router();
 
 usersRouter.get('/', checkAuth, usersController.getAllUsers);
+// /users/:id
 usersRouter.route('/:id')
   .patch(checkAuth, checkAuthor, upload.single('file'), usersController.editUser)
   .get(checkAuth, usersController.getUser);

@@ -1,11 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getMeetingsFromServer } from "../../redux/actions/meetingAction";
-import { Card } from 'react-bootstrap';
+import { getMeetingsFromServer } from "../../redux/actions/meetingsAction";
 import { useNavigate } from "react-router-dom";
-import { addMeeting } from "../../redux/actions/meetingAction";
 import Cardy from "../Cardy/Cardy";
-import { DELETE_ALL_MEETING } from "../../redux/types";
 const ymaps = window.ymaps
 
 
@@ -42,63 +39,52 @@ function Meetings() {
 
   const dispatch = useDispatch();
 
-  const meetings = useSelector(state => state.meeting);
-  const user = useSelector(state => state.user);
+  const meetings = useSelector(state => state.meetings);
 
   const navigate = useNavigate();
 
   const linkHandler = (link) => {
     navigate(link)
   }
+ const sortedMeetengs = meetings.sort((a, b) => new Date(a.date)-new Date(b.date))
+ console.log(sortedMeetengs, '==========');
+
+  const [searchInput, setSearchInput] = useState('')
+  const [searchByGame, setSearchByGame] = useState('')
+
+  const searchBySortedMeetings = useMemo(() => {
+    if(searchInput && !searchByGame)return sortedMeetengs.filter(meeting => meeting.place.includes(searchInput))
+    if(searchByGame && !searchInput)return sortedMeetengs.filter(meeting => meeting.title.includes(searchByGame))
+    if(searchByGame && searchInput)return sortedMeetengs.filter(meeting => (meeting.title.includes(searchByGame)&& meeting.place.includes(searchInput)))
+    return meetings
+  }, [searchInput, sortedMeetengs, searchByGame, meetings])
+
+
   useEffect(() => {
     dispatch(getMeetingsFromServer())
     if (meetings.length){ 
       ymaps.ready(() => init(meetings, linkHandler))
     }
-
-    // return () => {
-    //   dispatch({ type: DELETE_ALL_MEETING })
-    // }
   }, [])
-
-
-  // const meetings =[
-  //   {id: 1,
-  //    title: 'Мафия',
-  //    place: 'улица Кубанская, дом 23',
-  //    date: '27/05/2022',
-  //    amount: 10
-  //   },
-  //   {id: 2,
-  //     title: 'UNO',
-  //     place: 'улица красного маяка, дом 13, корпус 5',
-  //     date: '27/05/2022',
-  //     amount: 6
-  //    },
-  //    {id: 3,
-  //     title: 'MONOPOLIA',
-  //     place: 'улица Часовая, дом 8',
-  //     date: '27/05/2022',
-  //     amount: 5
-  //    },
-  //   ]
-
-
-
-
-
+  
+  
   return (
     <>
-
       <div className="meetings">
         {meetings.length ? <div id="mymap"></div> : <div>LOADING</div>}
-        <div className="meet"><h1>ближайшие события</h1>
-          {meetings.length ?
-            meetings.map(meeting => <Cardy key={meeting.id} {...meeting}></Cardy>)
+        <div className="title2" ><h1 >ближайшие события</h1><div className="meet">
+        {sortedMeetengs.length ?
+            searchBySortedMeetings.map(meeting => <Cardy key={meeting.id} {...meeting}></Cardy>)
             :
-            <div className="textnull">В ближайшее время нет новых встреч 😟</div>
+            <div className="textnull">В ближайшее время нет новых встреч 😟</div>   
           }
+          </div>
+          <div className="sss">
+          <input value={searchInput} onChange={e => setSearchInput(e.target.value)} className="form-control line2" type="text" placeholder="Поиск по городу" />
+          <input value={searchByGame} onChange={e => setSearchByGame(e.target.value)} className="form-control line2" type="text" placeholder="Поиск по игре"/>
+          </div>
         </div>
+       
       </div>
 
     </>

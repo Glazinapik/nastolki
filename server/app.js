@@ -40,7 +40,7 @@ app.use(
 );
 
 // APP'S ROUTES
-app.use('/user', authRouter);
+app.use('/auth', authRouter);
 app.use('/users', usersRouter);
 app.use('/meeting', meetingRouter);
 app.use('/players', playersRouter);

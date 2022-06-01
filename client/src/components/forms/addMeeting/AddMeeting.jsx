@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { createNewMeeting } from "../../../redux/actions/meetingAction";
+import { createNewMeeting } from "../../../redux/actions/meetingsAction";
 
 function AddMeeting() {
 
@@ -56,7 +56,7 @@ function AddMeeting() {
               className="form-control"
               type="text"
               name="place"
-              placeholder="Адрес"
+              placeholder="Адрес (город, улица, дом)"
             />
           </div>
 

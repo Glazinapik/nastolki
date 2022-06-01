@@ -22,19 +22,6 @@ export const setMeetings = (meetings) => ({
     }
   };
 
-  //конкретная встреча по id
-  export const getOneMeeting = (id) => async (dispatch) => {
-    console.log(id, '<-----------')
-    try {
-      const response = await fetch(endPoints.getMeeting(id), {
-        credentials: 'include',
-      });
-      const meeting = await response.json();
-      dispatch(setMeetings(meeting));
-    } catch (error) {
-      console.log('ooops')
-    }
-  };
 
   //добавление новой встречи
   export const createNewMeeting = (payload, navigate) => async (dispatch) => {
