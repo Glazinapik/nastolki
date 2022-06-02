@@ -46,7 +46,10 @@ function Meetings() {
   const linkHandler = (link) => {
     navigate(link)
   }
-  
+
+ const sortedMeetengs = meetings.sort((a, b) => new Date(a.date)-new Date(b.date))
+
+
   const [searchInput, setSearchInput] = useState('')
   const [searchByGame, setSearchByGame] = useState('')
   

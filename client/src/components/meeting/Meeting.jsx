@@ -30,10 +30,10 @@ function Meeting() {
 
     const falsePlayers = players?.filter(player => player.Players && player.Players.flag == false)
 
-    console.log(players,'players!!!!!!!!!!!')
+    // console.log(players,'players!!!!!!!!!!!')
 
     const isPlayer = players?.filter(player => player.Players && player.id == user.id)
-    console.log(isPlayer,'isplayers')
+    // console.log(isPlayer,'isplayers')
     
   
     const addPlayer = (playerId) => {
