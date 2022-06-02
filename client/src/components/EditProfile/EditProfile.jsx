@@ -30,6 +30,7 @@ function EditProfile () {
   const submitHandler = (e) => {
     e.preventDefault();
     if(file) dispatch(editUser({...userEdit, file}, navigate)); // FIX: change with non file
+    else dispatch(editUser({...userEdit}, navigate)); // FIX: change with non file
   };
   // const handleInputs = useCallback((e) => {
   //   if (e.target.type === 'file') {
@@ -59,14 +60,44 @@ function EditProfile () {
     <div>
      <input onChange={changeHandler} className = "form-control input" type="text" placeholder="Имя" name="userName" value={userEdit.userName}/>
     </div>
-    <div>
-    <label >Пол:</label>
-    <input onChange={changeHandler} type="radio" id="contactChoice1" name="gender" value={userEdit.gender}/>
-    <label htmlFor="contactChoice1">Мужской</label>
+{userEdit?.gender === "Мужской" ? (
+  <div>
+  <label >Пол:</label>
+  <input onChange={changeHandler} type="radio" id="contactChoice1" name="gender" value="Мужской" checked/>
+  
+  <label htmlFor="contactChoice1">Мужской</label>
 
-    <input onChange={changeHandler} type="radio" id="contactChoice2" name="gender" value={userEdit.gender}/>
-    <label htmlFor="contactChoice2">Женский</label>
-    </div>
+  <input onChange={changeHandler} type="radio" id="contactChoice2" name="gender" value="Женский"/>
+  <label htmlFor="contactChoice2">Женский</label>
+  </div>
+) : userEdit?.gender === "Женский" ? (
+  <div>
+  <label >Пол:</label>
+  <input onChange={changeHandler} type="radio" id="contactChoice1" name="gender" value="Мужской"/>
+  
+  <label htmlFor="contactChoice1">Мужской</label>
+
+  <input onChange={changeHandler} type="radio" id="contactChoice2" name="gender" value="Женский" checked/>
+  <label htmlFor="contactChoice2">Женский</label>
+  </div>
+) : (
+  <div>
+  <label >Пол:</label>
+  <input onChange={changeHandler} type="radio" id="contactChoice1" name="gender" value="Мужской"/>
+  
+  <label htmlFor="contactChoice1">Мужской</label>
+
+  <input onChange={changeHandler} type="radio" id="contactChoice2" name="gender" value="Женский"/>
+  <label htmlFor="contactChoice2">Женский</label>
+  </div>
+)
+
+}
+  
+
+    
+    
+
     <div>
 
      <input onChange={changeHandler} className = "form-control input line" type="text" placeholder="Город" name="city" value={userEdit.city}/>

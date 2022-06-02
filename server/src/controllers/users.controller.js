@@ -2,11 +2,11 @@ const { User } = require('../../db/models');
 
 const editUser = async (req, res) => {
   let updatedFields = Object.entries(req.body).filter((el) => el[1]);
-  const puthPhoto = req.file.path.slice(6);
+  const puthPhoto = req.file?.path.slice(6);
   console.log(puthPhoto, '<------------');
   if (updatedFields.length) {
     updatedFields = Object.fromEntries(updatedFields); // {key:value}
-    updatedFields.photo = puthPhoto;
+    if (puthPhoto) updatedFields.photo = puthPhoto;
 
     try {
       // eslint-disable-next-line max-len
