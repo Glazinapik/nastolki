@@ -4,8 +4,7 @@ const session = require('express-session');
 const cors = require('cors');
 const FileStore = require('session-file-store')(session);
 
-const path = require('path')
-
+const path = require('path');
 
 const { PORT, COOKIE_SECRET, COOKIE_NAME } = process.env;
 const authRouter = require('./src/routes/auth.router');
@@ -18,7 +17,6 @@ const app = express();
 
 // SERVER'S SETTINGS
 app.set('cookieName', COOKIE_NAME);
-
 
 // APP'S MIDDLEWARES
 app.use(

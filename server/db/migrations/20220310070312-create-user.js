@@ -25,9 +25,6 @@ module.exports = {
       city: {
         type: Sequelize.STRING,
       },
-      rating: {
-        type: Sequelize.INTEGER,
-      },
       password: {
         type: Sequelize.STRING,
       },
