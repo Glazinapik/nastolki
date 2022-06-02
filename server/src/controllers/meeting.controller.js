@@ -55,8 +55,7 @@ const getMeeting = async (req, res) => {
     });
 
 
-      // console.log(currentMeeting)
-
+    // console.log(currentMeeting)
 
 
     res.json(currentMeeting); // возвращает 1 meeting
@@ -108,7 +107,6 @@ const getMeetingsOfUser = async (req, res) => {
     return res.json(allMeetings.Meetings);
 
   } catch (error) {
-
     // console.log(error)
 
     return res.sendStatus(500);

@@ -9,7 +9,7 @@ playersRouter.route('/all')
 .get(playersController.getAllPlayers)
 
 playersRouter.route('/:id')
-  .get(playersController.getPlayers)
+  .get(checkAuth, playersController.getPlayers)
   .post(checkAuth, playersController.addPlayers)
   .delete(checkAuth, checkAuthor, playersController.deletePlayer)
   .put(checkAuth, checkAuthor, playersController.confirmedPlayer);

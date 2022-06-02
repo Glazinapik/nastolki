@@ -17,7 +17,16 @@ const signUp = async (req, res) => {
         name: newUser.name,
       };
 
-      return res.json({ id: newUser.id, name: newUser.userName });
+      return res.json({
+        id: newUser.id,
+        userName: newUser.userName,
+        email: newUser.email,
+        photo: newUser.photo,
+        info: newUser.info,
+        gender: newUser.gender,
+        dateborn: newUser.dateborn,
+        city: newUser.city,
+      });
     } catch (error) {
       console.error(error);
       return res.sendStatus(500);
@@ -32,8 +41,7 @@ const signIn = async (req, res) => {
 
   if (password && email) {
     try {
-
-      const currentUser = await User.findOne({ where: { email } , raw: true});
+      const currentUser = await User.findOne({ where: { email }, raw: true });
 
       if (currentUser && currentUser.password === sha256(password)) {
         req.session.user = {
@@ -76,7 +84,16 @@ const checkAuth = async (req, res) => {
     // console.log(req.session);
     const user = await User.findByPk(req.session.user.id);
     // console.log(user);
-    return res.json({ id: user.id, userName: user.userName });
+    return res.json({
+      id: user.id,
+      userName: user.userName,
+      email: user.email,
+      photo: user.photo,
+      info: user.info,
+      gender: user.gender,
+      dateborn: user.dateborn,
+      city: user.city,
+    });
   } catch (error) {
     console.error(error);
     return res.sendStatus(500);
