@@ -1,28 +1,31 @@
 const { User } = require('../../db/models');
 
 const editUser = async (req, res) => {
-  console.log(111111111111111111);
   let updatedFields = Object.entries(req.body).filter((el) => el[1]);
-  console.log(updatedFields, '<<<<<<<<<<<<<');
+  const puthPhoto = req.file.path.slice(6);
+  console.log(puthPhoto, '<------------');
   if (updatedFields.length) {
-    updatedFields = Object.fromEntries(updatedFields);
+    updatedFields = Object.fromEntries(updatedFields); // {key:value}
+    updatedFields.photo = puthPhoto;
     try {
       // eslint-disable-next-line max-len
+      // console.log('==>', updatedFields);
+      console.log('>>>>>>>>>>>>>>>', updatedFields);
       const [, updatedUser] = await User.update(updatedFields, {
         where: { id: req.session.user.id },
-        photo: req.file.path.slice(6),
         returning: true,
         plain: true,
         raw: true,
       });
+      console.log('======>', updatedUser);
       return res.json(updatedUser);
     } catch (error) {
+      // console.log(error);
       return res.sendStatus(500);
     }
   }
   return res.sendStatus(418);
 };
-
 const getUser = async (req, res) => {
   const { id } = req.params;
   try {
