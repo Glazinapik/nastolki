@@ -117,27 +117,41 @@ function Meeting() {
       <>
 
         {user.id === meeting.owner_id ?
+        <div className="gamesPage hhh">
 
-          <Card className="favoriteCard">
-            <Card.Body>
-              <Card.Title>Название игры: {meeting.title}</Card.Title>
-              <Card.Text>Адрес :{meeting.place}</Card.Text>
-              <Card.Text>Дата проведения :{formatDate(meeting.date)}</Card.Text>
-              <Card.Text>Количество участников :{amountOfPlayers}/{meeting.amount}</Card.Text>
-              <Card.Text>Хотят участвовать : {falsePlayers.length ? falsePlayers.map(player => <div><p>{player.userName}</p><Button onClick={() => addPlayer(player.id)} >Подтвердить участие</Button><Button onClick={() => deletePlayerHandler(player.id)}>Отклонить</Button></div>) : <div>Нет заявок на участие</div>}</Card.Text>
-              <Card.Text>Участники : <div>{meeting?.owner?.userName}(это Вы)</div> {truePlayers.map(player => <div><p>{player.userName}</p></div>)}</Card.Text>
-            </Card.Body>
-          </Card>
+          <div className="carda carda2" >
+            <div className="txt"  >
+              <p>
+                <span className="span2">Название игры: <span className="span3">{meeting.title}</span></span>
+              </p>
+              <p>
+                <span className="span2">Адрес :<span className="span3">{meeting.place}</span></span>
+              </p>
+              <p>
+                <span className="span2">Дата проведения :<span className="span3">{formatDate(meeting.date)}</span></span>
+              </p>
+              <p>
+                <span className="span2">Количество участников :<span className="span3">{amountOfPlayers}/{meeting.amount}</span></span>
+              </p>
+                <span className="span2">Хотят участвовать : <span className="span3">{falsePlayers.length ? falsePlayers.map(player => <div><p>{player.userName}</p><button className="btn btn-primary button butt" onClick={() => addPlayer(player.id)} >Подтвердить участие</button><button className="btn btn-primary button butt" onClick={() => deletePlayerHandler(player.id)}>Отклонить</button></div>) : <div>Нет заявок на участие</div>}</span></span>
+                <span className="span2">Участники :<span className="span3"><div>{meeting?.owner?.userName}(это Вы)</div> {truePlayers.map(player => <div><p>{player.userName}</p></div>)}</span></span> 
+              </div>
+          </div>
+          <div className="fake">
+              <img className="lastPhoto" src="/img/pic.png" alt="" />
+          </div>
+        </div>
+          
           :
           <Card className="favoriteCard">
-            <Card.Body>
+            <div className="txt">
               <Card.Title>Название игры : {meeting.title}</Card.Title>
               <Card.Text>Адрес : {meeting.place}</Card.Text>
               <Card.Text>Дата проведения : {formatDate(meeting.date)}</Card.Text>
               <Card.Text>Количество участников : {amountOfPlayers}/{meeting.amount}</Card.Text>
               <Card.Text>Участники : <div>{meeting?.owner?.userName}(создатель встречи)</div>{truePlayers.map(player => <div><p>{player.userName}</p></div>)}</Card.Text>
-              {!isPlayer.length && <Button onClick={takePartHandler}>Хочу учавствовать !</Button>}
-            </Card.Body>
+              {!isPlayer.length && <button className="btn btn-primary button butt" onClick={takePartHandler}>Хочу учавствовать !</button>}
+            </div>
           </Card>}
           
 

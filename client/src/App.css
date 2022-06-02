@@ -331,12 +331,6 @@ label{
 .games{
   display: flex; 
   flex-wrap: wrap;
-
-}
-.picture{
-  width: 300px;
-  height: 300px;
-
   justify-content: space-around;
   text-align: center;
   min-width: 84vw
@@ -345,18 +339,11 @@ label{
   width: 18vw;
   height: 18vw;
   border-radius: 20px;
-
 }
 /* *{
   border: #ff5050 1px solid;
 } */
 .oneGame{
-  margin: 10px;
-}
-.themes{
-  width: 300%;
-  background-color: rgba(42, 80, 112, 0.59);
-
   margin: 40px;
   width: 25%;
   border-radius: 20px;
@@ -376,19 +363,9 @@ label{
   text-align: center;
   min-height: 88vh;
 
-
 }
 .opis{
   width: 300px;
-
-
-}
-
-.point{
-  font-size: 20px;
-  padding: 5px;
-  height: 30px;
-
   text-align: center;
   margin: 10px;
 }
@@ -409,7 +386,7 @@ label{
 	background-clip: text;
 	background-image: linear-gradient(to bottom, rgb(251,233,121), rgb(204,147,75));
   transition: 0.2s;
-
+}
 .myMeetings{
   display: flex;
   text-align: center;
@@ -450,5 +427,39 @@ label{
   color: rgb(129, 21, 21);
   font-weight: 900;
 
-
+}
+.carda2{
+  width: 30vw;
+  /* margin: 7% 10%; */
+  padding-top: 40px;
+  box-shadow: 10px 5px 5px rgb(46,97,118);
+  margin-left: -159px;
+  margin-top: 80px;
+  cursor: default;
+}
+.span2{
+  font-size: 30px;
+  color: rgb(0, 0, 0);
+}
+.span3{
+  font-weight: 600;
+  color: rgba(34, 46, 83, 0.808);
+}
+.fake{
+  display: inline-block;
+  width: 40vw;
+}
+.lastPhoto{
+  width: 100%;
+  margin-left: 160px;
+  margin-top: 40px;
+}
+.hhh{
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+.butt{
+  font-size: 18px;
+  margin-right: 10px;
 }
