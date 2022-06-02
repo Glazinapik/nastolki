@@ -25,7 +25,7 @@ const games = [
   },
   {
     title: 'Jenga',
-    img: 'https://hobbygames.cdnvideo.ru/image/cache/hobbygames_beta/data/Hasbro/Jenga/DSC_7723-1024x1024-wm.jpgg',
+    img: 'https://hobbygames.cdnvideo.ru/image/cache/hobbygames_beta/data/Hasbro/Jenga/DSC_7723-1024x1024-wm.jpg',
     text: 'Рискнёшь проверить свою ловкость и координацию? Уверен, что рука не дрогнет в самый ответственный момент? Умеешь контролировать своё дыхание? Ну что же, в таком случае, ты готов доказать, что тебе под силу стать победителем в классической настольной игре "Дженга"!',
     theme_id: 1,
     createdAt: new Date(),
@@ -265,7 +265,7 @@ const games = [
   },
   {
     title: 'Similo: Мифы',
-    img: 'отовы к легендарным испытаниям? Тогда вперёд, навстречу героям древних мифов в новой игре серии Similo! ',
+    img: 'https://hobbygames.cdnvideo.ru/image/cache/hobbygames_beta/data/HobbyWorld/Similo_Myths/Similo_myths_00-1024x1024-wm.jpg',
     text: 'Зевс, Дионис, Ахиллес, Пандора, Минотавр и многие другие жаждут проверить вашу логику. "Similo: Мифы" является полностью самостоятельной игрой, но её можно совместить с другими частями серии, чтобы сделать игровой процесс ещё более увлекательным.',
     theme_id: 3,
     createdAt: new Date(),
@@ -649,7 +649,7 @@ const games = [
   },
   {
     title: 'Бином',
-    img: 'Бином',
+    img: 'https://hobbygames.cdnvideo.ru/image/cache/hobbygames_beta/data/HobbyWorld/Binom/Binom_3D-box_rozn-1024x1024-wm.jpg',
     text: 'Многие из вас играли в лото и, наверное, большинство играющих в эту классическую настольную игру хоть раз да негодовали от того, что играют, по сути, сами с собой. Вам надоело, что от вас ничего не зависит? Тогда добро пожаловать в настольную игру "Бином" – лото из будущего!',
     theme_id: 8,
     createdAt: new Date(),

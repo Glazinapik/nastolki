@@ -13,6 +13,9 @@ export const getMeetings = () => `${host}/meeting/all`;
 export const addMeeting = () => `${host}/meeting/`;
 
 export const getGames = () => `${host}/games/all`;
+export const getThemes = () => `${host}/games/themes`;
+export const getGamesByTheme = (id) => `${host}/games/${id}`;
+
 export const getMeeting = (id) => `${host}/meeting/${id}`;
 
 export const players = (id) => `${host}/players/${id}`; //передаю айди встречи

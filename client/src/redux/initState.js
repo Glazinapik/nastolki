@@ -7,7 +7,7 @@ const initState = () => ({
   players: [],
   usermeetings: [],
   error: null,
-
+themes: [],
 });
 
 

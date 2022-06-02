@@ -6,7 +6,7 @@ import { editUser, signUp } from "../../redux/actions/userAction";
 
 function EditProfile () {
   const user = useSelector(state => state.user)
-
+  console.log(user, 1111111111111111);
   const [userEdit, setUserEdit] = useState(user?user:{});
   const [file, setFile] = useState(null) // avatar
   const navigate = useNavigate();
@@ -50,8 +50,8 @@ function EditProfile () {
 
 <div className="flexy">
   <div className="avanar">
-    <div className="box">
-      <img className="img2" src={user.file?user.file:"https://avatars.mds.yandex.net/get-pdb/1996600/d1725ec1-41d3-4b2c-ab24-91ec603557bf/s375"} alt=""/>
+    <div className="boxForImg img2">
+      <img className="img img2" src={`http://localhost:3001${user.photo}`} alt=""/>
     </div>
   <input onChange={avatarHandler}  type="file" className="form-control upload" name="file"/>
   </div>
@@ -61,15 +61,17 @@ function EditProfile () {
     </div>
     <div>
     <label >Пол:</label>
-    <input onChange={changeHandler} type="radio" id="contactChoice1" name="gender" value="Мужской"/>
+    <input onChange={changeHandler} type="radio" id="contactChoice1" name="gender" value={userEdit.gender}/>
     <label htmlFor="contactChoice1">Мужской</label>
 
-    <input onChange={changeHandler} type="radio" id="contactChoice2" name="gender" value="Женский"/>
+    <input onChange={changeHandler} type="radio" id="contactChoice2" name="gender" value={userEdit.gender}/>
     <label htmlFor="contactChoice2">Женский</label>
     </div>
     <div>
-     <input onChange={changeHandler} className = "form-control input line" type="text" placeholder="Город" name="city" value={userEdit.sity}/>
-     <input onChange={changeHandler} className = "form-control input line" type="number" placeholder="Возраст" name="dateborn" value={userEdit.age}/>
+
+     <input onChange={changeHandler} className = "form-control input line" type="text" placeholder="Город" name="city" value={userEdit.city}/>
+     <input onChange={changeHandler} className = "form-control input line" type="number" placeholder="Возраст" name="dateborn" value={userEdit.dateborn}/>
+
     </div>
   
     <div className="div3">

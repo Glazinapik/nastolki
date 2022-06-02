@@ -6,13 +6,15 @@ import oneMeetingReducer from './oneMeetingReducer';
 import playersReducer from './playersReducer';
 import userMeetingsReducer from './userMeetingsReducer';
 import userReducer from "./userReducer";
+import themesReducer from './themesReduces';
 
 const rootReducer = combineReducers({
     user: userReducer,
-    game: gameReducer,
+    games: gameReducer,
     meetings: meetingsReducer,
     meeting: oneMeetingReducer,
     players: playersReducer,
+    themes: themesReducer,
 
     usermeetings: userMeetingsReducer,
 
