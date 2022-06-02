@@ -1,6 +1,7 @@
 const { User } = require('../../db/models');
 
 const editUser = async (req, res) => {
+
   let updatedFields = Object.entries(req.body).filter((el) => el[1]);
   const puthPhoto = req.file.path.slice(6);
   console.log(puthPhoto, '<------------');
@@ -12,6 +13,7 @@ const editUser = async (req, res) => {
       // eslint-disable-next-line max-len
       // console.log('==>', updatedFields);
       console.log('>>>>>>>>>>>>>>>', updatedFields);
+
       const [, updatedUser] = await User.update(updatedFields, {
         where: { id: req.session.user.id },
         returning: true,

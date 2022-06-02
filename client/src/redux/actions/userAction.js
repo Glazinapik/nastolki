@@ -2,6 +2,7 @@ import * as endPoints from '../../config/endPoints';
 import { SET_USER, SIGNOUT_USER } from '../types';
 import axios from 'axios';
 import { showError } from './errorsAction';
+
 axios.defaults.withCredentials = true;
 
 export const setUser = (user) => ({
@@ -57,6 +58,7 @@ export const setUser = (user) => ({
     });
     if (response.status === 200) {
       const user = await response.json();
+      console.log('signIn======>',user);
       dispatch(setUser(user));
       dispatch(showError(null));
       navigate('/meetings')

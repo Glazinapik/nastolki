@@ -10,6 +10,7 @@ const getRelatedGames = async (req, res) => {
     res.sendStatus(500);
   }
 };
+
 const getAllGames = async (req, res) => {
   try {
     const allGames = await Theme.findAll({ include: { model: Game } });
