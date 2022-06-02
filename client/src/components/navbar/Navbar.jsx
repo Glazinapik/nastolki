@@ -37,14 +37,6 @@ function Navbar() {
                                             to="/addmeeting"
                                             className="nav-link"
                                         >
-                                            Игры
-                                        </NavLink>
-                                    </li>
-                                    <li className="nav-item">
-                                        <NavLink
-                                            to="/addmeeting"
-                                            className="nav-link"
-                                        >
                                             Добавить встречу
                                         </NavLink>
                                     </li>   

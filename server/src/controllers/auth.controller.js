@@ -10,7 +10,7 @@ const signUp = async (req, res) => {
         userName,
         password: sha256(password),
         email,
-        photo: 'https://avatars.mds.yandex.net/get-pdb/1996600/d1725ec1-41d3-4b2c-ab24-91ec603557bf/s375',
+        photo: '/img/startFoto.jpeg',
       });
       req.session.user = {
         id: newUser.id,
@@ -32,14 +32,17 @@ const signIn = async (req, res) => {
 
   if (password && email) {
     try {
-      const currentUser = await User.findOne({ where: { email } });
+      const currentUser = await User.findOne({ where: { email }, raw: true });
       if (currentUser && currentUser.password === sha256(password)) {
         req.session.user = {
           id: currentUser.id,
           name: currentUser.name,
         };
-
-        return res.json({ id: currentUser.id, name: currentUser.userName });
+        console.log(currentUser);
+        // currentUser.name = currentUser.userName;
+        // delete currentUser.userName;
+        // return res.json({ id: currentUser.id, name: currentUser.userName });
+        return res.json(currentUser);
       }
       return res.sendStatus(401);
     } catch (error) {

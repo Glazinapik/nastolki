@@ -2,6 +2,7 @@ import * as endPoints from '../../config/endPoints';
 import { SET_USER, SIGNOUT_USER } from '../types';
 import axios from 'axios';
 import { showError } from './errorsAction';
+axios.defaults.withCredentials = true;
 
 export const setUser = (user) => ({
     type: SET_USER,
@@ -98,7 +99,7 @@ export const setUser = (user) => ({
   export const editUser = (user, navigate) => async (dispatch) => {
     const file = new FormData();
     for(let key in user) file.append(key, user[key]);
-    console.log(file.get('file'), '<1111111111111111');
+    console.log(user, '<1111111111111111');
 
     const response = await axios.patch(endPoints.editUser(user.id),file,{
       headers: {
@@ -107,6 +108,7 @@ export const setUser = (user) => ({
     })
     if(response.statusText == 'OK'){
       const userData = response.data;
+      console.log(userData, 222222222222222);
       dispatch(setUser(userData));
       //navigate(`/users/${userData.id}`);
     } else {
