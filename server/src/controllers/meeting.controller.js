@@ -54,9 +54,7 @@ const getMeeting = async (req, res) => {
       include: { model: User, as: 'owner' },
     });
 
-
     // console.log(currentMeeting)
-
 
     res.json(currentMeeting); // возвращает 1 meeting
   } catch (error) {
@@ -66,8 +64,7 @@ const getMeeting = async (req, res) => {
 
 const getAllMeetings = async (req, res) => {
   try {
-
-    const allMeetings = await Meeting.findAll({ include: {model:User, as:'owner'}});
+    const allMeetings = await Meeting.findAll({ include: { model: User, as: 'owner' } });
 
     return res.json(allMeetings); // возвращает все meeting
   } catch (error) {
@@ -105,7 +102,6 @@ const getMeetingsOfUser = async (req, res) => {
     // console.dir(JSON.parse(JSON.stringify(allPlayers)), {depth: null})
 
     return res.json(allMeetings.Meetings);
-
   } catch (error) {
     // console.log(error)
 

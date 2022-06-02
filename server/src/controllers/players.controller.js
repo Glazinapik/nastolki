@@ -48,13 +48,13 @@ const getAllPlayers = async (req, res) => {
     const allPlayers = await Meeting.findAll({
       include: {
         model: User,
-        through: {attributes:['flag', 'meeting_id']},
+        through: { attributes: ['flag', 'meeting_id'] },
       },
     });
-    
+
     return res.json(allPlayers);
   } catch (error) {
-    console.log(error)
+    console.log(error);
     return res.sendStatus(500);
   }
 };
