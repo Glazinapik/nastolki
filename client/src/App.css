@@ -310,3 +310,66 @@ label{
   font-size: 20px;
   font-weight: 900;
 }
+.gamesPage{
+  display:flex ;
+}
+.games{
+  display: flex; 
+  flex-wrap: wrap;
+  justify-content: space-around;
+  text-align: center;
+  min-width: 84vw
+}
+.picture{
+  width: 18vw;
+  height: 18vw;
+  border-radius: 20px;
+}
+/* *{
+  border: #ff5050 1px solid;
+} */
+.oneGame{
+  margin: 40px;
+  width: 25%;
+  border-radius: 20px;
+  background-color: rgb(42, 81, 112);
+  padding: 10px;
+  cursor: pointer;
+}
+.oneGame:hover{
+  box-shadow: 0px 0px 30px rgb(246, 220, 127);
+  transition: 0.2s;
+}
+.themes{
+  padding: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+  background-color: rgba(42, 80, 112, 0.59);
+  text-align: center;
+  min-height: 88vh;
+
+}
+.opis{
+  width: 300px;
+  text-align: center;
+  margin: 10px;
+}
+.gameI{
+  width: 100%;
+  padding: 15px;
+  background-color: rgba(42, 80, 112, 0.364);
+}
+.inp{
+  margin: 0 auto;
+}
+.theme{
+  cursor: pointer;
+}
+.theme:hover{
+  color: transparent;    
+	-webkit-background-clip: text;
+	background-clip: text;
+	background-image: linear-gradient(to bottom, rgb(251,233,121), rgb(204,147,75));
+  transition: 0.2s;
+  
+}

@@ -32,14 +32,7 @@ function Navbar() {
                                             Все вcтречи
                                         </NavLink>
                                     </li>
-                                    <li className="nav-item">
-                                        <NavLink
-                                            to="/addmeeting"
-                                            className="nav-link"
-                                        >
-                                            Игры
-                                        </NavLink>
-                                    </li>
+                                   
                                     <li className="nav-item">
                                         <NavLink
                                             to="/addmeeting"

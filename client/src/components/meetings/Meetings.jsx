@@ -47,7 +47,7 @@ function Meetings() {
     navigate(link)
   }
  const sortedMeetengs = meetings.sort((a, b) => new Date(a.date)-new Date(b.date))
- console.log(sortedMeetengs, '==========');
+
 
   const [searchInput, setSearchInput] = useState('')
   const [searchByGame, setSearchByGame] = useState('')

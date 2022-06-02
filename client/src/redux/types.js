@@ -7,6 +7,8 @@ export const ADD_MEETING = 'ADD_MEETING'; // добавление новой в�
 export const DELETE_ALL_MEETING = 'DELETE_ALL_MEETING';
 
 export const GET_GAMES = 'GET_GAMES';
+export const GET_THEMES = 'GET_THEMES';
+
 export const SET_ONE_MEETING = 'SET_ONE_MEETING'//одна конкретная встреча
 
 
