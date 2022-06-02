@@ -6,6 +6,7 @@ import { getOneMeeting } from "../../redux/actions/oneMeetingAction";
 import { confirmPlayerFlag, createNewPlayer, deleteOnePlayer, getPlayersFromServer } from "../../redux/actions/playersAction";
 
 
+
 function Meeting() {
   const { id } = useParams();
 
@@ -62,6 +63,55 @@ function Meeting() {
   if (!meeting) {
     return <div>LOADING</div>
   } else {
+
+
+// function Meeting() { 
+//     const {id} = useParams();
+//     console.log(id)
+//     const [showModal, setShowModal] = useState(false);
+//     // const [showButton, setShowButton] = useState(true);
+    
+//     const dispatch = useDispatch();
+//     const meeting = useSelector(state => state.meeting);
+
+//     useEffect(() => {
+//       dispatch(getOneMeeting(id))
+//       dispatch(getPlayersFromServer(id))
+//     }, [])
+
+   
+//     const user = useSelector(state => state.user);
+//     const players = useSelector(state => state.players);
+//     console.log(meeting)
+//     console.log(players, 11111)
+
+//     const truePlayers = players?.filter(player => player.Players && player.Players.flag == true)
+
+//     const falsePlayers = players?.filter(player => player.Players && player.Players.flag == false)
+
+//     // console.log(players,'players!!!!!!!!!!!')
+
+//     const isPlayer = players?.filter(player => player.Players && player.id == user.id)
+//     // console.log(isPlayer,'isplayers')
+    
+  
+//     const addPlayer = (playerId) => {
+//       dispatch(confirmPlayerFlag(playerId, id))
+//     }
+
+//     const takePartHandler = () => {
+//       setShowModal(true);
+//       dispatch(createNewPlayer(id));
+      
+//     }
+
+//     const deletePlayerHandler = (playerId) => {
+//       dispatch(deleteOnePlayer(playerId, id))
+//     }
+//     if(!meeting){
+//       return <div>LOADING</div>
+//     } else {
+  
 
     return (
       <>

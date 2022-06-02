@@ -30,6 +30,7 @@ import { GET_GAMES } from '../types';
     });
     if (response.status === 200) {
       const games = await response.json();
+      console.log(games, '!!!!!11');
       dispatch(getGames(games));
     }
   };

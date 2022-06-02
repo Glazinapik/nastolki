@@ -39,12 +39,13 @@ function MyMeetings() {
 
   return (
     <>
-      <div>Мои встречи:</div>
-      {myMeetings.length ?
-        myMeetings.map(meeting =>
-            <div className="carda" onClick={() => linkHandler(`/meeting/${meeting.id}`)}>
+    <div className="myMeetings">
+      <div className="half"><h1>Ваши встречи:</h1>
+        {myMeetings.length ?
+          myMeetings.map(meeting =>
+            <div className="carda my" onClick={() => linkHandler(`/meeting/${meeting.id}`)}>
               <div className="txt">
-                <p>
+                <p className="p">
                   <span className="span">Название игры:</span>  {meeting.title}
                 </p>
                 <p>
@@ -55,56 +56,102 @@ function MyMeetings() {
                 </p>
               </div>
             </div>)
-        : <div>Пока нет встреч 😟</div>}
-
-      <div>Встречи, которые вы бы хотели посетить:</div>
-      {usermeetings.length ? 
+          : <div>Пока нет встреч 😟</div>}
+    </div>
+    <div className="half"><h1>Встречи, на которые вы хотите пойти:</h1>
+    {usermeetings.length ? 
       usermeetings.map(meeting => 
       (meeting.Players.flag === true) ? 
-      (<div style={{backgroundColor: 'green'}} className="carda" onClick={() => linkHandler(`/meeting/${meeting.id}`)}>
+// <<<<<<< client_Anna
+//       (<div style={{backgroundColor: 'green'}} className="carda" onClick={() => linkHandler(`/meeting/${meeting.id}`)}>
+//        <div className="txt">
+//                 <p>
+//                   <span className="span">Название игры:</span>  {meeting.title}
+//                 </p>
+//                 <p>
+//                   <span className="span">Место проведения:</span> {meeting.place}
+//                 </p>
+//                 <p>
+//                   <span className="span">Дата:</span> {formatDate(meeting.date)}
+//                 </p>
+//                 <p>Заявка на участие одобрена</p>
+//               </div> 
+//               </div>) : 
+//       (meeting.Players.flag === false) ? 
+//       (<div style={{backgroundColor: 'grey'}} className="carda" onClick={() => linkHandler(`/meeting/${meeting.id}`)}>
+//         <div className="txt">
+//                 <p>
+//                   <span className="span">Название игры:</span>  {meeting.title}
+//                 </p>
+//                 <p>
+//                   <span className="span">Место проведения:</span> {meeting.place}
+//                 </p>
+//                 <p>
+//                   <span className="span">Дата:</span> {formatDate(meeting.date)}
+//                 </p>
+//                 <p>Заявка на участие ожидает подтверждения</p>
+//               </div>
+//                </div>) : 
+//       (<div style={{backgroundColor: 'red'}} className="carda" onClick={() => linkHandler(`/meeting/${meeting.id}`)}>
+//         <div className="txt">
+//                 <p>
+//                   <span className="span">Название игры:</span>  {meeting.title}
+//                 </p>
+//                 <p>
+//                   <span className="span">Место проведения:</span> {meeting.place}
+//                 </p>
+//                 <p>
+//                   <span className="span">Дата:</span> {formatDate(meeting.date)}
+//                 </p>
+//                 <p>Заявка на участие отклонена</p>
+// =======
+      (<div style={{backgroundColor: 'green'}} className="carda my" onClick={() => linkHandler(`/meeting/${meeting.id}`)}>
        <div className="txt">
-                <p>
+                <p className="p">
                   <span className="span">Название игры:</span>  {meeting.title}
                 </p>
-                <p>
+                <p className="p"> 
                   <span className="span">Место проведения:</span> {meeting.place}
                 </p>
-                <p>
-                  <span className="span">Дата:</span> {formatDate(meeting.date)}
+                <p className="p">
+                  <span className="span">Дата:</span> {meeting.date}
                 </p>
-                <p>Заявка на участие одобрена</p>
+                <p className="pg">Заявка на участие одобрена</p>
               </div> 
               </div>) : 
       (meeting.Players.flag === false) ? 
-      (<div style={{backgroundColor: 'grey'}} className="carda" onClick={() => linkHandler(`/meeting/${meeting.id}`)}>
+      (<div  className="carda my" onClick={() => linkHandler(`/meeting/${meeting.id}`)}>
         <div className="txt">
-                <p>
+                <p className="p">
                   <span className="span">Название игры:</span>  {meeting.title}
                 </p>
-                <p>
+                <p className="p">
                   <span className="span">Место проведения:</span> {meeting.place}
                 </p>
-                <p>
-                  <span className="span">Дата:</span> {formatDate(meeting.date)}
+                <p className="p">
+                  <span className="span">Дата:</span> {meeting.date}
                 </p>
-                <p>Заявка на участие ожидает подтверждения</p>
+                <p className="ps">Заявка на участие ожидает подтверждения</p>
               </div>
                </div>) : 
-      (<div style={{backgroundColor: 'red'}} className="carda" onClick={() => linkHandler(`/meeting/${meeting.id}`)}>
+      (<div  className="carda my" onClick={() => linkHandler(`/meeting/${meeting.id}`)}>
         <div className="txt">
-                <p>
+                <p className="p">
                   <span className="span">Название игры:</span>  {meeting.title}
                 </p>
-                <p>
+                <p className="p">
                   <span className="span">Место проведения:</span> {meeting.place}
                 </p>
-                <p>
-                  <span className="span">Дата:</span> {formatDate(meeting.date)}
+                <p className="p">
+                  <span className="span">Дата:</span> {meeting.date}
                 </p>
-                <p>Заявка на участие отклонена</p>
+                <p className="pr">Заявка на участие отклонена</p>
+
               </div>  
                </div>)) : 
       <div>Пока нет встреч 😟</div>}
+    </div>
+    </div>
     </>
   );
 }

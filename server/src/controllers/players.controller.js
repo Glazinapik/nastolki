@@ -20,25 +20,25 @@ const addPlayers = async (req, res) => {
   return res.sendStatus(400);
 };
 
-
 const getPlayers = async (req, res) => {
   const { id } = req.params;
-  console.log(id)
+  // console.log(id)
   try {
     const allPlayers = await Meeting.findOne({
-      where: { id ,
-        //'$Users->Players.flag$': true
+      where: {
+        id,
+        // '$Users->Players.flag$': true
       },
       include: {
         model: User,
-        through: {attributes:['flag', 'meeting_id']},
+        through: { attributes: ['flag', 'meeting_id'] },
       },
     });
-    
+
     // console.dir(JSON.parse(JSON.stringify(allPlayers)), {depth: null})
     return res.json(allPlayers.Users); // возвращает всех добавившихся пользоватей
   } catch (error) {
-    console.log(error)
+    // console.log(error)
     return res.sendStatus(500);
   }
 };
@@ -61,24 +61,25 @@ const getAllPlayers = async (req, res) => {
 
 const confirmedPlayer = async (req, res) => {
   const { playersId, meetingId } = req.body;
-    try {
-      // eslint-disable-next-line max-len
-      await Player.update(
-        {flag:true},
-        {where: { user_id: playersId, meeting_id: meetingId }});
-        res.sendStatus(200);
-    } catch (error) {
-      return res.sendStatus(500);
-    }
-  };
-  
+  try {
+    // eslint-disable-next-line max-len
+    await Player.update(
+      { flag: true },
+      { where: { user_id: playersId, meeting_id: meetingId } },
+    );
+    res.sendStatus(200);
+  } catch (error) {
+    return res.sendStatus(500);
+  }
+};
 
 const deletePlayer = async (req, res) => {
   const { playersId, meetingId } = req.body;
   try {
     await Player.update(
-      {flag:null},
-      {where: { user_id: playersId, meeting_id: meetingId }});
+      { flag: null },
+      { where: { user_id: playersId, meeting_id: meetingId } },
+    );
     res.sendStatus(200);
   } catch (error) {
     res.sendStatus(500);
