@@ -10,10 +10,12 @@ import userReducer from "./userReducer";
 import allPlayersReducer from './allPlayersReducer';
 
 import themesReducer from './themesReduces';
+import anotherUserReducer from './anotherUserReducer';
 
 
 const rootReducer = combineReducers({
     user: userReducer,
+    anotheruser: anotherUserReducer,
     games: gameReducer,
     meetings: meetingsReducer,
     meeting: oneMeetingReducer,

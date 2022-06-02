@@ -14,7 +14,6 @@ ul, li {
 }
 
 .container{
-  width: 90vw;
   margin: 0 auto;
 }
 
@@ -95,6 +94,7 @@ img.logo {
   height: 85vh;
   width: 85vh;
   margin-right: auto;
+  margin-left: 50px;
 }
 .photo2{
   height: 74vh;
@@ -153,13 +153,27 @@ padding-right: 10px;
   cursor: pointer;
   
 }
+
+.carda3:hover{
+  background-image: linear-gradient(to bottom, rgb(250, 228, 83), rgb(209, 136, 47));
+  box-shadow: 0px 0px 10px rgb(246, 220, 127);
+}
 .boxForImg{
   position: relative;
   overflow: hidden;
   width: 160px;
   height: 160px;
+  border-radius: 10px;
 }
-
+.box{
+  position: relative;
+  overflow: hidden;
+  width: 20vw;
+  height: 20vw;
+  margin: 20px;
+  margin-top: 0;
+  border-radius: 10px;
+}
 .img{
   position: absolute;
   top: 50%;
@@ -172,9 +186,10 @@ padding-right: 10px;
   border-radius: 10px;
 }
 p{
+  text-align: justify;
   margin: 0;
   font-size: 1em;
-  line-height: 1.2em;
+  line-height: 1.5em;
 }
 .span{
   font-size: 0.7em;
@@ -260,8 +275,12 @@ h1{
   font-size: 20px;
 }
 .img2{
-  margin: 15px;
+  position: absolute;
   border-radius: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
   width: 20vw;
   height: 20vw;
   margin-top: 20px;
@@ -306,9 +325,7 @@ label{
   color: rgba(0, 0, 0, 0.658);
   font-size: 25px;
 }
-.bbb{
-  background-image: url('https://i.pinimg.com/originals/cb/41/7d/cb417d86a87f4c5147f7e38f7a9f21b6.gif');
-}
+
 .line2{
   margin: 10px;
   width: 46%;
@@ -331,12 +348,6 @@ label{
 .games{
   display: flex; 
   flex-wrap: wrap;
-
-}
-.picture{
-  width: 300px;
-  height: 300px;
-
   justify-content: space-around;
   text-align: center;
   min-width: 84vw
@@ -345,18 +356,11 @@ label{
   width: 18vw;
   height: 18vw;
   border-radius: 20px;
-
 }
 /* *{
   border: #ff5050 1px solid;
 } */
 .oneGame{
-  margin: 10px;
-}
-.themes{
-  width: 300%;
-  background-color: rgba(42, 80, 112, 0.59);
-
   margin: 40px;
   width: 25%;
   border-radius: 20px;
@@ -376,19 +380,9 @@ label{
   text-align: center;
   min-height: 88vh;
 
-
 }
 .opis{
   width: 300px;
-
-
-}
-
-.point{
-  font-size: 20px;
-  padding: 5px;
-  height: 30px;
-
   text-align: center;
   margin: 10px;
 }
@@ -410,6 +404,19 @@ label{
 	background-image: linear-gradient(to bottom, rgb(251,233,121), rgb(204,147,75));
   transition: 0.2s;
 }
+
+.theme2{
+  cursor: pointer;
+  
+}
+
+.theme2:hover{
+
+  text-shadow: white 1px 0 10px;
+  
+  transition: 0.2s;
+}
+
 
 .myMeetings{
   display: flex;
@@ -450,6 +457,73 @@ label{
 .pr{
   color: rgb(129, 21, 21);
   font-weight: 900;
+}
 
 
+.modal-dialog{
+  margin: 0 30%;
+  margin-top: 120px;
+  border-radius: 30px;
+}
+.modal-content{
+  width: 50vw;
+  text-align: center;
+}
+
+
+.oneGameModal{
+  width: 90%;
+  color: black;
+  margin: 0 auto;
+}
+
+.opis2{
+  font-size: 40px;
+  font-weight: bold;
+
+}
+.carda2{
+  width: 30vw;
+  /* margin: 7% 10%; */
+  padding-top: 40px;
+  box-shadow: 10px 5px 5px rgb(46,97,118);
+  margin-left: -159px;
+  margin-top: 80px;
+  cursor: default;
+}
+.span2{
+  font-size: 30px;
+  color: rgb(0, 0, 0);
+}
+.span3{
+  font-weight: 600;
+  color: rgba(34, 46, 83, 0.808);
+}
+.fake{
+  display: inline-block;
+  width: 40vw;
+}
+.lastPhoto{
+  width: 100%;
+  margin-left: 160px;
+  margin-top: 40px;
+}
+.hhh{
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+.butt{
+  font-size: 18px;
+  margin-right: 10px;
+
+}
+
+.point{
+  font-size: 25px;
+  font-family: 'Amatic SC', cursive;
+  line-height: 1.5em;
+}
+.aaa2{
+  background-position: center;
 }

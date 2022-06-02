@@ -12,7 +12,6 @@ function Meetings() {
   
   const meetings = useSelector(state => state.meetings);
 
-
   const navigate = useNavigate();
 
   const linkHandler = (link) => {
@@ -31,7 +30,7 @@ function Meetings() {
   }, [])
   
 
- const sortedMeetengs = meetings.sort((a, b) => new Date(a.date)-new Date(b.date))
+  meetings.sort((a, b) => new Date(a.date)-new Date(b.date))
 
 
   const [searchInput, setSearchInput] = useState('')
@@ -49,12 +48,39 @@ function Meetings() {
   }, [searchInput, searchByGame, meetings ])
 
 
-  useEffect(() => {
-    dispatch(getMeetingsFromServer())
-    if (meetings.length){ 
-      ymaps.ready(() => init(meetings, linkHandler))
-    }
-  }, [meetings.length])
+
+  function init() {
+    const myMap = new ymaps.Map("mymap", {
+      center: [55.76, 37.64],
+      zoom: 10,
+      controls: ['zoomControl']
+    });
+  
+    meetings.forEach(meeting =>
+      ymaps.geocode(meeting.place, {
+        results: 1
+      }).then(function (res) {
+        const firstGeoObject = res.geoObjects.get(0),
+          coords = firstGeoObject.geometry.getCoordinates();
+  
+  
+        const myPlacemark = new ymaps.Placemark(coords, {
+          hintContent: `<div class="point">${meeting.title}</div>`,
+        },
+        {
+          iconLayout: 'default#image',
+          iconImageHref: '/img/metka.svg',
+          iconImageSize: [46,57],
+          iconImageOffset: [-23,-57],
+        });
+        myPlacemark.events.add('click', function (e) {
+          window.location = e.get('target').options.get(linkHandler(`/meeting/${meeting.id}`));
+        });
+        myMap.geoObjects.add(myPlacemark);
+  
+      }));
+  }
+
   
   
   return (

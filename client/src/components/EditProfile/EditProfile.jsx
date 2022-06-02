@@ -1,13 +1,31 @@
 import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { getAnotherUserFromServer } from "../../redux/actions/anotherUserAction";
 import { editUser, signUp } from "../../redux/actions/userAction";
 
 
-function EditProfile () {
-  const user = useSelector(state => state.user)
-  console.log(user, 1111111111111111);
-  const [userEdit, setUserEdit] = useState(user?user:{});
+function EditProfile() {
+  const { id } = useParams();
+  console.log(id)
+
+  const dispatch = useDispatch();
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2500)
+  })
+
+  useEffect(() => {
+    dispatch(getAnotherUserFromServer(id))
+  }, [])
+
+  const user = useSelector(state => state.user);
+  const anotheruser = useSelector(state => state.anotheruser);
+
+  const [userEdit, setUserEdit] = useState(user ? user : {});
   const [file, setFile] = useState(null) // avatar
   const navigate = useNavigate();
 
@@ -20,17 +38,12 @@ function EditProfile () {
     setFile(e.target.files[0])
   }
 
-  // useEffect(() => {
 
-  //   console.log(userEdit);
-  // })
-
-  const dispatch = useDispatch();
 
   const submitHandler = (e) => {
     e.preventDefault();
-    if(file) dispatch(editUser({...userEdit, file}, navigate)); // FIX: change with non file
-    else dispatch(editUser({...userEdit}, navigate)); // FIX: change with non file
+    if (file) dispatch(editUser({ ...userEdit, file }, navigate));
+    else dispatch(editUser({ ...userEdit }, navigate));
   };
   // const handleInputs = useCallback((e) => {
   //   if (e.target.type === 'file') {
@@ -44,105 +57,109 @@ function EditProfile () {
   //     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   //   }
   // }, []);
-  return(
+  // console.log(anotheruser.id)
+  // console.log(user.id)
+  return (
     <>
-    <form onSubmit={submitHandler}>
-    <div className="aaa">
+    {isLoading ? <div className="aaa aaa2">
+      
+    </div>:
+<div>
+      {anotheruser?.id == user.id ?
+        <form onSubmit={submitHandler}>
+          <div className="aaa">
 
-<div className="flexy">
-  <div className="avanar">
-    <div className="boxForImg img2">
-      <img className="img img2" src={`http://localhost:3001${user.photo}`} alt=""/>
-    </div>
-  <input onChange={avatarHandler}  type="file" className="form-control upload" name="file"/>
-  </div>
-  <div className="info">
-    <div>
-     <input onChange={changeHandler} className = "form-control input" type="text" placeholder="Имя" name="userName" value={userEdit.userName}/>
-    </div>
-{userEdit?.gender === "Мужской" ? (
-  <div>
-  <label >Пол:</label>
-  <input onChange={changeHandler} type="radio" id="contactChoice1" name="gender" value="Мужской" checked/>
-  
-  <label htmlFor="contactChoice1">Мужской</label>
+            <div className="flexy">
+              <div className="avanar">
+                <div className="box">
+                  <img className="img img2" src={`http://localhost:3001${user.photo}`} alt="" />
+                </div>
+                <input onChange={avatarHandler} type="file" className="form-control upload" name="file" />
+              </div>
+              <div className="info">
+                <div>
+                  <input onChange={changeHandler} className="form-control input" type="text" placeholder="Имя" name="userName" value={userEdit.userName} />
+                </div>
+                {userEdit?.gender === "Мужской" ? (
+                  <div>
+                    <label >Пол:</label>
+                    <input onChange={changeHandler} type="radio" id="contactChoice1" name="gender" value="Мужской" checked />
 
-  <input onChange={changeHandler} type="radio" id="contactChoice2" name="gender" value="Женский"/>
-  <label htmlFor="contactChoice2">Женский</label>
-  </div>
-) : userEdit?.gender === "Женский" ? (
-  <div>
-  <label >Пол:</label>
-  <input onChange={changeHandler} type="radio" id="contactChoice1" name="gender" value="Мужской"/>
-  
-  <label htmlFor="contactChoice1">Мужской</label>
+                    <label htmlFor="contactChoice1">Мужской</label>
 
-  <input onChange={changeHandler} type="radio" id="contactChoice2" name="gender" value="Женский" checked/>
-  <label htmlFor="contactChoice2">Женский</label>
-  </div>
-) : (
-  <div>
-  <label >Пол:</label>
-  <input onChange={changeHandler} type="radio" id="contactChoice1" name="gender" value="Мужской"/>
-  
-  <label htmlFor="contactChoice1">Мужской</label>
+                    <input onChange={changeHandler} type="radio" id="contactChoice2" name="gender" value="Женский" />
+                    <label htmlFor="contactChoice2">Женский</label>
+                  </div>
+                ) : userEdit?.gender === "Женский" ? (
+                  <div>
+                    <label >Пол:</label>
+                    <input onChange={changeHandler} type="radio" id="contactChoice1" name="gender" value="Мужской" />
 
-  <input onChange={changeHandler} type="radio" id="contactChoice2" name="gender" value="Женский"/>
-  <label htmlFor="contactChoice2">Женский</label>
-  </div>
-)
+                    <label htmlFor="contactChoice1">Мужской</label>
 
-}
-  
+                    <input onChange={changeHandler} type="radio" id="contactChoice2" name="gender" value="Женский" checked />
+                    <label htmlFor="contactChoice2">Женский</label>
+                  </div>
+                ) : (
+                  <div>
+                    <label >Пол:</label>
+                    <input onChange={changeHandler} type="radio" id="contactChoice1" name="gender" value="Мужской" />
 
-    
-    
+                    <label htmlFor="contactChoice1">Мужской</label>
 
-    <div>
+                    <input onChange={changeHandler} type="radio" id="contactChoice2" name="gender" value="Женский" />
+                    <label htmlFor="contactChoice2">Женский</label>
+                  </div>
+                )
 
-     <input onChange={changeHandler} className = "form-control input line" type="text" placeholder="Город" name="city" value={userEdit.city}/>
-     <input onChange={changeHandler} className = "form-control input line" type="number" placeholder="Возраст" name="dateborn" value={userEdit.dateborn}/>
+                }
+                <div>
 
-    </div>
-  
-    <div className="div3">
-      <textarea onChange={changeHandler} className = "form-control input area" type="text" placeholder="Обо мне" name="info" value={userEdit.info}/>
-    </div>
-     <button className="btn btn-primary button"  type="submit">Сохранить</button>
-  </div>
-</div>
-    </div>
-      </form>
-    
-{/* 
-      <div className="aaa bbb">
+                  <input onChange={changeHandler} className="form-control input line" type="text" placeholder="Город" name="city" value={userEdit.city} />
+                  <input onChange={changeHandler} className="form-control input line" type="number" placeholder="Возраст" name="dateborn" value={userEdit.dateborn} />
 
-<div className="flexy">
-  <div className="avanar">
-    <div className="box">
-      <img className="img2" src={user.file?user.file:"https://avatars.mds.yandex.net/get-pdb/1996600/d1725ec1-41d3-4b2c-ab24-91ec603557bf/s375"} alt=""/>
-    </div>
-  </div>
-  <div className="info">
-    <div>
-    <label >Имя: Имя пользователя</label>
-    </div>
-    <div>
-    <label >Пол: пол</label>
-    <label >Город: город</label>
-    </div>
-    <div>
-    <label >Возраст: возраст</label>
-    </div>
-    <div>
-    <label >Обо мне:</label>
-    <div>
-      ываываыввава
-    </div>
-    </div>
-  </div>
-</div>
-    </div> */}
+                </div>
+
+                <div className="div3">
+                  <textarea onChange={changeHandler} className="form-control input area" type="text" placeholder="Обо мне" name="info" value={userEdit.info} />
+                </div>
+                <button className="btn btn-primary button" type="submit">Сохранить</button>
+              </div>
+            </div>
+          </div>
+        </form>
+        :
+        (<div className="aaa bbb">
+
+          <div className="flexy">
+            <div className="avanar">
+              <div className="box">
+                <img className="img2" src={`http://localhost:3001${anotheruser?.photo}`} alt="" />
+              </div>
+            </div>
+            <div className="info">
+              <div>
+                <label >Имя: <span className="span3">{anotheruser?.userName}</span></label>
+              </div>
+              <div>
+                {anotheruser?.city ? <label >Город: <span className="span3">{anotheruser?.city}</span></label> : <label >Город: не указан</label>}
+              </div>
+              <div>
+                {anotheruser?.gender !== 'null' ? <label >Пол: <span className="span3">{anotheruser?.gender}</span></label> : <label >Пол: не указан</label>}
+              </div>
+              <div>
+                {anotheruser?.dateborn ? <label >Возраст: <span className="span3">{anotheruser?.dateborn}</span></label> : <label >Возраст: не указан</label>}
+              </div>
+              <div>
+                {anotheruser?.info ? <label >Обо мне: <div><span className="span3">{anotheruser?.info}</span></div></label> : <label >Обо мне: нет информации</label>}
+              </div>
+            </div>
+          </div>
+        </div>)
+      }
+      </div>
+    }
+
     </>
   )
 }

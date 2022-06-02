@@ -26,9 +26,6 @@ function Cardy ({title, place, date, amount, id, owner}) {
     dispatch(getAllPlayersFromServer())
   }, [])
 
-  useEffect(() => console.log(currentPlayers), [currentPlayers])
-
-
 
 function formatDate(date) {
   const day = date.slice(8,10);
@@ -42,7 +39,7 @@ function formatDate(date) {
   return(
     <>
     {owner ?
-    <div className="carda" onClick={()=>linkHandler(`/meeting/${id}`)}>
+    <div className="carda carda3" onClick={()=>linkHandler(`/meeting/${id}`)} >
       <div className="boxForImg">
       <img className="img" src={`http://localhost:3001${owner.photo}`} alt="" />
       </div>
@@ -59,9 +56,7 @@ function formatDate(date) {
           <p>
           <span className="span">Дата:</span> {formatDate(date)}
           </p>
-          <p>
-          <span className="span">Количество участников:</span>{currentPlayers?.Users?.length + 1}/{amount}
-          </p>
+
       </div>
     </div>
     : <div>LOADING</div>}
