@@ -16,6 +16,7 @@ import Games from './components/Games/Games';
 import EditProfile from './components/EditProfile/EditProfile';
 import MyMeetings from './components/mymeetings/MyMeetings';
 import { getMeetingsFromServer } from './redux/actions/meetingsAction';
+import { getGamesFromServer } from './redux/actions/gameAction';
 
 
 
@@ -24,7 +25,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getMeetingsFromServer())
+    dispatch(getMeetingsFromServer());
   }, [])
 
 
@@ -62,7 +63,7 @@ function App() {
           <Route path="/addmeeting" element={<PrivateRoute el={<AddMeeting />} />} />
           <Route path="meeting/:id" element={<PrivateRoute el={<Meeting />} />}/>
           <Route path="/games" element={<PrivateRoute el={<Games />} />}/>
-          <Route path="user/:id" element={<PrivateRoute el={<EditProfile />} />}/>
+          <Route path="/user/:id" element={<PrivateRoute el={<EditProfile />} />}/>
           <Route path="/mymeetings/:id" element={<PrivateRoute el={<MyMeetings />} />}/>
           <Route path="/meeting/:id" element={<PrivateRoute el={<Meeting />} />}/>
 

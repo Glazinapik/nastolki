@@ -306,9 +306,7 @@ label{
   color: rgba(0, 0, 0, 0.658);
   font-size: 25px;
 }
-.bbb{
-  background-image: url('https://i.pinimg.com/originals/cb/41/7d/cb417d86a87f4c5147f7e38f7a9f21b6.gif');
-}
+
 .line2{
   margin: 10px;
   width: 46%;
@@ -331,12 +329,6 @@ label{
 .games{
   display: flex; 
   flex-wrap: wrap;
-
-}
-.picture{
-  width: 300px;
-  height: 300px;
-
   justify-content: space-around;
   text-align: center;
   min-width: 84vw
@@ -345,18 +337,11 @@ label{
   width: 18vw;
   height: 18vw;
   border-radius: 20px;
-
 }
 /* *{
   border: #ff5050 1px solid;
 } */
 .oneGame{
-  margin: 10px;
-}
-.themes{
-  width: 300%;
-  background-color: rgba(42, 80, 112, 0.59);
-
   margin: 40px;
   width: 25%;
   border-radius: 20px;
@@ -376,19 +361,9 @@ label{
   text-align: center;
   min-height: 88vh;
 
-
 }
 .opis{
   width: 300px;
-
-
-}
-
-.point{
-  font-size: 20px;
-  padding: 5px;
-  height: 30px;
-
   text-align: center;
   margin: 10px;
 }
@@ -409,7 +384,7 @@ label{
 	background-clip: text;
 	background-image: linear-gradient(to bottom, rgb(251,233,121), rgb(204,147,75));
   transition: 0.2s;
-
+}
 .myMeetings{
   display: flex;
   text-align: center;
@@ -449,6 +424,27 @@ label{
 .pr{
   color: rgb(129, 21, 21);
   font-weight: 900;
-
-
 }
+
+
+.modal-dialog{
+  margin: 0 30%;
+  margin-top: 120px;
+  border-radius: 30px;
+}
+.modal-content{
+  width: 50vw;
+  text-align: center;
+}
+
+.oneGameModal{
+  width: 90%;
+  color: black;
+  margin: 0 auto;
+}
+
+.opis2{
+  font-size: 40px;
+  font-weight: bold;
+}
+

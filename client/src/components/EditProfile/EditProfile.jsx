@@ -1,12 +1,23 @@
 import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { getAnotherUserFromServer } from "../../redux/actions/anotherUserAction";
 import { editUser, signUp } from "../../redux/actions/userAction";
 
 
 function EditProfile () {
-  const user = useSelector(state => state.user)
-  console.log(user, 1111111111111111);
+  const {id} = useParams();
+  console.log(id)
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAnotherUserFromServer(id))
+  },[])
+
+  const user = useSelector(state => state.user);
+  const anotheruser = useSelector(state => state.anotheruser);
+
   const [userEdit, setUserEdit] = useState(user?user:{});
   const [file, setFile] = useState(null) // avatar
   const navigate = useNavigate();
@@ -20,12 +31,7 @@ function EditProfile () {
     setFile(e.target.files[0])
   }
 
-  useEffect(() => {
 
-    console.log(userEdit);
-  })
-
-  const dispatch = useDispatch();
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -43,8 +49,11 @@ function EditProfile () {
   //     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   //   }
   // }, []);
+  // console.log(anotheruser.id)
+  // console.log(user.id)
   return(
     <>
+    {anotheruser?.id == user.id ?
     <form onSubmit={submitHandler}>
     <div className="aaa">
 
@@ -82,36 +91,32 @@ function EditProfile () {
 </div>
     </div>
       </form>
-    
-{/* 
-      <div className="aaa bbb">
+      :
+        (<div className="aaa bbb">
 
-<div className="flexy">
-  <div className="avanar">
-    <div className="box">
-      <img className="img2" src={user.file?user.file:"https://avatars.mds.yandex.net/get-pdb/1996600/d1725ec1-41d3-4b2c-ab24-91ec603557bf/s375"} alt=""/>
-    </div>
-  </div>
-  <div className="info">
-    <div>
-    <label >Имя: Имя пользователя</label>
-    </div>
-    <div>
-    <label >Пол: пол</label>
-    <label >Город: город</label>
-    </div>
-    <div>
-    <label >Возраст: возраст</label>
-    </div>
-    <div>
-    <label >Обо мне:</label>
-    <div>
-      ываываыввава
-    </div>
-    </div>
-  </div>
-</div>
-    </div> */}
+          <div className="flexy">
+            <div className="avanar">
+              <div className="box">
+                <img className="img2" src={anotheruser?.img} alt="" />
+              </div>
+            </div>
+            <div className="info">
+              <div>
+                <label >Имя: <span className="span3">{anotheruser?.userName}</span></label>
+              </div>
+              <div>
+              {anotheruser?.city ? <label >Город: <span className="span3">{anotheruser?.city}</span></label> : <label >Город: не указан</label>}
+              </div>
+              <div>
+              {anotheruser?.dateborn ? <label >Возраст: <span className="span3">{anotheruser?.dateborn}</span></label> : <label >Возраст: не указан</label>}
+              </div>
+              <div>
+              {anotheruser?.info ? <label >Обо мне: <div><span className="span3">{anotheruser?.info}</span></div></label> : <label >Обо мне: нет информации</label>}
+              </div>
+            </div>
+          </div>
+        </div>)
+} 
     </>
   )
 }

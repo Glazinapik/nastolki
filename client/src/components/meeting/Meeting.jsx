@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Button, Card, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getOneMeeting } from "../../redux/actions/oneMeetingAction";
 import { confirmPlayerFlag, createNewPlayer, deleteOnePlayer, getPlayersFromServer } from "../../redux/actions/playersAction";
 
@@ -26,8 +26,13 @@ function Meeting() {
 
   const isPlayer = players?.filter(player => player.Players && player.id == user.id);
 
-  const amountOfPlayers = truePlayers.length + 1
+  const amountOfPlayers = truePlayers.length + 1;
 
+  const navigate = useNavigate();
+
+  const linkHandler = (link) => {
+    navigate(link)
+  }
 
   useEffect(() => {
     dispatch(getOneMeeting(id))
@@ -124,8 +129,8 @@ function Meeting() {
               <Card.Text>Адрес :{meeting.place}</Card.Text>
               <Card.Text>Дата проведения :{formatDate(meeting.date)}</Card.Text>
               <Card.Text>Количество участников :{amountOfPlayers}/{meeting.amount}</Card.Text>
-              <Card.Text>Хотят участвовать : {falsePlayers.length ? falsePlayers.map(player => <div><p>{player.userName}</p><Button onClick={() => addPlayer(player.id)} >Подтвердить участие</Button><Button onClick={() => deletePlayerHandler(player.id)}>Отклонить</Button></div>) : <div>Нет заявок на участие</div>}</Card.Text>
-              <Card.Text>Участники : <div>{meeting?.owner?.userName}(это Вы)</div> {truePlayers.map(player => <div><p>{player.userName}</p></div>)}</Card.Text>
+              <Card.Text>Хотят участвовать : {falsePlayers.length ? falsePlayers.map(player => <div><p onClick={()=>linkHandler(`/user/${player.id}`)}>{player.userName}</p><Button onClick={() => addPlayer(player.id)} >Подтвердить участие</Button><Button onClick={() => deletePlayerHandler(player.id)}>Отклонить</Button></div>) : <div>Нет заявок на участие</div>}</Card.Text>
+              <Card.Text>Участники : <div onClick={()=>linkHandler(`/user/${meeting.owner_id}`)}>{meeting?.owner?.userName}(это Вы)</div> {truePlayers.map(player => <div><p onClick={()=>linkHandler(`/user/${player.id}`)}>{player.userName}</p></div>)}</Card.Text>
             </Card.Body>
           </Card>
           :
@@ -135,7 +140,7 @@ function Meeting() {
               <Card.Text>Адрес : {meeting.place}</Card.Text>
               <Card.Text>Дата проведения : {formatDate(meeting.date)}</Card.Text>
               <Card.Text>Количество участников : {amountOfPlayers}/{meeting.amount}</Card.Text>
-              <Card.Text>Участники : <div>{meeting?.owner?.userName}(создатель встречи)</div>{truePlayers.map(player => <div><p>{player.userName}</p></div>)}</Card.Text>
+              <Card.Text>Участники : <div onClick={()=>linkHandler(`/user/${meeting.owner_id}`)}>{meeting?.owner?.userName}(создатель встречи)</div>{truePlayers.map(player => <div><p onClick={()=>linkHandler(`/user/${player.id}`)}>{player.userName}</p></div>)}</Card.Text>
               {!isPlayer.length && <Button onClick={takePartHandler}>Хочу учавствовать !</Button>}
             </Card.Body>
           </Card>}

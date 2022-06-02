@@ -42,7 +42,7 @@ function formatDate(date) {
   return(
     <>
     {owner ?
-    <div className="carda" onClick={()=>linkHandler(`/meeting/${id}`)}>
+    <div className="carda" onClick={()=>linkHandler(`/meeting/${id}`)} >
       <div className="boxForImg">
       <img className="img" src={`http://localhost:3001${owner.photo}`} alt="" />
       </div>
