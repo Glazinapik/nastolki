@@ -5,6 +5,9 @@ const checkAuthor = require('../middlewares/checkAuthor');
 
 const playersRouter = Router();
 
+playersRouter.route('/all')
+.get(playersController.getAllPlayers)
+
 playersRouter.route('/:id')
   .get(checkAuth, playersController.getPlayers)
   .post(checkAuth, playersController.addPlayers)

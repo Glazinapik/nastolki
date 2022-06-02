@@ -1,14 +1,23 @@
+
+import { useEffect } from "react";
+
 // import { useParams } from "react-router-dom";
 // import { useSelector } from "react-redux";
 
 import { useEffect, useMemo, useState } from "react";
+
 import { useDispatch, useSelector } from "react-redux";
 import { getGamesFromServer } from "../../redux/actions/gameAction";
 import { getThemesFromServer } from "../../redux/actions/themesAction";
 
 
 
+
 function Games() {
+
+  const games = useSelector(state => state.games);
+  // const themes = useSelector(state => state.themes)
+
   const dispatch = useDispatch();
   useEffect(() => {
      dispatch(getGamesFromServer())
@@ -48,6 +57,7 @@ return (
   <>
 <div className="gamesPage">
   <div className="themes">
+
    <h1 className='theme' onClick={() => setNewGames(games.map(themes => themes.Games).flat())}> Темы</h1>
  {newThemes?.map((theme)=><div onClick={() => chooseTheme(theme)}  className="theme">{theme}</div>)} 
   </div>
@@ -59,6 +69,7 @@ return (
   {search.length ? search.map(game => <div className="oneGame"><div><img className='picture' src={game.img} alt="" /></div> <div className="opis">{game.title}</div></div> ) : <div>Пока нет игр</div>}
     </div>
    
+
     </div>
 </div>
   

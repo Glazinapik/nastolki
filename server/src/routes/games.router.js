@@ -18,6 +18,7 @@ const gamesController = require('../controllers/games.controller');
 const gamesRouter = Router();
 
 gamesRouter.get('/all', checkAuth, gamesController.getAllGames);
+
 gamesRouter.route('/:id')
 
   .get(checkAuth, gamesController.getRelatedGames);
