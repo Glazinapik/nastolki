@@ -1,9 +1,4 @@
 
-import { useEffect } from "react";
-
-// import { useParams } from "react-router-dom";
-// import { useSelector } from "react-redux";
-
 import { useEffect, useMemo, useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -14,10 +9,6 @@ import { getThemesFromServer } from "../../redux/actions/themesAction";
 
 
 function Games() {
-
-  const games = useSelector(state => state.games);
-  // const themes = useSelector(state => state.themes)
-
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getGamesFromServer())
