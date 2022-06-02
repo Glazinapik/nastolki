@@ -19,5 +19,6 @@ export const getGamesByTheme = (id) => `${host}/games/${id}`;
 export const getMeeting = (id) => `${host}/meeting/${id}`;
 
 export const players = (id) => `${host}/players/${id}`; //передаю айди встречи
+export const allplayers = (id) => `${host}/players/all`; 
 
 export const getUserMeetings = (id) => `${host}/meeting/user/${id}`;
