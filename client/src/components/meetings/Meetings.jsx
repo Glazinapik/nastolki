@@ -52,7 +52,7 @@ function Meetings() {
   function init() {
     const myMap = new ymaps.Map("mymap", {
       center: [55.76, 37.64],
-      zoom: 8,
+      zoom: 10,
       controls: ['zoomControl']
     });
   
@@ -67,9 +67,12 @@ function Meetings() {
         const myPlacemark = new ymaps.Placemark(coords, {
           hintContent: `<div class="point">${meeting.title}</div>`,
         },
-          {
-            preset: 'islands#violetStretchyIcon'
-          });
+        {
+          iconLayout: 'default#image',
+          iconImageHref: '/img/metka.svg',
+          iconImageSize: [46,57],
+          iconImageOffset: [-23,-57],
+        });
         myPlacemark.events.add('click', function (e) {
           window.location = e.get('target').options.get(linkHandler(`/meeting/${meeting.id}`));
         });
