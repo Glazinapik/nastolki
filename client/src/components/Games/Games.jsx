@@ -1,40 +1,35 @@
 
+
+
+import { useParams } from "react-router-dom";
+
+
 import { useEffect, useMemo, useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 import { getGamesFromServer } from "../../redux/actions/gameAction";
 import { getThemesFromServer } from "../../redux/actions/themesAction";
+import GamesModal from "./GamesModal";
 
 
 
 
 function Games() {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getGamesFromServer())
-    // dispatch(getThemesFromServer())
-  },[])
-  const games = useSelector(state => state.games);
 
+  const dispatch = useDispatch();
   const [newThemes, setNewThemes] = useState([])
   const [newGames, setNewGames] = useState([])
   const [inputValue, setInputValue] = useState('')
-  useEffect(()=> {
+  useEffect(() => {
+    dispatch(getGamesFromServer());
     const t = games.map(themes => themes.theme)
     const g = games.map(themes => themes.Games).flat()
     setNewThemes(t)
     setNewGames(g)
-    console.log(newGames, '<<<<<<<1>>>>>>>>');
-},[])
+  },[])
 
+  const games = useSelector(state => state.games);
 
-
- 
-  // const navigate = useNavigate();
-
-  // const linkHandler = (link) => {
-  //   navigate(link)
-  // }
 
   const chooseTheme =(them) => {
     const gamesByOneTheme = games.filter(theme => theme.theme === them)
@@ -58,7 +53,7 @@ return (
   <div className='gameI' >
       <input value={inputValue} type="text" onChange={(e) => setInputValue(e.target.value)} className="form-control inp" placeholder=" поиск по названию"/>
       </div>
-  {search.length ? search.map(game => <div className="oneGame"><div><img className='picture' src={game.img} alt="" /></div> <div className="opis">{game.title}</div></div> ) : <div>Пока нет игр</div>}
+  {search.length ? search.map(game => <div className="oneGame"><GamesModal {...game}><div><img className='picture' src={game.img} alt="" /></div></GamesModal> <div className="opis">{game.title}</div></div> ) : <div>Пока нет игр</div>}
     </div>
    
 

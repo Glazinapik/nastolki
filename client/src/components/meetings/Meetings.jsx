@@ -12,7 +12,6 @@ function Meetings() {
   
   const meetings = useSelector(state => state.meetings);
 
-
   const navigate = useNavigate();
 
   const linkHandler = (link) => {
@@ -31,7 +30,7 @@ function Meetings() {
   }, [])
   
 
- const sortedMeetengs = meetings.sort((a, b) => new Date(a.date)-new Date(b.date))
+  meetings.sort((a, b) => new Date(a.date)-new Date(b.date))
 
 
   const [searchInput, setSearchInput] = useState('')

@@ -306,9 +306,7 @@ label{
   color: rgba(0, 0, 0, 0.658);
   font-size: 25px;
 }
-.bbb{
-  background-image: url('https://i.pinimg.com/originals/cb/41/7d/cb417d86a87f4c5147f7e38f7a9f21b6.gif');
-}
+
 .line2{
   margin: 10px;
   width: 46%;
@@ -427,6 +425,29 @@ label{
 .pr{
   color: rgb(129, 21, 21);
   font-weight: 900;
+}
+
+
+.modal-dialog{
+  margin: 0 30%;
+  margin-top: 120px;
+  border-radius: 30px;
+}
+.modal-content{
+  width: 50vw;
+  text-align: center;
+}
+
+
+.oneGameModal{
+  width: 90%;
+  color: black;
+  margin: 0 auto;
+}
+
+.opis2{
+  font-size: 40px;
+  font-weight: bold;
 
 }
 .carda2{
@@ -463,4 +484,6 @@ label{
 .butt{
   font-size: 18px;
   margin-right: 10px;
+
 }
+
