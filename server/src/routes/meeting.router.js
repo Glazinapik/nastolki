@@ -14,4 +14,3 @@ meetingRouter.route('/:id')
 meetingRouter.get('/user/:id', checkAuth, meetingController.getMeetingsOfUser);
 
 module.exports = meetingRouter;
-

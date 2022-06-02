@@ -2,7 +2,6 @@ const { Game, Theme } = require('../../db/models');
 
 const getRelatedGames = async (req, res) => {
   try {
-
     const RelatedGames = await Theme.findall({ include: { model: Game } });
 
     res.json(RelatedGames); // возвращает 1 тему с вложенными играми

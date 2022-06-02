@@ -11,7 +11,7 @@ import { getThemesFromServer } from "../../redux/actions/themesAction";
 function Games() {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getGamesFromServer())
+     dispatch(getGamesFromServer())
   },[])
   const games = useSelector(state => state.games);
 
@@ -24,7 +24,7 @@ function Games() {
     setNewThemes(t)
     setNewGames(g)
     console.log(newGames, '<<<<<<<1>>>>>>>>');
-},[])
+},[games])
 
 
 

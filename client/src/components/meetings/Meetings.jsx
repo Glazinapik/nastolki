@@ -68,7 +68,7 @@ function Meetings() {
     if (meetings.length){ 
       ymaps.ready(() => init(meetings, linkHandler))
     }
-  }, [])
+  }, [meetings.length])
   
   
   return (
