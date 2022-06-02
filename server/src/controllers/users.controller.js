@@ -7,6 +7,7 @@ const editUser = async (req, res) => {
   if (updatedFields.length) {
     updatedFields = Object.fromEntries(updatedFields); // {key:value}
     updatedFields.photo = puthPhoto;
+
     try {
       // eslint-disable-next-line max-len
       // console.log('==>', updatedFields);

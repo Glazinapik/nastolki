@@ -11,6 +11,7 @@ const usersRouter = require('./src/routes/users.router');
 const meetingRouter = require('./src/routes/meeting.router');
 const playersRouter = require('./src/routes/players.router');
 const gamesRouter = require('./src/routes/games.router');
+const { urlencoded } = require('express');
 
 const app = express();
 
@@ -24,6 +25,7 @@ app.use(
     credentials: true,
   }),
 );
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(

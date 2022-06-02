@@ -1,9 +1,9 @@
-const { Theme, Game } = require('../../db/models');
+const { Game, Theme } = require('../../db/models');
 
 const getRelatedGames = async (req, res) => {
   const { id } = req.params;
   try {
-    const RelatedGames = await Theme.findByPk({
+    const RelatedGames = await Theme.findOne({
       where: { id },
       include: Game,
     });
