@@ -15,10 +15,17 @@ import {TransitionGroup, CSSTransition} from 'react-transition-group'
 import Games from './components/Games/Games';
 import EditProfile from './components/EditProfile/EditProfile';
 import MyMeetings from './components/mymeetings/MyMeetings';
+import { getMeetingsFromServer } from './redux/actions/meetingsAction';
 
 
 
 function App() {
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getMeetingsFromServer())
+  }, [])
 
 
 //  const routes = [
