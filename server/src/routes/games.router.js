@@ -19,6 +19,8 @@ const gamesRouter = Router();
 
 gamesRouter.get('/all', checkAuth, gamesController.getAllGames);
 gamesRouter.route('/:id')
+
 .get(gamesController.getRelatedGames);
+
 
 module.exports = gamesRouter;

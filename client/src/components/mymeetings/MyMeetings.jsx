@@ -34,12 +34,13 @@ function MyMeetings() {
 
   return (
     <>
-      <div>Мои встречи:</div>
-      {myMeetings.length ?
-        myMeetings.map(meeting =>
-            <div className="carda" onClick={() => linkHandler(`/meeting/${meeting.id}`)}>
+    <div className="myMeetings">
+      <div className="half"><h1>Ваши встречи:</h1>
+        {myMeetings.length ?
+          myMeetings.map(meeting =>
+            <div className="carda my" onClick={() => linkHandler(`/meeting/${meeting.id}`)}>
               <div className="txt">
-                <p>
+                <p className="p">
                   <span className="span">Название игры:</span>  {meeting.title}
                 </p>
                 <p>
@@ -50,17 +51,58 @@ function MyMeetings() {
                 </p>
               </div>
             </div>)
-        : <div>Пока нет встреч 😟</div>}
-
-      <div>Встречи, которые вы бы хотели посетить:</div>
-      {usermeetings.length ? 
+          : <div>Пока нет встреч 😟</div>}
+    </div>
+    <div className="half"><h1>Встречи, на которые вы хотите пойти:</h1>
+    {usermeetings.length ? 
       usermeetings.map(meeting => 
       (meeting.Players.flag === true) ? 
-      (<div style={{backgroundColor: 'green'}} onClick={() => linkHandler(`/meeting/${meeting.id}`)}>{meeting.title} - заявка на участие одобрена</div>) : 
+      (<div style={{backgroundColor: 'green'}} className="carda my" onClick={() => linkHandler(`/meeting/${meeting.id}`)}>
+       <div className="txt">
+                <p className="p">
+                  <span className="span">Название игры:</span>  {meeting.title}
+                </p>
+                <p className="p"> 
+                  <span className="span">Место проведения:</span> {meeting.place}
+                </p>
+                <p className="p">
+                  <span className="span">Дата:</span> {meeting.date}
+                </p>
+                <p className="pg">Заявка на участие одобрена</p>
+              </div> 
+              </div>) : 
       (meeting.Players.flag === false) ? 
-      (<div style={{backgroundColor: 'grey'}} onClick={() => linkHandler(`/meeting/${meeting.id}`)}>{meeting.title} - заявка на участие ожидает подтверждения</div>) : 
-      (<div style={{backgroundColor: 'red'}} onClick={() => linkHandler(`/meeting/${meeting.id}`)}>{meeting.title} - заявка на участие отклонена</div>)) : 
+      (<div  className="carda my" onClick={() => linkHandler(`/meeting/${meeting.id}`)}>
+        <div className="txt">
+                <p className="p">
+                  <span className="span">Название игры:</span>  {meeting.title}
+                </p>
+                <p className="p">
+                  <span className="span">Место проведения:</span> {meeting.place}
+                </p>
+                <p className="p">
+                  <span className="span">Дата:</span> {meeting.date}
+                </p>
+                <p className="ps">Заявка на участие ожидает подтверждения</p>
+              </div>
+               </div>) : 
+      (<div  className="carda my" onClick={() => linkHandler(`/meeting/${meeting.id}`)}>
+        <div className="txt">
+                <p className="p">
+                  <span className="span">Название игры:</span>  {meeting.title}
+                </p>
+                <p className="p">
+                  <span className="span">Место проведения:</span> {meeting.place}
+                </p>
+                <p className="p">
+                  <span className="span">Дата:</span> {meeting.date}
+                </p>
+                <p className="pr">Заявка на участие отклонена</p>
+              </div>  
+               </div>)) : 
       <div>Пока нет встреч 😟</div>}
+    </div>
+    </div>
     </>
   );
 }

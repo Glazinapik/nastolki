@@ -153,10 +153,21 @@ padding-right: 10px;
   cursor: pointer;
   
 }
-
-.img{
+.boxForImg{
+  position: relative;
+  overflow: hidden;
   width: 160px;
   height: 160px;
+}
+
+.img{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
   margin: 15px;
   border-radius: 10px;
 }
@@ -168,6 +179,8 @@ p{
 .span{
   font-size: 0.7em;
   letter-spacing: -1px;
+  color: #20314b;
+  font-size: 25px;
 }
 .txt{
   text-align: start;
@@ -249,9 +262,10 @@ h1{
 .img2{
   margin: 15px;
   border-radius: 10px;
-  width: 15vw;
-  height: 15vw;
-  margin-top: 30px
+  width: 20vw;
+  height: 20vw;
+  margin-top: 20px;
+  border-radius: 10px;
 }
 .info{
   margin: auto;
@@ -310,6 +324,7 @@ label{
   font-size: 20px;
   font-weight: 900;
 }
+
 .gamesPage{
   display:flex ;
 }
@@ -371,5 +386,45 @@ label{
 	background-clip: text;
 	background-image: linear-gradient(to bottom, rgb(251,233,121), rgb(204,147,75));
   transition: 0.2s;
-  
+
+.myMeetings{
+  display: flex;
+  text-align: center;
+  width: 95vw;
+  margin: 0 auto;
+}
+.half{
+  width: 45vw;
+  margin: 20px auto;
+  background-color: rgba(51, 99, 139, 0.705);
+  padding: 50px;
+  border-radius: 20px;
+  color: black;
+}
+.my{
+  color: black;
+  text-align: center;
+  width: 35vw;
+  margin: 10px auto
+}
+.my:hover{
+  width: 36vw;
+  transition: 0.2s;
+  background-image: linear-gradient(to bottom, rgb(250, 228, 83), rgb(209, 136, 47));
+}
+.txt{
+  margin-left: 50px;
+}
+.pg{
+  color: green;
+  font-weight: 900;
+}
+.ps{
+  color: rgb(68, 68, 68);
+  font-weight: 900;
+}
+.pr{
+  color: rgb(129, 21, 21);
+  font-weight: 900;
+
 }
