@@ -68,8 +68,8 @@ function EditProfile () {
     <label htmlFor="contactChoice2">Женский</label>
     </div>
     <div>
-     <input onChange={changeHandler} className = "form-control input line" type="text" placeholder="Город" name="sity" value={userEdit.sity}/>
-     <input onChange={changeHandler} className = "form-control input line" type="number" placeholder="Возраст" name="age" value={userEdit.age}/>
+     <input onChange={changeHandler} className = "form-control input line" type="text" placeholder="Город" name="city" value={userEdit.sity}/>
+     <input onChange={changeHandler} className = "form-control input line" type="number" placeholder="Возраст" name="dateborn" value={userEdit.age}/>
     </div>
   
     <div className="div3">
