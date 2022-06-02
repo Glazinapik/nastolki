@@ -387,6 +387,7 @@ label{
 	background-image: linear-gradient(to bottom, rgb(251,233,121), rgb(204,147,75));
   transition: 0.2s;
 }
+
 .myMeetings{
   display: flex;
   text-align: center;

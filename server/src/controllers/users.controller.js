@@ -1,7 +1,6 @@
 const { User } = require('../../db/models');
 
 const editUser = async (req, res) => {
-
   let updatedFields = Object.entries(req.body).filter((el) => el[1]);
   const puthPhoto = req.file.path.slice(6);
   console.log(puthPhoto, '<------------');
@@ -23,7 +22,7 @@ const editUser = async (req, res) => {
       console.log('======>', updatedUser);
       return res.json(updatedUser);
     } catch (error) {
-      // console.log(error);
+      console.log(error);
       return res.sendStatus(500);
     }
   }

@@ -20,10 +20,10 @@ function EditProfile () {
     setFile(e.target.files[0])
   }
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    console.log(userEdit);
-  })
+  //   console.log(userEdit);
+  // })
 
   const dispatch = useDispatch();
 
