@@ -43,6 +43,22 @@ const getPlayers = async (req, res) => {
   }
 };
 
+const getAllPlayers = async (req, res) => {
+  try {
+    const allPlayers = await Meeting.findAll({
+      include: {
+        model: User,
+        through: {attributes:['flag', 'meeting_id']},
+      },
+    });
+    
+    return res.json(allPlayers);
+  } catch (error) {
+    console.log(error)
+    return res.sendStatus(500);
+  }
+};
+
 const confirmedPlayer = async (req, res) => {
   const { playersId, meetingId } = req.body;
     try {
@@ -74,4 +90,5 @@ module.exports = {
   addPlayers,
   deletePlayer,
   confirmedPlayer,
+  getAllPlayers,
 };

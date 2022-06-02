@@ -17,7 +17,8 @@ export const SET_ONE_MEETING = 'SET_ONE_MEETING'//одна конкретная 
 // export const DELETE_PLAYER = 'DELETE_PLAYER'; //отклоняем заявку участника
 
 
-export const SET_PLAYERS = 'SET_PLAYERS'; //все игроки
+export const SET_PLAYERS = 'SET_PLAYERS'; 
+export const SET_ALL_PLAYERS = 'SET_ALL_PLAYERS';
 export const ADD_PLAYER = 'ADD_PLAYER';
 export const CONFIRM_PLAYER = 'CONFIRM_PLAYER';
 export const DELETE_PLAYER = 'DELETE_PLAYER';
