@@ -47,6 +47,14 @@ function Meetings() {
     return meetings
   }, [searchInput, searchByGame, meetings ])
 
+  function formatDate(date) {
+    const day = date.slice(8,10);
+    const month = date.slice(5,7);
+    const year = date.slice(0,4);
+    const time = date.slice(11);
+    return `${day}/${month}/${year} ${time}`;
+  }
+
 
 
   function init() {
@@ -65,7 +73,7 @@ function Meetings() {
   
   
         const myPlacemark = new ymaps.Placemark(coords, {
-          hintContent: `<div class="point">${meeting.title}</div>`,
+          hintContent: `<div class="point">${meeting?.title}</div><div class="point">${formatDate(meeting?.date)}</div>`,
         },
         {
           iconLayout: 'default#image',
