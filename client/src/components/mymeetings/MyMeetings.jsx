@@ -114,7 +114,7 @@ function MyMeetings() {
                   <span className="span">Место проведения:</span> {meeting.place}
                 </p>
                 <p className="p">
-                  <span className="span">Дата:</span> {meeting.date}
+                  <span className="span">Дата:</span> {formatDate(meeting.date)}
                 </p>
                 <p className="pg">Заявка на участие одобрена</p>
               </div> 
@@ -129,7 +129,7 @@ function MyMeetings() {
                   <span className="span">Место проведения:</span> {meeting.place}
                 </p>
                 <p className="p">
-                  <span className="span">Дата:</span> {meeting.date}
+                  <span className="span">Дата:</span> {formatDate(meeting.date)}
                 </p>
                 <p className="ps">Заявка на участие ожидает подтверждения</p>
               </div>
@@ -143,7 +143,7 @@ function MyMeetings() {
                   <span className="span">Место проведения:</span> {meeting.place}
                 </p>
                 <p className="p">
-                  <span className="span">Дата:</span> {meeting.date}
+                  <span className="span">Дата:</span> {formatDate(meeting.date)}
                 </p>
                 <p className="pr">Заявка на участие отклонена</p>
 

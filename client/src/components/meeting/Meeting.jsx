@@ -151,8 +151,8 @@ function Meeting() {
               <p>
                 <span className="span2">Количество участников :<span className="span3">{amountOfPlayers}/{meeting.amount}</span></span>
               </p>
-                <span className="span2">Хотят участвовать : <span className="span3">{falsePlayers.length ? falsePlayers.map(player => <div><p onClick={()=>linkHandler(`/user/${player.id}`)}>{player.userName}</p><button className="btn btn-primary button butt" onClick={() => addPlayer(player.id)} >Подтвердить участие</button><button className="btn btn-primary button butt" onClick={() => deletePlayerHandler(player.id)}>Отклонить</button></div>) : <div>Нет заявок на участие</div>}</span></span>
-                <span className="span2">Участники :<span className="span3"><div className="theme2" onClick={()=>linkHandler(`/user/${meeting.owner_id}`)}>{meeting?.owner?.userName}(это Вы)</div> {truePlayers.map(player => <div className="theme2"><p onClick={()=>linkHandler(`/user/${player.id}`)}>{player.userName}</p></div>)}</span></span> 
+                <span className="span2">Хотят участвовать : <span className="span3">{falsePlayers.length ? falsePlayers.map(player => <div className="theme2"><p onClick={()=>linkHandler(`/user/${player.id}`)}><div className="div6"><div className="div5"><img className="img5" src={`http://localhost:3001${player.photo}`} alt=""/></div><div className="div7">{player.userName}</div></div></p><button className="btn btn-primary button butt" onClick={() => addPlayer(player.id)} >Подтвердить участие</button><button className="btn btn-primary button butt" onClick={() => deletePlayerHandler(player.id)}>Отклонить</button></div>) : <div>Нет заявок на участие</div>}</span></span>
+                <span className="span2">Участники :<span className="span3"><div className="theme2" onClick={()=>linkHandler(`/user/${meeting.owner_id}`)}><div className="div6"><div className="div5"><img className="img5" src={`http://localhost:3001${meeting?.owner?.photo}`} alt=""/></div><div className="div7">{meeting?.owner?.userName}(это Вы)</div></div></div> {truePlayers.map(player => <div className="theme2"><p onClick={()=>linkHandler(`/user/${player.id}`)}><div className="div6"><div className="div5"><img className="img5" src={`http://localhost:3001${player.photo}`} alt=""/></div><div className="div7">{player.userName}</div></div></p></div>)}</span></span> 
               </div>
           </div>
           <div className="fake">
@@ -182,8 +182,8 @@ function Meeting() {
 //               {!isPlayer.length && <Button onClick={takePartHandler}>Хочу учавствовать !</Button>}
 //             </Card.Body> */}
 
-             <span className="span2">Участники :<span className="span3"><div className="theme2" onClick={()=>linkHandler(`/user/${meeting.owner_id}`)}>{meeting?.owner?.userName}(создатель встречи)</div>{truePlayers.map(player => <div className="theme2"><p onClick={()=>linkHandler(`/user/${player.id}`)}>{player.userName}</p></div>)}</span></span>
-              {!isPlayer.length && <button className="btn btn-primary button butt" onClick={takePartHandler}>Хочу учавствовать !</button>}
+             <span className="span2">Участники :<span className="span3"><div className="theme2" onClick={()=>linkHandler(`/user/${meeting.owner_id}`)}><div className="div6"><div className="div5"><img className="img5" src={`http://localhost:3001${meeting?.owner?.photo}`} alt=""/></div><div className="div7">{meeting?.owner?.userName }(создатель встречи)</div></div></div>{truePlayers.map(player => <div className="theme2"><p onClick={()=>linkHandler(`/user/${player.id}`)}><div className="div6"><div className="div5"><img className="img5" src={`http://localhost:3001${player.photo}`} alt=""/></div><div className="div7">{player.userName}</div></div></p></div>)}</span></span>
+              {!isPlayer.length && <button className="btn btn-primary button butt batt2" onClick={takePartHandler}>Хочу учавствовать !</button>}
             </div>
 
           </div>
