@@ -70,10 +70,10 @@ function EditProfile () {
     </div>
     <div>
     <label >Пол:</label>
-    <input onChange={changeHandler} type="radio" id="contactChoice1" name="gender" value={userEdit.gender}/>
+    <input onChange={changeHandler} type="radio" id="contactChoice1" name="gender" value='мужской' />
     <label htmlFor="contactChoice1">Мужской</label>
 
-    <input onChange={changeHandler} type="radio" id="contactChoice2" name="gender" value={userEdit.gender}/>
+    <input onChange={changeHandler} type="radio" id="contactChoice2" name="gender" value="женский"/>
     <label htmlFor="contactChoice2">Женский</label>
     </div>
     <div>

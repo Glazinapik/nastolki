@@ -169,9 +169,9 @@ function Meeting() {
               <Card.Text>Дата проведения : {formatDate(meeting.date)}</Card.Text>
               <Card.Text>Количество участников : {amountOfPlayers}/{meeting.amount}</Card.Text>
 
-//               <Card.Text>Участники : <div onClick={()=>linkHandler(`/user/${meeting.owner_id}`)}>{meeting?.owner?.userName}(создатель встречи)</div>{truePlayers.map(player => <div><p onClick={()=>linkHandler(`/user/${player.id}`)}>{player.userName}</p></div>)}</Card.Text>
+{/* //               <Card.Text>Участники : <div onClick={()=>linkHandler(`/user/${meeting.owner_id}`)}>{meeting?.owner?.userName}(создатель встречи)</div>{truePlayers.map(player => <div><p onClick={()=>linkHandler(`/user/${player.id}`)}>{player.userName}</p></div>)}</Card.Text>
 //               {!isPlayer.length && <Button onClick={takePartHandler}>Хочу учавствовать !</Button>}
-//             </Card.Body>
+//             </Card.Body> */}
 
               <Card.Text>Участники : <div onClick={()=>linkHandler(`/user/${meeting.owner_id}`)}>{meeting?.owner?.userName}(создатель встречи)</div>{truePlayers.map(player => <div><p onClick={()=>linkHandler(`/user/${player.id}`)}>{player.userName}</p></div>)}</Card.Text>
               {!isPlayer.length && <button className="btn btn-primary button butt" onClick={takePartHandler}>Хочу учавствовать !</button>}
