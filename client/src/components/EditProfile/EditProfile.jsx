@@ -62,6 +62,7 @@ function EditProfile() {
   return (
     <>
 <<<<<<< HEAD
+<<<<<<< HEAD
     {anotheruser?.id == user.id ?
     <form onSubmit={submitHandler}>
     <div className="aaa">
@@ -102,6 +103,49 @@ function EditProfile() {
       </form>
       :
 =======
+=======
+
+//     {anotheruser?.id == user.id ?
+//     <form onSubmit={submitHandler}>
+//     <div className="aaa">
+
+// <div className="flexy">
+//   <div className="avanar">
+//     <div className="boxForImg img2">
+//       <img className="img img2" src={`http://localhost:3001${user.photo}`} alt=""/>
+//     </div>
+//   <input onChange={avatarHandler}  type="file" className="form-control upload" name="file"/>
+//   </div>
+//   <div className="info">
+//     <div>
+//      <input onChange={changeHandler} className = "form-control input" type="text" placeholder="Имя" name="userName" value={userEdit.userName}/>
+//     </div>
+//     <div>
+//     <label >Пол:</label>
+//     <input onChange={changeHandler} type="radio" id="contactChoice1" name="gender" value='мужской' />
+//     <label htmlFor="contactChoice1">Мужской</label>
+
+//     <input onChange={changeHandler} type="radio" id="contactChoice2" name="gender" value="женский"/>
+//     <label htmlFor="contactChoice2">Женский</label>
+//     </div>
+//     <div>
+
+//      <input onChange={changeHandler} className = "form-control input line" type="text" placeholder="Город" name="city" value={userEdit.city}/>
+//      <input onChange={changeHandler} className = "form-control input line" type="number" placeholder="Возраст" name="dateborn" value={userEdit.dateborn}/>
+
+//     </div>
+  
+//     <div className="div3">
+//       <textarea onChange={changeHandler} className = "form-control input area" type="text" placeholder="Обо мне" name="info" value={userEdit.info}/>
+//     </div>
+//      <button className="btn btn-primary button"  type="submit">Сохранить</button>
+//   </div>
+// </div>
+//     </div>
+//       </form>
+//       :
+
+>>>>>>> 32bd366aee5a3e0b71c72ea8f2feaa8d2a89e4b5
     {isLoading ? <div className="aaa aaa2">
       
     </div>:
@@ -170,7 +214,11 @@ function EditProfile() {
           </div>
         </form>
         :
+<<<<<<< HEAD
 >>>>>>> 07e184149880096b9ecea755774791c2790aa5fd
+=======
+
+>>>>>>> 32bd366aee5a3e0b71c72ea8f2feaa8d2a89e4b5
         (<div className="aaa bbb">
 
           <div className="flexy">
