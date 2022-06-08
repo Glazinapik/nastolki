@@ -14,7 +14,6 @@ ul, li {
 }
 
 .container{
-  width: 90vw;
   margin: 0 auto;
 }
 
@@ -95,6 +94,7 @@ img.logo {
   height: 85vh;
   width: 85vh;
   margin-right: auto;
+  margin-left: 50px;
 }
 .photo2{
   height: 74vh;
@@ -153,13 +153,53 @@ padding-right: 10px;
   cursor: pointer;
   
 }
+
+.carda3:hover{
+  background-image: linear-gradient(to bottom, rgb(250, 228, 83), rgb(209, 136, 47));
+  box-shadow: 0px 0px 10px rgb(246, 220, 127);
+}
 .boxForImg{
   position: relative;
   overflow: hidden;
   width: 160px;
   height: 160px;
+  border-radius: 10px;
+}
+.div5{
+  position: relative;
+  overflow: hidden;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  margin: 3px;
+ 
+}
+.img5{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+.div6{
+  display: flex;
 }
 
+.div7{
+  text-indent: 10px;
+  padding-top: 5px;
+}
+.box{
+  position: relative;
+  overflow: hidden;
+  width: 20vw;
+  height: 20vw;
+  margin: 20px;
+  margin-top: 0;
+  border-radius: 10px;
+}
 .img{
   position: absolute;
   top: 50%;
@@ -172,9 +212,10 @@ padding-right: 10px;
   border-radius: 10px;
 }
 p{
+  text-align: justify;
   margin: 0;
   font-size: 1em;
-  line-height: 1.2em;
+  line-height: 1.5em;
 }
 .span{
   font-size: 0.7em;
@@ -260,8 +301,12 @@ h1{
   font-size: 20px;
 }
 .img2{
-  margin: 15px;
+  position: absolute;
   border-radius: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
   width: 20vw;
   height: 20vw;
   margin-top: 20px;
@@ -386,6 +431,19 @@ label{
   transition: 0.2s;
 }
 
+.theme2{
+  cursor: pointer;
+  
+}
+
+.theme2:hover{
+
+  text-shadow: white 1px 0 10px;
+  
+  transition: 0.2s;
+}
+
+
 .myMeetings{
   display: flex;
   text-align: center;
@@ -487,3 +545,16 @@ label{
 
 }
 
+.point{
+  font-size: 25px;
+  font-family: 'Amatic SC', cursive;
+  line-height: 1.5em;
+  text-align: center;
+}
+.aaa2{
+  background-position: center;
+}
+.batt2{
+  margin-top: 40px;
+  margin-left: 70px;
+}

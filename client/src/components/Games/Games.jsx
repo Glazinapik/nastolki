@@ -20,15 +20,20 @@ function Games() {
   const [newThemes, setNewThemes] = useState([])
   const [newGames, setNewGames] = useState([])
   const [inputValue, setInputValue] = useState('')
+
   useEffect(() => {
     dispatch(getGamesFromServer());
+  },[])
+  
+  const games = useSelector(state => state.games);
+
+  useEffect(() => {
     const t = games.map(themes => themes.theme)
     const g = games.map(themes => themes.Games).flat()
     setNewThemes(t)
     setNewGames(g)
-  },[])
+  },[games])
 
-  const games = useSelector(state => state.games);
 
 
   const chooseTheme =(them) => {
