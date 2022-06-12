@@ -22,6 +22,16 @@
                 
 ***
 
+<p><b>Разработчики приложения :</b></p>
+Владимир Асоргин - тимлид, автор идеи - https://github.com/Glazinapik
+<br>
+Александр Щепилов - бекэнд - https://github.com/gornostay4eg
+<br>
+Фаиг - фронтенд - https://github.com/Faig23
+<br>
+Анна Русакова - фронтенд, Redux - https://github.com/aRusakova
+<br>
+<br>
 <div align="center"><img src="https://github.com/aRusakova/nastolki/blob/main/client/public/img/Снимок%20экрана%202022-06-13%20в%2000.43.36.png" alt=""></div>
 <br>
 <div align="center"><b>При входе/регистрации Вы попадаете на главную страницу, где можно увидеть все предстоящие встречи, а также произвести поиск по адресу и по названию игры :</b></div>
@@ -36,6 +46,9 @@
 <br>
 <img src="https://github.com/aRusakova/nastolki/blob/main/client/public/img/Снимок%20экрана%202022-06-13%20в%2000.49.17.png" alt="">
  <br>
+ <div align="center"><b>Можно подать заявку для участия в встрече, а также отклонять или принимать заявки на участие в Ваших встречах :</b></div>
+<br>
+<img src="https://github.com/aRusakova/nastolki/blob/main/client/public/img/Снимок%20экрана%202022-06-13%20в%2001.25.11.png" alt="">
 <div align="center"><b>Если Вы не знаете во что поиграть, то во вкладке "Игры" можно найти для себя новые интересные игры и ознакомиться с их описанием :</b></div>
 <br>
 <img src="https://github.com/aRusakova/nastolki/blob/main/client/public/img/Снимок%20экрана%202022-06-13%20в%2000.50.03.png" alt="">
