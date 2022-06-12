@@ -4,7 +4,6 @@ const createMeeting = async (req, res) => {
   const {
     title, place, date, amount,
   } = req.body;
-
   if (place && date && amount) {
     try {
       const newMeeting = await Meeting.create({
@@ -14,14 +13,11 @@ const createMeeting = async (req, res) => {
         amount,
         owner_id: req.session.user.id,
       });
-
-      return res.json({ newMeeting }); // что нужно вернуть после создания meeting ?
+      return res.json({ newMeeting });
     } catch (error) {
-      console.error(error);
       return res.sendStatus(500);
     }
   }
-
   return res.sendStatus(400);
 };
 
@@ -31,14 +27,13 @@ const editMeeting = async (req, res) => {
   if (updatedFields.length) {
     updatedFields = Object.fromEntries(updatedFields);
     try {
-      // eslint-disable-next-line max-len
       const [, updatedMeeting] = await Meeting.update(updatedFields, {
         where: { id },
         returning: true,
         plain: true,
         raw: true,
       });
-      return res.json(updatedMeeting);// что нужно вернуть после редактирования meeting ?
+      return res.json(updatedMeeting);
     } catch (error) {
       return res.sendStatus(500);
     }
@@ -53,12 +48,7 @@ const getMeeting = async (req, res) => {
       where: { id },
       include: { model: User, as: 'owner' },
     });
-
-
-    // console.log(currentMeeting)
-
-
-    res.json(currentMeeting); // возвращает 1 meeting
+    res.json(currentMeeting); 
   } catch (error) {
     res.sendStatus(500);
   }
@@ -66,10 +56,9 @@ const getMeeting = async (req, res) => {
 
 const getAllMeetings = async (req, res) => {
   try {
-
     const allMeetings = await Meeting.findAll({ include: {model:User, as:'owner'}});
-
-    return res.json(allMeetings); // возвращает все meeting
+    const allActualMeetings = allMeetings.filter((meeting) => new Date(meeting.date) > new Date());
+    return res.json(allActualMeetings); 
   } catch (error) {
     return res.sendStatus(500);
   }
@@ -87,28 +76,16 @@ const deleteMeeting = async (req, res) => {
 
 const getMeetingsOfUser = async (req, res) => {
   const { id } = req.params;
-
-  // console.log(id)
-
   try {
     const allMeetings = await User.findOne({
-      where: {
-        id,
-        // '$Users->Players.flag$': true
-      },
+      where: {id},
       include: {
         model: Meeting,
         through: { attributes: ['flag'] },
       },
     });
-
-    // console.dir(JSON.parse(JSON.stringify(allPlayers)), {depth: null})
-
     return res.json(allMeetings.Meetings);
-
   } catch (error) {
-    // console.log(error)
-
     return res.sendStatus(500);
   }
 };

@@ -7,7 +7,6 @@ export const setAnotherUser = (user) => ({
   });
 
   export const getAnotherUserFromServer = (id) => async (dispatch) => {
-    console.log('aaaaaaaaaa')
     const response = await fetch(endPoints.getUser(id), {
       credentials: 'include',
     });

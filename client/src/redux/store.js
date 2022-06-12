@@ -10,5 +10,4 @@ import initState from "./initState";
     composeWithDevTools(applyMiddleware(thunk)),
   );
   
-  
   export default store;

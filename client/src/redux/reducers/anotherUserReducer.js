@@ -5,7 +5,6 @@ const anotherUserReducer = (state = initState().anotheruser, action) => {
     switch (action.type) {
       case SET_ANOTHER_USER:
         return action.payload;
-  
       default:
         return state;
     }

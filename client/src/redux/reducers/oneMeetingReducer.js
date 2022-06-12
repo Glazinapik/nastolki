@@ -6,7 +6,6 @@ const oneMeetingReducer = (state = initState().meeting, action) => {
     switch (action.type) {
       case SET_ONE_MEETING:
         return action.payload;
-
       default:
         return state;
     }

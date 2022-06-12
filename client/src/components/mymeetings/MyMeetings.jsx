@@ -6,15 +6,14 @@ import { getUserMeetings } from "../../redux/actions/userMeetingsAction";
 
 function MyMeetings() {
 
-  const {id} = useParams();
-    
+  const { id } = useParams();
+
   const dispatch = useDispatch();
 
-
-    useEffect(() => {
-      dispatch(getMeetingsFromServer())
-      dispatch(getUserMeetings(id))
-    }, [])
+  useEffect(() => {
+    dispatch(getMeetingsFromServer())
+    dispatch(getUserMeetings(id))
+  }, [])
 
   const navigate = useNavigate();
 
@@ -25,133 +24,88 @@ function MyMeetings() {
   const meetings = useSelector(state => state.meetings);
   const user = useSelector(state => state.user);
   const usermeetings = useSelector(state => state.usermeetings);
-  
+
   const myMeetings = meetings.filter(meeting => meeting.owner_id == user.id)
-  console.log(usermeetings);
- 
+
   function formatDate(date) {
-    const day = date.slice(8,10);
-    const month = date.slice(5,7);
-    const year = date.slice(0,4);
-    const time = date.slice(11);
+    const day = date?.slice(8, 10);
+    const month = date?.slice(5, 7);
+    const year = date?.slice(0, 4);
+    const time = date?.slice(11);
     return `${day}/${month}/${year} ${time}`;
   }
 
   return (
     <>
-    <div className="myMeetings">
-      <div className="half"><h1>Ваши встречи:</h1>
-        {myMeetings.length ?
-          myMeetings.map(meeting =>
-            <div className="carda my" onClick={() => linkHandler(`/meeting/${meeting.id}`)}>
-              <div className="txt">
-                <p className="p">
-                  <span className="span">Название игры:</span>  {meeting.title}
-                </p>
-                <p>
-                  <span className="span">Место проведения:</span> {meeting.place}
-                </p>
-                <p>
-                  <span className="span">Дата:</span> {formatDate(meeting.date)}
-                </p>
-              </div>
-            </div>)
-          : <div>Пока нет встреч 😟</div>}
-    </div>
-    <div className="half"><h1>Встречи, на которые вы хотите пойти:</h1>
-    {usermeetings.length ? 
-      usermeetings.map(meeting => 
-      (meeting.Players.flag === true) ? 
-// <<<<<<< client_Anna
-//       (<div style={{backgroundColor: 'green'}} className="carda" onClick={() => linkHandler(`/meeting/${meeting.id}`)}>
-//        <div className="txt">
-//                 <p>
-//                   <span className="span">Название игры:</span>  {meeting.title}
-//                 </p>
-//                 <p>
-//                   <span className="span">Место проведения:</span> {meeting.place}
-//                 </p>
-//                 <p>
-//                   <span className="span">Дата:</span> {formatDate(meeting.date)}
-//                 </p>
-//                 <p>Заявка на участие одобрена</p>
-//               </div> 
-//               </div>) : 
-//       (meeting.Players.flag === false) ? 
-//       (<div style={{backgroundColor: 'grey'}} className="carda" onClick={() => linkHandler(`/meeting/${meeting.id}`)}>
-//         <div className="txt">
-//                 <p>
-//                   <span className="span">Название игры:</span>  {meeting.title}
-//                 </p>
-//                 <p>
-//                   <span className="span">Место проведения:</span> {meeting.place}
-//                 </p>
-//                 <p>
-//                   <span className="span">Дата:</span> {formatDate(meeting.date)}
-//                 </p>
-//                 <p>Заявка на участие ожидает подтверждения</p>
-//               </div>
-//                </div>) : 
-//       (<div style={{backgroundColor: 'red'}} className="carda" onClick={() => linkHandler(`/meeting/${meeting.id}`)}>
-//         <div className="txt">
-//                 <p>
-//                   <span className="span">Название игры:</span>  {meeting.title}
-//                 </p>
-//                 <p>
-//                   <span className="span">Место проведения:</span> {meeting.place}
-//                 </p>
-//                 <p>
-//                   <span className="span">Дата:</span> {formatDate(meeting.date)}
-//                 </p>
-//                 <p>Заявка на участие отклонена</p>
-// =======
-      (<div style={{backgroundColor: 'green'}} className="carda my" onClick={() => linkHandler(`/meeting/${meeting.id}`)}>
-       <div className="txt">
-                <p className="p">
-                  <span className="span">Название игры:</span>  {meeting.title}
-                </p>
-                <p className="p"> 
-                  <span className="span">Место проведения:</span> {meeting.place}
-                </p>
-                <p className="p">
-                  <span className="span">Дата:</span> {formatDate(meeting.date)}
-                </p>
-                <p className="pg">Заявка на участие одобрена</p>
-              </div> 
-              </div>) : 
-      (meeting.Players.flag === false) ? 
-      (<div  className="carda my" onClick={() => linkHandler(`/meeting/${meeting.id}`)}>
-        <div className="txt">
-                <p className="p">
-                  <span className="span">Название игры:</span>  {meeting.title}
-                </p>
-                <p className="p">
-                  <span className="span">Место проведения:</span> {meeting.place}
-                </p>
-                <p className="p">
-                  <span className="span">Дата:</span> {formatDate(meeting.date)}
-                </p>
-                <p className="ps">Заявка на участие ожидает подтверждения</p>
-              </div>
-               </div>) : 
-      (<div  className="carda my" onClick={() => linkHandler(`/meeting/${meeting.id}`)}>
-        <div className="txt">
-                <p className="p">
-                  <span className="span">Название игры:</span>  {meeting.title}
-                </p>
-                <p className="p">
-                  <span className="span">Место проведения:</span> {meeting.place}
-                </p>
-                <p className="p">
-                  <span className="span">Дата:</span> {formatDate(meeting.date)}
-                </p>
-                <p className="pr">Заявка на участие отклонена</p>
-
-              </div>  
-               </div>)) : 
-      <div>Пока нет встреч 😟</div>}
-    </div>
-    </div>
+      <div className="myMeetings">
+        <div className="half"><h1>Ваши встречи:</h1>
+          {myMeetings.length ?
+            myMeetings.map(meeting =>
+              <div className="carda my" onClick={() => linkHandler(`/meeting/${meeting.id}`)}>
+                <div className="txt">
+                  <p className="p">
+                    <span className="span">Название игры:</span>  {meeting.title}
+                  </p>
+                  <p>
+                    <span className="span">Место проведения:</span> {meeting.place}
+                  </p>
+                  <p>
+                    <span className="span">Дата:</span> {formatDate(meeting.date)}
+                  </p>
+                </div>
+              </div>)
+            : <div>Пока нет встреч 😟</div>}
+        </div>
+        <div className="half"><h1>Встречи, на которые вы хотите пойти:</h1>
+          {usermeetings.length ?
+            usermeetings.map(meeting =>
+              (meeting.Players.flag === true) ?
+                (<div style={{ backgroundColor: 'green' }} className="carda my" onClick={() => linkHandler(`/meeting/${meeting.id}`)}>
+                  <div className="txt">
+                    <p className="p">
+                      <span className="span">Название игры:</span>  {meeting.title}
+                    </p>
+                    <p className="p">
+                      <span className="span">Место проведения:</span> {meeting.place}
+                    </p>
+                    <p className="p">
+                      <span className="span">Дата:</span> {formatDate(meeting.date)}
+                    </p>
+                    <p className="pg">Заявка на участие одобрена</p>
+                  </div>
+                </div>) :
+                (meeting.Players.flag === false) ?
+                  (<div className="carda my" onClick={() => linkHandler(`/meeting/${meeting.id}`)}>
+                    <div className="txt">
+                      <p className="p">
+                        <span className="span">Название игры:</span>  {meeting.title}
+                      </p>
+                      <p className="p">
+                        <span className="span">Место проведения:</span> {meeting.place}
+                      </p>
+                      <p className="p">
+                        <span className="span">Дата:</span> {formatDate(meeting.date)}
+                      </p>
+                      <p className="ps">Заявка на участие ожидает подтверждения</p>
+                    </div>
+                  </div>) :
+                  (<div className="carda my" onClick={() => linkHandler(`/meeting/${meeting.id}`)}>
+                    <div className="txt">
+                      <p className="p">
+                        <span className="span">Название игры:</span>  {meeting.title}
+                      </p>
+                      <p className="p">
+                        <span className="span">Место проведения:</span> {meeting.place}
+                      </p>
+                      <p className="p">
+                        <span className="span">Дата:</span> {formatDate(meeting.date)}
+                      </p>
+                      <p className="pr">Заявка на участие отклонена</p>
+                    </div>
+                  </div>)) :
+            <div>Пока нет встреч 😟</div>}
+        </div>
+      </div>
     </>
   );
 }
