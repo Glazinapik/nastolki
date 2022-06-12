@@ -15,10 +15,8 @@ const gamesRouter = require('./src/routes/games.router');
 
 const app = express();
 
-// SERVER'S SETTINGS
 app.set('cookieName', COOKIE_NAME);
 
-// APP'S MIDDLEWARES
 app.use(
   cors({
     origin: true,
@@ -38,15 +36,12 @@ app.use(
     cookie: {
       secure: false,
       httpOnly: true,
-      maxAge: 1e3 * 86400, // COOKIE'S LIFETIME — 1 DAY
+      maxAge: 1e3 * 86400, 
     },
   }),
 );
 app.use(express.static(path.resolve(process.env.PWD, 'public')));
 
-// app.use((req,res,next)=>{console.log('------>',req.session);next()})
-
-// APP'S ROUTES
 app.use('/auth', authRouter);
 app.use('/users', usersRouter);
 app.use('/meeting', meetingRouter);

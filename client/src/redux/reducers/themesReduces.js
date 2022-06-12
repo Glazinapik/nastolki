@@ -10,4 +10,4 @@ const themesReducer = (state = initState().themes, action) => {
     }
   };
   
-  export default themesReducer;
+export default themesReducer;

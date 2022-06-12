@@ -1,8 +1,6 @@
 import * as endPoints from '../../config/endPoints';
 import { GET_THEMES } from '../types';
 
-
-
   export const getThemes = (themes) => ({
     type: GET_THEMES,
     payload: themes,

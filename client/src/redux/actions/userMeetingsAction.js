@@ -8,9 +8,7 @@ export const setUserMeetings = (meetings) => ({
   });
 
 
-   //встречи по id юзера
    export const getUserMeetings = (id) => async (dispatch) => {
-     console.log('yes')
     try {
       const response = await fetch(endPoints.getUserMeetings(id), {
         credentials: 'include',
@@ -18,6 +16,6 @@ export const setUserMeetings = (meetings) => ({
       const meetings = await response.json();
       dispatch(setUserMeetings(meetings));
     } catch (error) {
-      console.log('ooops')
+      console.log('error')
     }
   };

@@ -15,7 +15,6 @@ export const setUser = (user) => ({
   });
 
 
-  //получить юзера
   export const getUserFromServer = (id) => async (dispatch) => {
     const response = await fetch(endPoints.getUser(id), {
       credentials: 'include',
@@ -27,7 +26,6 @@ export const setUser = (user) => ({
   };
 
 
-  //регистрация
   export const signUp = (payload, navigate) => async (dispatch) => {
     const response = await fetch(endPoints.signUp(), {
       method: 'POST',
@@ -46,7 +44,7 @@ export const setUser = (user) => ({
     }
   };
 
-  //вход
+
   export const signIn = (payload,navigate) => async (dispatch) => {
     const response = await fetch(endPoints.signIn(), {
       method: 'POST',
@@ -58,7 +56,6 @@ export const setUser = (user) => ({
     });
     if (response.status === 200) {
       const user = await response.json();
-      console.log('signIn======>',user);
       dispatch(setUser(user));
       dispatch(showError(null));
       navigate('/meetings')
@@ -67,7 +64,7 @@ export const setUser = (user) => ({
     }
   };
 
-  //выйти из аккаунта
+  
   export const signOut = () => async (dispatch) => {
     const response = await fetch(endPoints.signOut(), {
       credentials: 'include',
@@ -78,7 +75,7 @@ export const setUser = (user) => ({
   };
 
 
-  //чекаем
+
   export const checkAuth = () => async (dispatch) => {
     try {
       const response = await fetch(endPoints.checkAuth(), {
@@ -93,16 +90,9 @@ export const setUser = (user) => ({
   };
   
 
-  //удалить аккаунт
-
-
-
-  //??? редактирование аккаунта - пока не поняла
   export const editUser = (user, navigate) => async (dispatch) => {
     const file = new FormData();
     for(let key in user) file.append(key, user[key]);
-    console.log(user, '<1111111111111111');
-
     const response = await axios.patch(endPoints.editUser(user.id),file,{
       headers: {
             'Content-Type': 'multipart/form-data',
@@ -110,10 +100,6 @@ export const setUser = (user) => ({
     })
     if(response.statusText == 'OK'){
       const userData = response.data;
-      console.log(userData, 222222222222222);
       dispatch(setUser(userData));
-      //navigate(`/users/${userData.id}`);
-    } else {
-      //navigate('/');
-    }
+    } 
   };

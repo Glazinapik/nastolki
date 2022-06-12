@@ -5,7 +5,6 @@ const allPlayersReducer = (state = initState().allplayers, action) => {
     switch (action.type) {
       case SET_ALL_PLAYERS:
         return action.payload;
-
         default:
           return state;
     }
