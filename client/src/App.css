@@ -1,0 +1,603 @@
+body{
+  padding: 0;
+  margin: 0;
+  font-family: 'Amatic SC', cursive;
+  color: rgb(255, 255, 255);
+  font-size: 30px;
+  background-color: 	rgb(67,137,168);
+}
+
+ul, li {
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+
+.container{
+  margin: 0 auto;
+}
+
+.header{
+  background-color: rgb(42, 81, 112);
+}
+
+.logo{
+  height: 50px;
+  width: 50px;
+}
+
+img.logo {
+  animation: 3s linear 0s normal none infinite running logo;
+  -webkit-animation: 3s linear 0s normal none infinite running logo;
+}
+
+@keyframes logo {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes logo {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.menu{
+  display: flex;
+  margin-left: auto;
+}
+
+.menu li {
+  text-transform: uppercase;
+  margin-right: 5px;
+}
+
+.nav-link {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.nav-link:visited{
+  color: #ffffff;
+}
+
+.nav-link:hover {
+  color: #ffc850;
+  transition: .5s;
+}
+
+.title{
+  margin-left: 10px;
+  font-size: 60px;
+  font-family: 'Permanent Marker', cursive;
+  color: transparent;    
+	-webkit-background-clip: text;
+	background-clip: text;
+	background-image: linear-gradient(to bottom, rgb(251,233,121), rgb(204,147,75));
+  transition: .5s;
+}
+
+.title:hover{
+	color: #ff5050;
+  transition: 1s;
+}
+
+.nav{
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.main{
+ display: flex;
+ justify-content: space-between;
+}
+
+.photo{
+  height: 85vh;
+  width: 85vh;
+  margin-right: auto;
+  margin-left: 50px;
+}
+
+.picture{
+  height: 74vh;
+  width: 83vh;
+}
+
+.text{
+ padding-top: 12vh;
+ min-width: 20vw;
+ max-width: 30vw;
+ margin-left: 3vw;
+}
+
+span{
+line-height: 1.3em;
+letter-spacing: 0.5px;
+padding-right: 10px;
+}
+
+.meetings{
+  display: flex;
+  width: 90vw;
+  margin: 0 auto;
+  justify-content: space-between;
+  padding-top: 30px;
+}
+
+.meet{
+  width: 40vw;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  margin-top: 1vh;
+  overflow-y: scroll;
+  height: 62vh;
+  background-color: rgb(42, 81, 112);
+  padding: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.carda{
+  display: flex;
+  background-image: linear-gradient(to bottom, rgb(251,233,121), rgb(204,147,75));
+  font-size: 30px;
+  margin-bottom: 10px;
+  padding: 10px;
+  text-align: center;
+  border-radius: 20px;
+  cursor: pointer;
+  
+}
+
+.carda:hover{
+  background-image: linear-gradient(to bottom, rgb(250, 228, 83), rgb(209, 136, 47));
+  box-shadow: 0px 0px 10px rgb(246, 220, 127);
+}
+
+.boxForImg{
+  position: relative;
+  overflow: hidden;
+  width: 160px;
+  height: 160px;
+  border-radius: 10px;
+}
+
+.div-player-items{
+  position: relative;
+  overflow: hidden;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  margin: 3px;
+}
+
+.player-photo{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+.div-player{
+  display: flex;
+}
+
+.player-name{
+  text-indent: 10px;
+  padding-top: 5px;
+}
+
+.box{
+  position: relative;
+  overflow: hidden;
+  width: 20vw;
+  height: 20vw;
+  margin: 20px;
+  margin-top: 0;
+  border-radius: 10px;
+}
+
+.img{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  margin: 15px;
+  border-radius: 10px;
+}
+
+p {
+  text-align: justify;
+  margin: 0;
+  font-size: 1em;
+  line-height: 1.5em;
+}
+
+.span{
+  font-size: 0.7em;
+  letter-spacing: -1px;
+  color: #20314b;
+  font-size: 25px;
+}
+
+.txt{
+  text-align: start;
+}
+
+h1{
+  color: transparent;    
+	-webkit-background-clip: text;
+	background-clip: text;
+	background-image: linear-gradient(to bottom, rgb(251,233,121), rgb(204,147,75));
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.form{
+  text-align: center;
+  margin-top: 20vh;
+  margin-left: 20px;
+}
+
+.justify-content-center {
+  width: 90vw;
+  justify-content: space-around!important;
+  margin: 6vh auto;
+}
+
+.form-control{
+  width: 20vw;
+  text-align: center;
+  background-color: #ffffffbe;
+  font-size: 25px;
+}
+
+.button{
+  background-color: rgb(251,233,121);
+  width: 10vw;
+  color: black;
+  border: 0;
+  font-size: 25px;
+}
+
+.button:hover{
+  background-color: rgb(251,94,83);
+  width: 10vw;
+  color: black;
+}
+
+.favoriteCard{
+  background-color: rgb(67,137,168);
+}
+
+.meet::-webkit-scrollbar {
+  width: 10px;
+}
+.meet::-webkit-scrollbar-track {
+  background-color:rgba(16, 96, 102, 0.658);;
+  border-radius: 10px;
+}
+.meet::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgb(206, 121, 23), rgb(210,147,74));
+}
+
+.list-meetings{
+ text-align: center;
+ margin-left: 20px;
+}
+
+.flexy{
+  display: flex;
+  width: 50vw;
+  min-width: 550px;
+  margin-left: 1vw;
+  text-align: center;
+  background-image: linear-gradient(to bottom, rgb(251,233,121), rgb(204,147,75));
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 10px 10px 5px rgb(46,97,118);
+}
+
+.info{
+  text-align: center;
+  margin: auto;
+}
+
+.upload{
+  margin: 50px;
+  margin-top: 0;
+  width: 25vh;
+  font-size: 20px;
+}
+
+.imgUser{
+  position: absolute;
+  border-radius: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  width: 20vw;
+  height: 20vw;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+
+.input{
+  margin: 10px;
+  width: 20vw;
+  height: 50px;
+  font-size: 30px;
+  margin: 10px auto;
+}
+
+.area{
+  height: 100px;
+  width: 20vw;
+  margin: 10px auto;
+}
+
+.profile{
+  background-image: url("https://static.wixstatic.com/media/1b461b_db9a9513312e47f787670521e9df7326~mv2.gif");
+  height: 80vh;
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 45%;
+  margin: 20px;
+  padding-top: 5vh;
+  width: 95vw;
+}
+
+.line{
+  width: 10vw;
+  display: inline;
+}
+
+label{
+  margin-left: 5px;
+  margin-right: 10px;
+  color: rgba(0, 0, 0, 0.658);
+  font-size: 25px;
+}
+
+.search-input{
+  margin: 10px;
+  width: 46%;
+  display: inline;
+}
+
+.search-form{
+  background-color: rgb(42, 81, 112);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.error{
+  color: #ff5050;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.gamesPage{
+  display:flex ;
+}
+
+.games{
+  display: flex; 
+  flex-wrap: wrap;
+  justify-content: space-around;
+  text-align: center;
+  min-width: 84vw
+}
+
+.game-img{
+  width: 18vw;
+  height: 18vw;
+  border-radius: 20px;
+}
+
+.oneGame{
+  margin: 40px;
+  width: 25%;
+  border-radius: 20px;
+  background-color: rgb(42, 81, 112);
+  padding: 10px;
+  cursor: pointer;
+}
+
+.oneGame:hover{
+  box-shadow: 0px 0px 30px rgb(246, 220, 127);
+  transition: 0.2s;
+}
+
+.themes{
+  padding: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+  background-color: rgba(42, 80, 112, 0.59);
+  text-align: center;
+  min-height: 88vh;
+}
+
+.opis{
+  width: 300px;
+  text-align: center;
+  margin: 10px;
+}
+
+.game-input{
+  width: 100%;
+  padding: 15px;
+  background-color: rgba(42, 80, 112, 0.364);
+}
+
+.inp{
+  margin: 0 auto;
+}
+
+.theme{
+  cursor: pointer;
+}
+
+.theme:hover{
+  color: transparent;    
+	-webkit-background-clip: text;
+	background-clip: text;
+	background-image: linear-gradient(to bottom, rgb(251,233,121), rgb(204,147,75));
+  transition: 0.2s;
+}
+
+.player{
+  cursor: pointer;
+}
+
+.player:hover{
+  text-shadow: white 1px 0 10px;
+  transition: 0.2s;
+}
+
+.myMeetings{
+  display: flex;
+  text-align: center;
+  width: 95vw;
+  margin: 0 auto;
+}
+
+.half{
+  width: 45vw;
+  margin: 20px auto;
+  background-color: rgba(51, 99, 139, 0.705);
+  padding: 50px;
+  border-radius: 20px;
+  color: black;
+}
+
+.my{
+  color: black;
+  text-align: center;
+  width: 35vw;
+  margin: 10px auto
+}
+
+.my:hover{
+  width: 36vw;
+  transition: 0.2s;
+  background-image: linear-gradient(to bottom, rgb(250, 228, 83), rgb(209, 136, 47));
+}
+
+.txt{
+  margin-left: 50px;
+}
+
+.pg{
+  color: green;
+  font-weight: 900;
+}
+
+.ps{
+  color: rgb(68, 68, 68);
+  font-weight: 900;
+}
+
+.pr{
+  color: rgb(129, 21, 21);
+  font-weight: 900;
+}
+
+.modal-dialog{
+  margin: 0 30%;
+  margin-top: 120px;
+  border-radius: 30px;
+}
+
+.modal-content{
+  width: 50vw;
+  text-align: center;
+}
+
+.oneGameModal{
+  width: 90%;
+  color: black;
+  margin: 0 auto;
+}
+
+.game-title{
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.carda-game{
+  width: 30vw;
+  padding-top: 40px;
+  box-shadow: 10px 5px 5px rgb(46,97,118);
+  margin-left: -159px;
+  margin-top: 80px;
+  cursor: default;
+}
+
+.span-title{
+  font-size: 30px;
+  color: rgb(0, 0, 0);
+}
+
+.span-item{
+  font-weight: 600;
+  color: rgba(34, 46, 83, 0.808);
+}
+
+.fake{
+  display: inline-block;
+  width: 40vw;
+}
+
+.lastPhoto{
+  width: 100%;
+  margin-left: 160px;
+  margin-top: 40px;
+}
+
+.one-game{
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+.butt{
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+.point{
+  font-size: 25px;
+  font-family: 'Amatic SC', cursive;
+  line-height: 1.5em;
+  text-align: center;
+}
+
+.user-profile{
+  background-position: center;
+}
+
+.butt-add-player{
+  margin-top: 40px;
+  margin-left: 70px;
+}
