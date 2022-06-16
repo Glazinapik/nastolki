@@ -32,7 +32,7 @@
 ***
 
 <div align="center"><b>При входе/регистрации Вы попадаете на страницу с ближайшими встречами:</b></div>
-<br>
+  
 <img style="margin: 0 auto;" src="https://github.com/Glazinapik/nastolki/blob/main/client/public/img/%D0%B2%D1%85%D0%BE%D0%B4_%D1%80%D0%B5%D0%B3%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D1%8F.gif" alt="">
 <br>
 <div align="center"><b>Здесь можно посмотеть встречи на карте или найти подходяшие встречи с помошью поиска по адресу и/или игре:</b></div>
