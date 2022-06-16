@@ -20,17 +20,18 @@
                   Присоединяйся скорее! Ведь места на мероприятия ограничены!
                 </div>
 
+***
 
 Разработчики приложения :
 
-Владимир Асоргин - тимлид, автор идеи - https://github.com/Glazinapik
-Александр Щепилов - бекэнд - https://github.com/gornostay4eg
-Фаиг - фронтенд - https://github.com/Faig23
-Анна Русакова - фронтенд, Redux - https://github.com/aRusakova
++ Владимир Асоргин - тимлид, автор идеи - https://github.com/Glazinapik
++ Александр Щепилов - бекэнд - https://github.com/gornostay4eg
++ Фаиг - фронтенд - https://github.com/Faig23
++ Анна Русакова - фронтенд, Redux - https://github.com/aRusakova
                 
 ***
 
-
+<center>
 <div align="center"><b>При входе/регистрации Вы попадаете на страницу с ближайшими встречами:</b></div>
 <br>
 <img src="https://github.com/Glazinapik/nastolki/blob/main/client/public/img/%D0%B2%D1%85%D0%BE%D0%B4_%D1%80%D0%B5%D0%B3%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D1%8F.gif" alt="">
@@ -58,4 +59,4 @@
 <div align="center"><b>Ну и если вы не знаете во что поиграть, то вкладка "Игры" вам поможет. Здесь вы можете найти игры по темам и/или по поиску, нажать на конкретную игру и почитать описание:</b></div>
 <br>
 <img src="https://github.com/Glazinapik/nastolki/blob/main/client/public/img/%D0%B8%D0%B3%D1%80%D1%8B.gif" alt="">
-
+</center>
